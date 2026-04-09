@@ -110,7 +110,7 @@ function velgKategori(kategori) {
     sessionStorage.setItem("valgtKategori", kategori);
 
     // Antall oppgaver per kapittel
-    const antall = { Kap2: 12, Kap3: 2, Kap4: 2, Kap5: 2, Kap6: 2, Kap7: 3, Kap8: 2, Kap9: 2, };
+    const antall = { Kap2: 12, Kap3: 20, Kap4: 20, Kap5: 13, Kap6: 2, Kap7: 3, Kap8: 2, Kap9: 2, };
     sessionStorage.setItem("totalOppgaver", antall[kategori] || 1);
 
     sessionStorage.removeItem("harStartet");
