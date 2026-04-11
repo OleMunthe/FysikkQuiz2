@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flervalgsoppgaver Fysikk 1</title>
+
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../FlervalgsStyle.css">
+
+<script src="../FlervalgScript.js" defer></script>
+
+<style>
+img {
+       max-height: 300px; /* Maks høyde */
+    max-width: 350px; /* Maks bredde*/    
+}
+</style>
+</head>
+
+
+<body>
+
+<a href="../index.html">← Tilbake til hovedsiden</a>
+
+<div class="status">
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="teller">
+        Riktig: <span id="riktig">0</span> |
+        Feil: <span id="feil">0</span> |
+        Score: <span id="prosent">0</span>%
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="box">
+        <p>En syklist ruller ned en bakke og deretter opp over en bakketopp. Både bunnen og
+toppen betrakter vi som en del av en vertikal sirkel. </p>
+
+        <p><strong>Hvilken av figurene viser best de
+vertikale kreftene som virker på syklisten/sykkelen i bunnen av bakken og på
+bakketoppen?</strong></p>
+
+<form id="quiz" class="bilde-grid">
+
+   <label class="svar bilde-svar">
+        <input type="radio" name="svar" value="feil">
+        <img src="N1.png" alt=" ">
+        <span> </span> 
+    </label>
+
+    <label class="svar bilde-svar">
+        <input type="radio" name="svar" value="riktig">
+        <img src="N2.png" alt=" ">
+        <span> </span>
+    </label>
+
+    <label class="svar bilde-svar">
+        <input type="radio" name="svar" value="feil">
+        <img src="N3.png" alt=" ">
+        <span> </span>
+    </label>
+
+    <label class="svar bilde-svar">
+        <input type="radio" name="svar" value="feil">
+        <img src="N4.png" alt=" ">
+        <span> </span>
+    </label>
+
+</form>
+
+        <div id="resultat"></div>
+        <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
+    </div>
+
+</div>
+
+
+</body>
+</html>

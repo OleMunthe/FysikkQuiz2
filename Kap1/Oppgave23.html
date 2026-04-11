@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flervalgsoppgaver Fysikk 1</title>
+
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../FlervalgsStyle.css">
+
+<script src="../FlervalgScript.js" defer></script>
+
+<style>
+img {
+       max-height: 300px; /* Maks høyde */
+    max-width: 500px; /* Maks bredde*/    
+}
+</style>
+</head>
+
+
+<body>
+
+<a href="../index.html">← Tilbake til hovedsiden</a>
+
+<div class="status">
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="teller">
+        Riktig: <span id="riktig">0</span> |
+        Feil: <span id="feil">0</span> |
+        Score: <span id="prosent">0</span>%
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="box">
+        <p>Ei kule er festet i ei masseløs snor og svinger fram og tilbake mellom to ytterstillinger. Vi ser på
+kula når den er ved to ulike posisjoner. Se bort fra luftmotstand.</p>
+
+<p>Det er gitt to påstander om summen av kreftene på kula:</p>
+
+<ol>
+  <li>Summen av kreftene peker i samme retning som snorkraften når kula er i posisjon 1.</li>
+  <li>Summen av kreftene peker i samme retning som snorkraften når kula er i posisjon 2.</li>
+</ol>
+
+        <p><strong>Hva er riktig?</strong></p>
+
+        <form id="quiz">
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>ingen av påstandene</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>bare påstand 1</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="riktig">
+                <span>bare påstand 2</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>begge påstandene</span>
+            </label>
+        </form>
+
+        <div id="resultat"></div>
+        <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
+    </div>
+
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="pendler.jpeg" alt=" " >
+    </div>
+</div>
+
+
+</body>
+</html>

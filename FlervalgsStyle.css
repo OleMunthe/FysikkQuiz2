@@ -33,17 +33,29 @@ a {
     font-weight: bold;
 }
 
+
 /* Layout */
 .container {
     display: flex;
     gap: 20px;
 }
+
 .box {
     background: white;
     padding: 20px;
     border: 1px solid #ccc;
     flex: 1;
 }
+
+/* Overstyring for 70/30 */
+.container .box:first-child {
+    flex: 6;
+}
+
+.container .box:last-child {
+    flex: 4;
+}
+
 
 /* Spørsmål og svar */
 .box p {
@@ -98,4 +110,57 @@ button {
 img {
        max-height: 300px; /* Maks høyde */
     max-width: 550px; /* Maks bredde*/    
+}
+
+
+/* 2×2 grid */
+.bilde-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Hvert svaralternativ */
+.bilde-svar {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Skjul radio-knappen */
+.bilde-svar input {
+    display: none;
+}
+
+/* Bildet */
+.bilde-svar img {
+    max-height: 150px;
+    max-width: 100%;
+}
+
+/* Tekst under bildet */
+.bilde-svar span {
+    margin-top: 0.4rem;
+    font-weight: bold;
+}
+
+/* Hover-effekt */
+.bilde-svar:hover {
+    border-color: #888;
+}
+
+/* Når valgt */
+.bilde-svar input:checked + img {
+    outline: 3px solid #2a7fff;
+    outline-offset: 4px;
+}
+
+.bilde-svar input:checked ~ span {
+    color: #2a7fff;
 }

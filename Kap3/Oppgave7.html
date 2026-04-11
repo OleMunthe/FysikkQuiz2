@@ -15,13 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+    max-width: 500px; /* Maks bredde*/    
 }
 </style>
 </head>
-
-
-
 
 
 <body>
@@ -47,38 +44,44 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>Per og Kari står i ro på et veldig glatt underlag, tilnærmet uten friksjon.</p>
-        <p>Per har masse 100 kg og Kari har masse 50 kg.</p>
-        <p>Kari dytter Per med en horisontal kraft på 50 N</p>
-        <p><strong>Hvor stor akselerasjon for Per og Kari?</strong></p>
+
+        <p>To astronauter, A og B, har samme masse. A står på jordoverflata, og B er i en romstasjon som går i sirkelbane rundt jorda, 400 km over jordoverflata.</p>
+
+
+
+       <p>Det er gitt to påstander:</p>
+
+<ol>
+  <li>Begge astronautene er i et gravitasjonsfelt.</li>
+  <li>Gravitasjonskraften på A er like stor som gravitasjonskraften på B.</li>
+</ol>
+
+        <p><strong>Hva er riktig?</strong></p>
 
         <form id="quiz">
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>Begge får akselerasjonen 1,0 m/s\(^2\).</span>
+                <span>ingen av påstandene</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>Per får akselerasjonen 0,50 m/s\(^2\) og Kari 1,0 m/s\(^2\).</span>
+                <span>bare påstand 1</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>Per får akselerasjonen 1,0 m/s\(^2\) og Kari 0,50 m/s\(^2\).</span>
+                <span>bare påstand 2</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>Begge får akselerasjonen 0,50 m/s\(^2\).</span>
+                <span>begge påstandene</span>
             </label>
         </form>
+
 
         <div id="resultat"></div>
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="KariDytt.png" alt="En person som slipper en stein" >
-    </div>
-</div>
 
 
 </body>

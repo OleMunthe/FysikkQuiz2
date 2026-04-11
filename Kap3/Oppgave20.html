@@ -15,13 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+    max-width: 250px; /* Maks bredde*/    
 }
 </style>
 </head>
-
-
-
 
 
 <body>
@@ -47,26 +44,28 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En ishocheypuck med masse 170 g får farten 1,0 m/s. Den glir 10 m bortover isen før den stopper.</p>
-        <p>Se bort fra luftmotstand.</p>
-        <p><strong>Hvor stort er friksjonstallet mellom underlaget og pucken?</strong></p>
+        <p>To stjerner går i sirkelbane rundt et felles sentrum.</p>
+        
+        <p>Stjernene har lik masse \(m\). Avstanden mellom dem er \(r\).</p>
+
+        <p><strong>Hvilket uttrykk er riktig for akselerasjonen til stjernene?</strong></p>
 
         <form id="quiz">
             <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>\( \gamma \frac{m}{4r^2} \)</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>\( \gamma \frac{m}{2r^2} \)</span>
+            </label>
+            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>0,0051</span>
+                <span>\( \gamma \frac{m}{r^2} \)</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>0,87</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>0,51</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>0,0087</span>
+                <span>\( \gamma \frac{2m}{r^2} \)</span>
             </label>
         </form>
 
@@ -74,8 +73,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="puck.png" alt="En ishockeypuck" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="2stjerner.jpeg" alt=" " >
     </div>
 </div>
 

@@ -15,13 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+    max-width: 200px; /* Maks bredde*/    
 }
 </style>
 </head>
-
-
-
 
 
 <body>
@@ -47,36 +44,29 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>Vilde har løpt 3000 meter. Grafen viser sammenhengen mellom tid og
-strekning.</p>
-        
-        <p><strong>Hvor stor er den største farten hun hadde i løpet av løpet?</strong></p>
+        <p><strong>Hva sier det andre postulatet i den spesielle relativitetsteorien?</strong></p>
 
         <form id="quiz">
             <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>4,2 m/s</span>
+                <span>Farten til et foton er den samme i alle treghetssystemer</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>3,3 m/s</span>
+                <span>Energien et foton er den samme i alle treghetssystemer</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>4,0 m/s</span>
+                <span>Bølgelengden et fotone er den samme i alle treghetssystemer</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>15 m/s</span>
+                <span>Frekvensen til et foton er den samme i alle treghetssystmer </span>
             </label>
         </form>
 
         <div id="resultat"></div>
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
-    </div>
-
-    <div class="box" style="display: grid; place-items: center;">
-    <img src="3000m.png" alt="Graf som viser 3000 meterløp til Vilde">
     </div>
 
 </div>

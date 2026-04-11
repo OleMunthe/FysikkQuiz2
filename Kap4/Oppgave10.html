@@ -15,11 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+    max-width: 280px; /* Maks bredde*/    
 }
 </style>
 </head>
-
 
 
 <body>
@@ -45,27 +44,26 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En tømmerstokk med masse \(m\) blir trukket med en konstant fart en strekning \(s\) av et tau bortover et horisontalt underlag. 
-            Vinkelen mellom tauet og underlaget er \(\alpha\). Snordraget i tauet er \(F\).</p>
-        
-        <p><strong>Hvor stor er friksjonskraften mellom stokken og underlaget?</strong></p>
+        <p>En ladd partikkel beveger seg med farten \(v_0\) horisontalt inn mellom to ladde plater. Det elektriskefeltet mellom platene har retning vertikalt nedover. Den stiplede linja viser partikkelbanen.</p>
+
+        <p><strong>Hvilket fortegn har ladningen på partikkelen, og hva er riktig om farten \(v\) til partikkelen etter at den har passert feltet?</strong></p>
 
         <form id="quiz">
             <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>Ladningen er positiv og \(v\) > \(v_0\)</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>Ladningen er positiv og \(v\) < \(v_0\)</span>
+            </label>
+            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>\(F \cdot \cos \alpha\)</span>
+                <span>Ladningen er negativ og \(v\) > \(v_0\)</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>0</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(F \)</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(F \cdot \sin \alpha\)</span>
+                <span>Ladningen er negativ og \(v\) < \(v_0\)</span>
             </label>
         </form>
 
@@ -73,8 +71,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="dino.png" alt="En dinosaur" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="feltplater.jpeg" alt=" " >
     </div>
 </div>
 

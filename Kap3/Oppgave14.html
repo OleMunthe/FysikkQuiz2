@@ -15,13 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 450px; /* Maks bredde*/    
+    max-width: 400px; /* Maks bredde*/    
 }
 </style>
 </head>
-
-
-
 
 
 <body>
@@ -47,28 +44,35 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>To bokser blir dyttet slik figuren viser.</p>
-        <p>Friksjonstallet mellom underlaget og boksene er det samme for begge boksene.</p>
-        <p>Boksen til venstre beveger seg med en konstant fart.</p>
-        <p>Bruk \(g\) = 10 m/s\(^2\).</p>
-        <p><strong>Hvor stor er friksjonskraften mellom underlaget og boksen til høyre?</strong></p>
+        <p>Klokke 1 og klokke 2 er festet til en hurtig roterende skive som ligger horisontalt. Klokke 1 er
+festet nær sentrum, og klokke 2 er festet nær kanten av skiva. Klokke 3 ligger i ro på utsiden av
+skiva i samme høyde som de andre klokkene.</p>
+
+<p>Det er gitt to påstander:</p>
+
+<ol>
+  <li>Klokke 1 og klokke 2 går like raskt.</li>
+  <li>Klokke 2 går saktere enn klokke 3.</li>
+</ol>
+
+        <p><strong>Hva er riktig?</strong></p>
 
         <form id="quiz">
             <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>ingen av påstandene</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>bare påstand 1</span>
+            </label>
+            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>15 N</span>
+                <span>bare påstand 2</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>45 N</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>0 N</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>30 N</span>
+                <span>begge påstandene</span>
             </label>
         </form>
 
@@ -76,8 +80,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="KasseDytt2.png" alt="En person som slipper en stein" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="klokker.png" alt=" " >
     </div>
 </div>
 

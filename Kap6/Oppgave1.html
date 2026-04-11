@@ -15,7 +15,7 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+    max-width: 175px; /* Maks bredde*/    
 }
 </style>
 </head>
@@ -44,32 +44,26 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En ballong har volum 1,0 liter når den er på kjøkkenet, hvor det er 25 grader celsius.
-        Vi putter ballongen i kjøleskapet, hvor det er 4 grader celsius.</p>
-        <p>Anta at vi kan bruke den ideelle gassloven:</p>
-        $$
-                PV = nRT
-        $$
-        <p> og anta at lufttrykket er det samme inni og på utsiden av kjøleskapet.</p>
+        <p>Ei rektangulær sløyfe slippes fra ro over et homogent magnetfelt. Magnetfeltet har retning inn i papiret og står normalt på sløyfeplanet. Se bort fra luftmotstand.</p>
 
-        <p><strong>Hvor stort blir volumet av ballongen i kjøleskapet?</strong></p>
+        <p><strong>Hva er riktig om absoluttverdien til akselerasjonen \(a\) til ledersløyfa og retningen på den induserte strømmen som oppstår i ledersløyfa, når sløyfa er på vei inn imagnetfeltet?</strong></p>
 
         <form id="quiz">
             <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>\(a > g\) og strømretning med klokka</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>\(a > g\) og strømretning mor klokka</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>\(a < g\) og strømretning med klokka</span>
+            </label>
+            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>0,93 liter</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>0,16 liter</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>0,84 liter</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>0,19 liter</span>
+                <span>\(a < g\) og strømretning mot klokka</span>
             </label>
         </form>
 
@@ -77,8 +71,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-    <div class="box">
-        <img src="Ballong.png" alt="En person som slipper en stein" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="sløyfefall.jpeg" alt=" " >
     </div>
 </div>
 

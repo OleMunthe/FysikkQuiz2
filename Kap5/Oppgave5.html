@@ -15,11 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 450px; /* Maks bredde*/    
+    max-width: 300px; /* Maks bredde*/    
 }
 </style>
 </head>
-
 
 
 <body>
@@ -45,27 +44,28 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>To biler kolliderer og blir hengende fast i hverandre etter kollisjonen..</p>
-        <p>Se størrelser i figuren til høyre.</p>
+        <p>Et elektron beveger seg mot høyre inn i et område der det er et homogent magnetfelt.</p>
+        
+        <p>Elektronetblir avbøyd i papirplanet slik figuren nedenfor viser. </p>
 
-        <p><strong>Hvor stor fart har felleslegemet etter kollisjonen?</strong></p>
+        <p><strong>Hva er riktig retning for det magnetiske feltet?</strong></p>
 
         <form id="quiz">
             <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>oppover</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>nedover</span>
+            </label>
+            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>27 km/h</span>
+                <span>ut av papirplanet</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>43 km/h</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>20 km/h</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>33 km/h</span>
+                <span>inn i papirplanet</span>
             </label>
         </form>
 
@@ -73,8 +73,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="BilKoll.png" alt="To biler som kolliderer" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="Bbøy.jpeg" alt=" " >
     </div>
 </div>
 

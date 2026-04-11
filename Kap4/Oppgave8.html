@@ -15,11 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+    max-width: 250px; /* Maks bredde*/    
 }
 </style>
 </head>
-
 
 
 <body>
@@ -45,27 +44,28 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En tømmerstokk med masse \(m\) blir trukket med en konstant fart en strekning \(s\) av et tau bortover et horisontalt underlag. 
-            Vinkelen mellom tauet og underlaget er \(\alpha\). Snordraget i tauet er \(F\).</p>
-        
-        <p><strong>Hvor stort arbeid gjør tauet på tømmerstokken?</strong></p>
+        <p>Ei kule med masse \(m\) henger i ro i ei snor i det elektriske feltet fra ei annen kule. Den andre kula
+er festet til ei stang vertikalt nedenfor opphengingspunktet. Begge kulene har ladning \(q\).
+Opphengingspunktet og kulene danner en rettvinklet trekant, hvor katetene har lengde \(d\).</p>
+
+        <p><strong>Hva er riktig om den elektriske kraften \(F_e\) mellom kulene?</strong></p>
 
         <form id="quiz">
             <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>\( F_e = 0 \)</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>\( 0 < F_e < mg \)</span>
+            </label>
+            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>\(F \cdot s \cdot \cos \alpha\)</span>
+                <span>\( F_e = mg \)</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>0</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(F \cdot s \)</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(F \cdot s \cdot \sin \alpha\)</span>
+                <span>\( F_e > mg \)</span>
             </label>
         </form>
 
@@ -73,8 +73,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="dino.png" alt="En dinosaur" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="KuleHeng.jpeg" alt=" " >
     </div>
 </div>
 

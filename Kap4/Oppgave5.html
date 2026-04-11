@@ -15,11 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 320px; /* Maks bredde*/    
+    max-width: 250px; /* Maks bredde*/    
 }
 </style>
 </head>
-
 
 
 <body>
@@ -45,26 +44,28 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En person med masse 100 kg dødser fra 5'metern.</p>
-        <p>Sett \(g\) = 10 m/s\(^2\).</p>
-        <p><strong>Hvor stort arbeid gjør gravitasjonen på personen?</strong></p>
+        <p>Et elektron akselereres fra ro over en avstand \(d\) i et homogent elektrisk felt med feltstyrke \(E\). </p>
+
+        <p> Spenningen over platene er \(U\)</p>
+
+        <p><strong>Hva er riktig uttrykk for farten elektronet har etter at det er akselerert?</strong></p>
 
         <form id="quiz">
             <label class="svar">
-                <input type="radio" name="svar" value="riktig">
-                <span>5,0 kJ</span>
-            </label>
-            <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>5,0 kN</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>0,50 kJ</span>
+                <span>\(\sqrt{\frac{2eUd}{m_{\text{e}}}}\)</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>0,50 kN</span>
+                <span>\(\sqrt{\frac{2eU}{m_{\text{e}}}}\)</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>\(\frac{2eUd}{m_{\text{e}}}\)</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>\(\frac{2eU}{m_{\text{e}}}\)</span>
             </label>
         </form>
 
@@ -72,8 +73,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="5ern5.png" alt="En som dødser fra 5ern" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="eaks.jpeg" alt=" " >
     </div>
 </div>
 

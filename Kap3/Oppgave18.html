@@ -15,13 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 300px; /* Maks bredde*/    
+    max-width: 250px; /* Maks bredde*/    
 }
 </style>
 </head>
-
-
-
 
 
 <body>
@@ -47,26 +44,28 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En muffinsform slippes.</p>
-        <p>Vi kan ikke se bort fra luftmotstand.</p>
-        <p><strong>Hva er riktig om absoluttverdien til luftmotstanden som virker på muffinsformen?</strong></p>
+        <p>To stjerner går i sirkelbane rundt et felles sentrum.</p>
+        
+        <p>Stjernene har lik masse \(m\) og baneradius \(r\).</p>
+
+        <p><strong>Hvor stor er banefarten til stjernene?</strong></p>
 
         <form id="quiz">
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>Luftmotstanden er like stor som gravitasjonskraften hele tiden mens muffinsformen faller.</span>
+                <span>\( v = \sqrt{\frac{2\gamma m}{r}} \)</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>\( v = \sqrt{\frac{\gamma m}{r}}\)</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>\( v = \sqrt{\frac{\gamma m}{2r}}\)</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>Luftmotstanden øker hele tiden mens muffinsformen faller.</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>Luftmotstanden avtar hele tiden mens muffinsformen faller.</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>Luftmotstanden er konstant, men mindre enn gravitasjonskraften, hele tiden mens muffinsformen faller.</span>
+                <span>\( v = \sqrt{\frac{\gamma m}{4r}}\)</span>
             </label>
         </form>
 
@@ -74,8 +73,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="Muff.png" alt="En muffinsform slippes" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="2stjerner.jpeg" alt=" " >
     </div>
 </div>
 

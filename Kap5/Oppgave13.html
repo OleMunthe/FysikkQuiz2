@@ -15,11 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 300px; /* Maks bredde*/    
+    max-width: 450px; /* Maks bredde*/    
 }
 </style>
 </head>
-
 
 
 <body>
@@ -45,32 +44,30 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>Massen til atomkjerner måles i \(\mathrm{u}\), som er definert ved</p>
-        $$
-                1\;\mathrm{u} = 1,660539 \cdot 10^{-27} \; \mathrm{kg}
-        $$
-        <p>I en radioaktiv reaksjon ligger polonium-210 i ro og sender ut en helium-4-kjerne. Polonium-210 henfaller da til en bly-206-kjerne. Massene til partiklene, målt i \(\mathrm{u}\), er det samme som nukleontallet.</p>
+        <p>To lange, rette, isolerte ledere ligger i kryss over hverandre i et plan og fører den sammestrømmen \(I\).</p>
 
-        <p>Farten til heliumkjernen er \(1,6 \cdot 10^{7}\) m/s.</p>
+        <p>Strømretningene i lederne er vist på figuren.</p> 
+        
+        <p>De to stiplede linjene, L1 og L2, er vinkelhalveringslinjene mellom lederne.</p>
 
-        <p><strong>Hvor stor fart får blykjernen?</strong></p>
+        <p><strong>I hvilke av punktene er absluttverdien av det samlede magnetfeltet fra de to lederne størst?</strong></p>
 
         <form id="quiz">
             <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>1 og 4</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>2 og 3</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>2 og 4</span>
+            </label>
+            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>\(3,1 \cdot 10^{5}\) m/s</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(3,0 \cdot 10^{5}\) m/s</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(3,2 \cdot 10^{5}\) m/s</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(3,3 \cdot 10^{5}\) m/s</span>
+                <span>1 og 3</span>
             </label>
         </form>
 
@@ -78,8 +75,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="Helium.png" alt="Alfastråling" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="LederKryss.jpeg" alt=" " >
     </div>
 </div>
 

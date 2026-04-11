@@ -15,7 +15,7 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 400px; /* Maks bredde*/    
+    max-width: 550px; /* Maks bredde*/    
 }
 </style>
 </head>
@@ -44,26 +44,29 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>To bokser kolliderer i et rett, sentralt, elastisk støt.</p>
-           <p>Se størrelser i figuren.</p>
-        <p><strong>Hvor stor er absoluttverdien til farten til hver av klossene etter kollisjonen?</strong></p>
+        <p>Figuren viser to parallelle metallskinner som danner vinkelen \(\alpha\) med horisontalplanet. Vinkelrett
+på metallskinnene ligger en kobberstav PQ i ro. Det går en strøm gjennom kobberstaven. Et
+homogent magnetfelt peker loddrett nedover. Se bort fra friksjon mellom kobberstaven og
+skinnene.</p>
+
+        <p><strong>Hva er retningen til den magnetiske kraften på kobberstaven, og hva er retningen til strømmen gjennom kobberstaven?</strong></p>
 
         <form id="quiz">
             <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>Stor kloss: 3,0 m/s  Liten kloss: 2,0 m/s</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>Stor kloss: 2,0 m/s  Liten kloss: 3,0 m/s</span>
-            </label>
-            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>Stor kloss: 0,33 m/s  Liten kloss: 4,7 m/s</span>
+                <span>Magnetisk kraft mot venstre og strøm fra P til Q</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>Stor kloss: 4,7 m/s  Liten kloss: 0,33 m/s</span>
+                <span>Magnetisk kraft mot venstre og strøm fra Q til P</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>Magnetisk kraft mot høyre og strøm fra P til Q</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>Magnetisk kraft mot høyre og strøm fra Q til P</span>
             </label>
         </form>
 
@@ -71,8 +74,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="Boksekollisjon.png" alt="En person som slipper en stein" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="skråplan.jpeg" alt=" " >
     </div>
 </div>
 

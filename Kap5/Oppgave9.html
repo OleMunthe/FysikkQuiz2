@@ -14,12 +14,11 @@
 
 <style>
 img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 450px; /* Maks bredde*/    
+       max-height: 500px; /* Maks høyde */
+    max-width: 400px; /* Maks bredde*/    
 }
 </style>
 </head>
-
 
 
 <body>
@@ -45,27 +44,32 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>To baller med like stor masse kolliderer i et rett, fullstendig uelastisk støt.</p>
-        <p>Før kollisjonen har ballene like stor fart \(v_0\), i motsatt retning av hverandre.</p>
+        <p>En ladd partikkel sendes inn i et område med et homogent magnetfelt med flukstetthet \(B\). 
+            Magnetfeltet har retning vinkelrett på papirplanet. Den øverste figuren viser halvsirkelbanen partikkelen følger. </p>
 
-        <p><strong>Hva er riktig om absoluttverdien til farten \(v_1\) til den blå ballen etter sammenstøtet?</strong></p>
+        <p> En identisk partikkel med like stor fart sendes inn i det samme området. Flukstettheten er fortsatt \(B\) idet partikkelen kommer inn, men endres mens partikkelen beveger seg i området. 
+            Magnetfeltet skifter ikke retning under bevegelsen. Den nederste figuren viser banen partikkelen følger. </p>
+            
+            <p>Se bort fra alle andre krefter enn den magnetiske kraften.</p>
+
+        <p><strong>Hva er riktig?</strong></p>
 
         <form id="quiz">
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>\(v_1 > v_0 \)</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(v_1 = v_0 \)</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(v_1 < v_0 \), men større enn null</span>
+                <span>Både flukstettheten og farten minker.</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>\(v_1 = 0 \)</span>
+                <span>Flukstettheten minker, men farten endres ikke.</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>Både flukstettheten og farten øker.</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>Flukstettheten øker, men farten endres ikke.</span>
             </label>
         </form>
 
@@ -73,8 +77,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="ballkoll.png" alt="To baller som kolliderer" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="2B.png" alt=" " >
     </div>
 </div>
 

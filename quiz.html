@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Starter quiz…</title>
+</head>
+<body>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const kategori = params.get("kategori");
+
+/*Nullstill statistikk for denne kategorien */
+localStorage.removeItem(`quizData_${kategori}`);
+
+/*  Rydd bort gammel øktstatus */
+sessionStorage.removeItem("harStartet");
+
+
+const antallPerKapittel = {
+    Kap1: 35,
+    Kap2: 10,
+    Kap3: 20,
+    Kap4: 10,
+    Kap5: 13,
+    Kap6: 13,
+    Kap7: 15
+};
+
+const TOTAL_SPORSMAL = 10;
+const total = antallPerKapittel[kategori];
+
+// Lag [1..total]
+let oppgaver = Array.from({ length: total }, (_, i) => i + 1);
+
+// Shuffle
+for (let i = oppgaver.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [oppgaver[i], oppgaver[j]] = [oppgaver[j], oppgaver[i]];
+}
+
+// Velg 10
+oppgaver = oppgaver.slice(0, TOTAL_SPORSMAL);
+
+/* ✅ NULLSTILL ALT */
+sessionStorage.clear();
+
+sessionStorage.setItem("kategori", kategori);
+sessionStorage.setItem("oppgaver", JSON.stringify(oppgaver));
+sessionStorage.setItem("indeks", 0);
+sessionStorage.setItem("riktig", 0);
+sessionStorage.setItem("feil", 0);
+sessionStorage.setItem("total", TOTAL_SPORSMAL);
+
+// Start
+window.location.href =
+    `${kategori}/Oppgave${oppgaver[0]}.html`;
+</script>
+
+</body>
+</html>

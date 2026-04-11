@@ -14,12 +14,11 @@
 
 <style>
 img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+       max-height: 500px; /* Maks høyde */
+    max-width: 430px; /* Maks bredde*/    
 }
 </style>
 </head>
-
 
 
 <body>
@@ -45,27 +44,28 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En tømmerstokk med masse \(m\) blir trukket med en konstant fart en strekning \(s\) av et tau bortover et horisontalt underlag. 
-            Vinkelen mellom tauet og underlaget er \(\alpha\). Snordraget i tauet er \(F\).</p>
+        <p>En heliumkjerne sendes mot en større atomkjerne.</p>
         
-        <p><strong>Hvor stort arbeid gjør summen av kreftene på tømmerstokken?</strong></p>
+        <p>Programmet finner tiden det tar for heliumkjernen å bevege seg fra en avstand \(r\) til en avstand \(d\) fra den større kjernen.</p>
+
+        <p><strong>Hva skal stå på linje 13?</strong></p>
 
         <form id="quiz">
             <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(F \cdot s \cdot \cos \alpha\)</span>
-            </label>
-            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>0</span>
+                <span>a = k*Q*q/(r**2*m)</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>\(F \cdot s \)</span>
+                <span>a = k*Q*q/(r*2*m)</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>\(F \cdot s \cdot \sin \alpha\)</span>
+                <span>a = -k*Q*q/(r**2*m)</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>a = -k*Q*q/(r*2*m)</span>
             </label>
         </form>
 
@@ -73,8 +73,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="dino.png" alt="En dinosaur" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="kollisjonsprogram.png" alt=" " >
     </div>
 </div>
 

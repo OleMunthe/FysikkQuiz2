@@ -14,12 +14,11 @@
 
 <style>
 img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 450px; /* Maks bredde*/    
+       max-height: 400px; /* Maks høyde */
+    max-width: 100px; /* Maks bredde*/    
 }
 </style>
 </head>
-
 
 
 <body>
@@ -45,27 +44,28 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>To biler kolliderer og blir hengende fast i hverandre etter kollisjonen..</p>
-        <p>Kollisjonen varer i 0,20 sekunder. Se andre størrelser i figuren.</p>
+        <p>En rett, strømførende leder er i et homogent magnetfelt med flukstetthet 0,50 T. </p>
 
-        <p><strong>Hvor stor akselerasjon har den store bilen i kollisjonen?</strong></p>
+        <p> Magnetfeltet har retning vinkelrett på papirplanet. Den magnetiske kraften som virker på 0,25 m av lederen, er 2,0 N og har retning til venstre. Strømretningen er nedover.</p>
+
+        <p><strong>Hvilken retning har magnetfeltet, og hvor stor er strømmen gjennom lederen?</strong></p>
 
         <form id="quiz">
             <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>Magnetfeltet er inn i papirplanet, og strømstyrken er 16 A.</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>Magnetfeltet er inn i papirplanet, og strømstyrken er 8,0 A.</span>
+            </label>
+            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>18 m/s\(^2\)</span>
+                <span>Magnetfeltet er ut av papirplanet, og strømstyrken er 16 A.</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>93 m/s\(^2\)</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>65 m/s\(^2\)</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>235 m/s\(^2\)</span>
+                <span>Magnetfeltet er ut av papirplanet, og strømstyrken er 8,0 A.</span>
             </label>
         </form>
 
@@ -73,8 +73,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="BilKoll.png" alt="To biler som kolliderer" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="HHRLeder.jpeg" alt=" " >
     </div>
 </div>
 

@@ -15,11 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 320px; /* Maks bredde*/    
+    max-width: 250px; /* Maks bredde*/    
 }
 </style>
 </head>
-
 
 
 <body>
@@ -45,26 +44,28 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En person med masse 100 kg dødser fra 5'metern. Personen kaster seg ut med en horisontal (vannrett) startfart 5,0 m/s.</p>
-        <p>Se bort fra luftmotstand.</p>
-        <p><strong>Med hvor stor fart treffer personen vannet?</strong></p>
+        <p>Ei kule med masse \(m\) henger i ro i ei snor i det elektriske feltet fra ei annen kule. Den andre kula
+er festet til ei stang vertikalt nedenfor opphengingspunktet. Begge kulene har ladning \(q\).
+Opphengingspunktet og kulene danner en rettvinklet trekant, hvor katetene har lengde \(d\).</p>
+
+        <p><strong>Hva er riktig uttrykk for ladningen \(q\)?</strong></p>
 
         <form id="quiz">
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>9,9 m/s</span>
+                <span>\( q = d \cdot \sqrt{\frac{mg}{2k_e}} \)</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>11 m/s</span>
+                <span>\( q = d \cdot \sqrt{\frac{mg}{k_e}} \)</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>15 m/s</span>
+                <span>\( q = d \cdot \sqrt{\frac{2mg}{k_e}} \)</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>4,9 m/s</span>
+                <span>\( q = 2d \cdot \sqrt{\frac{mg}{k_e}} \)</span>
             </label>
         </form>
 
@@ -72,8 +73,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="5ern5.png" alt="En som dødser fra 5ern" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="KuleHeng.jpeg" alt=" " >
     </div>
 </div>
 

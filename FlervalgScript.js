@@ -5,22 +5,37 @@ const path = window.location.pathname;
 const match = path.match(/Oppgave(\d+)\.html/i);
 const OPPGAVE_ID = match ? parseInt(match[1], 10) : 1;
 
-const kategori = sessionStorage.getItem("valgtKategori") || "standard";
-const STORAGE_KEY = `quizData_${kategori}`;
-const TOTAL_OPPGAVER = parseInt(sessionStorage.getItem("totalOppgaver")) || 1;
+/* ✅ ENDRING:
+   Bruk kategori satt av quiz.html
+   (fallback beholdt)
+*/
+const kategori =
+    sessionStorage.getItem("kategori") ||
+    sessionStorage.getItem("valgtKategori") ||
+    "standard";
 
-if (OPPGAVE_ID === 1 && !sessionStorage.getItem("harStartet")) {
+const STORAGE_KEY = `quizData_${kategori}`;
+
+/* ✅ ENDRING:
+   ALLTID 10 spørsmål per økt
+*/
+const TOTAL_OPPGAVER =
+    parseInt(sessionStorage.getItem("total")) || 10;
+
+/* ✅ ENDRING:
+   Nullstill statistikk når ny quiz starter
+*/
+if (OPPGAVE_ID === 1 && sessionStorage.getItem("indeks") === "0") {
     localStorage.removeItem(STORAGE_KEY);
-    sessionStorage.setItem("harStartet", "true");
 }
 
 // =======================
 // DATA
 // =======================
 function hentData() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { 
-        riktige: [], 
-        feil: {}   // <-- objekt med teller
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+        riktige: [],
+        feil: {}
     };
 }
 
@@ -42,7 +57,6 @@ function oppdaterStatus() {
     const data = hentData();
 
     const antallRiktig = data.riktige.length;
-
     const antallFeil = Object.values(data.feil)
         .reduce((sum, val) => sum + val, 0);
 
@@ -51,14 +65,18 @@ function oppdaterStatus() {
     document.getElementById("riktig").textContent = antallRiktig;
     document.getElementById("feil").textContent = antallFeil;
 
-    const scoreProsent = besvart > 0 
-        ? Math.round((antallRiktig / besvart) * 100) 
+    const scoreProsent = besvart > 0
+        ? Math.round((antallRiktig / besvart) * 100)
         : 0;
 
     document.getElementById("prosent").textContent = scoreProsent;
 
-    const progressProsent = Math.round((antallRiktig / TOTAL_OPPGAVER) * 100);
-    document.getElementById("progress").style.width = progressProsent + "%";
+    // ✅ PROGRESS = riktige / 10
+    const progressProsent =
+        Math.round((antallRiktig / TOTAL_OPPGAVER) * 100);
+
+    document.getElementById("progress").style.width =
+        progressProsent + "%";
 }
 
 // =======================
@@ -67,75 +85,78 @@ function oppdaterStatus() {
 document.querySelectorAll('.svar').forEach(label => {
     label.addEventListener('click', () => {
 
-        // Hvis allerede valgt, gjør ingenting
-        if (label.classList.contains('riktig') || label.classList.contains('feil')) return;
+        if (
+            label.classList.contains('riktig') ||
+            label.classList.contains('feil')
+        ) return;
 
         const input = label.querySelector('input');
         const verdi = input.value;
 
-        // Marker visuelt
         if (verdi === 'riktig') {
             label.classList.add('riktig');
         } else {
             label.classList.add('feil');
         }
 
-        // Lås alle alternativer
         document.querySelectorAll('.svar').forEach(l => {
             l.querySelector('input').disabled = true;
             l.style.pointerEvents = 'none';
         });
 
-        // Oppdater data
         let data = hentData();
 
         if (verdi === 'riktig') {
-
-            // legg til i riktige hvis ikke finnes
             if (!data.riktige.includes(OPPGAVE_ID)) {
                 data.riktige.push(OPPGAVE_ID);
             }
-
-
         } else {
-
-            // tell feilforsøk
             if (!data.feil[OPPGAVE_ID]) {
                 data.feil[OPPGAVE_ID] = 0;
             }
             data.feil[OPPGAVE_ID]++;
-
         }
 
         lagreData(data);
         oppdaterStatus();
 
-        // Vis neste-knapp
-        document.getElementById('neste').style.display = 'inline-block';
+        document.getElementById('neste').style.display =
+            'inline-block';
     });
 });
 
 // =======================
 // NESTE SPØRSMÅL
 // =======================
-function nesteSporsmal() {
-    const data = hentData();
-    const tilgjengelige = [];
 
-    for (let i = 1; i <= TOTAL_OPPGAVER; i++) {
-        if (!data.riktige.includes(i)) {
-            tilgjengelige.push(i);
-        }
+function nesteSporsmal() {
+    let oppgaver = JSON.parse(sessionStorage.getItem("oppgaver"));
+    let kategori = sessionStorage.getItem("kategori");
+    const data = hentData();
+
+    // Fjern nåværende oppgave fra køen
+    oppgaver = oppgaver.filter(id => id !== OPPGAVE_ID);
+
+    // Hvis feil → legg bakerst
+    if (!data.riktige.includes(OPPGAVE_ID)) {
+        oppgaver.push(OPPGAVE_ID);
     }
 
-    if (tilgjengelige.length === 0) {
+    // Lagre oppdatert kø
+    sessionStorage.setItem("oppgaver", JSON.stringify(oppgaver));
+
+    // Ferdig når 10 unike riktige
+    if (data.riktige.length >= TOTAL_OPPGAVER) {
         alert("Hipp hurra! Du har løst alle oppgavene 🤓");
+        window.location.href = "../index.html";
         return;
     }
 
-    const tilfeldig = tilgjengelige[Math.floor(Math.random() * tilgjengelige.length)];
-    window.location.href = `Oppgave${tilfeldig}.html`;
+    // Gå til neste oppgave (først i køen)
+    window.location.href =
+        `../${kategori}/Oppgave${oppgaver[0]}.html`;
 }
+
 
 // =======================
 // INIT

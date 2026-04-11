@@ -15,13 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+    max-width: 500px; /* Maks bredde*/    
 }
 </style>
 </head>
-
-
-
 
 
 <body>
@@ -47,26 +44,26 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En bil starter fra ro. I løpet av 10 sekunder har den kjørt 250 meter og fått farten 75 m/s.</p>
-        
-        <p><strong>Hvor stor er gjennomsnittsakselerasjonen til bilen?</strong></p>
+        <p>Figuren viser en person i fem ulike referansesystemer i et homogent gravitasjonsfelt.</p>
+
+        <p><strong>Hvilke systemer eller hvilket system er et treghetssystem ifølge den spesielle relativitetsteorien?</strong></p>
 
         <form id="quiz">
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>25 m/s\(^2\)</span>
+                <span>bare system 1 og 3</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>bare system 1 og 5</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>bare system 2 og 4</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>7,5 m/s\(^2\)</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>37,5 m/s\(^2\)</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>9,81 m/s\(^2\)</span>
+                <span>bare system 3</span>
             </label>
         </form>
 
@@ -74,8 +71,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-    <div class="box" style="display: grid; place-items: center;">
-        <img src="racer.png" alt="En racerbil" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="refSys.png" alt=" " >
     </div>
 </div>
 

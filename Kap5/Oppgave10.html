@@ -14,12 +14,11 @@
 
 <style>
 img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 450px; /* Maks bredde*/    
+       max-height: 600px; /* Maks høyde */
+    max-width: 400px; /* Maks bredde*/    
 }
 </style>
 </head>
-
 
 
 <body>
@@ -45,27 +44,32 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>To baller med like stor masse kolliderer i et rett, elastisk støt.</p>
-        <p>Før kollisjonen har den blå ballen fart \(v\) mot høyre og den røde ballen har fart \(2v\) mot venstre.</p>
+        <p>Figuren viser et mønster av \(n\) = 50 lange, rette og parallelle strømledere som er koblet
+sammen. Avstanden mellom lederne \(d\) = 0,010 m. Strømmen \(I\) = 2,0 A gjennom alle lederne.</p>
 
-        <p><strong>Hva er riktig om farten til den blå ballen etter sammenstøtet?</strong></p>
+    <p>Et punkt P har avstanden \(d\) fra den første lederen.</p>
+            
+            <p>Programmet beregner den totale magnetiske flukstettheten \(B\) fra alle
+lederne i punktet P.</p>
+
+        <p><strong>Hva er riktig kode for linje 6?</strong></p>
 
         <form id="quiz">
             <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>B = k*I/(d*n)</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>B = B + k*I/(d*n)</span>
+            </label>
+            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>\(2v\) mot venstre</span>
+                <span>B = B + (-1)**n*k*I/(d*n)</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>\(v\) mot venstre</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(v\) mot høyre</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>Den blir liggende i ro</span>
+                <span>B = (-1)**n*k*I/(d*n)</span>
             </label>
         </form>
 
@@ -73,8 +77,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="ballkoll2.png" alt="To baller som kolliderer" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="ledere50.png" alt=" " >
     </div>
 </div>
 

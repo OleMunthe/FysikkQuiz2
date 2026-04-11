@@ -15,11 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 450px; /* Maks bredde*/    
+    max-width: 250px; /* Maks bredde*/    
 }
 </style>
 </head>
-
 
 
 <body>
@@ -45,27 +44,26 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>To biler kolliderer og blir hengende fast i hverandre etter kollisjonen..</p>
-        <p>Se størrelser i figuren til høyre.</p>
+        <p>Tre isolerte ledere ligger oppå hverandre. En av lederne er sirkelformet, og de to andre er rette.Lederne danner fire sirkelsektorer: A, B, C og D. Strømretningen i lederne er vist i figuren.</p>
 
-        <p><strong>Hvor mye energi går over til varme i kollisjonen?</strong></p>
+        <p><strong>I hvilken sektor er det samlede magnetfeltet størst?</strong></p>
 
         <form id="quiz">
             <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>A</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>B</span>
+            </label>
+            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>7,2 \( \cdot 10^{5} \) J</span>
+                <span>C</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>1,8 \( \cdot 10^{5} \) J</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>2,8 \( \cdot 10^{5} \) J</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>1,4 \( \cdot 10^{6} \) J</span>
+                <span>D</span>
             </label>
         </form>
 
@@ -73,8 +71,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="Bilkollisjon.png" alt="En person som slipper en stein" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="ledere1.jpeg" alt=" " >
     </div>
 </div>
 

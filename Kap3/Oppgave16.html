@@ -15,13 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 300px; /* Maks bredde*/    
+    max-width: 400px; /* Maks bredde*/    
 }
 </style>
 </head>
-
-
-
 
 
 <body>
@@ -47,28 +44,35 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En mann med masse 80 kg står i ro i en heis.</p>
-        <p>Mannen holder en koffert med masse 5,0 kg i hånda.</p>
-        <p>Heisen akselerer oppover med 2,0 m/s\(^2\).</p>
-        <p>Bruk \(g\) = 10 m/s\(^2\).</p>
-        <p><strong>Hvor stor er normalkraften fra gulvet i heisen på mannen?</strong></p>
+        <p>Et lyssignal sendes fra overflata av planet A til overflata av planet B. Planetene er identiske. Se
+bort fra planetenes bevegelse og alle andre himmellegemer.</p>
+
+<p>Det er gitt to påstander:</p>
+
+<ol>
+  <li>Signalet blir først rødforskjøvet og deretter blåforskjøvet.</li>
+  <li>Bølgelengden til signalet når det sendes ut fra planet A, er lik bølgelengden til signalet når
+det mottas ved planet B.</li>
+</ol>
+
+        <p><strong>Hva er riktig?</strong></p>
 
         <form id="quiz">
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>960 N</span>
+                <span>ingen av påstandene</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>850 N</span>
+                <span>bare påstand 1</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>bare påstand 2</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>1020 N</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>860 N</span>
+                <span>begge påstandene</span>
             </label>
         </form>
 
@@ -76,8 +80,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="koffertMann.png" alt="En mann med koffert" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="gravfor.jpeg" alt=" " >
     </div>
 </div>
 

@@ -14,12 +14,11 @@
 
 <style>
 img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 450px; /* Maks bredde*/    
+       max-height: 400px; /* Maks høyde */
+    max-width: 400px; /* Maks bredde*/    
 }
 </style>
 </head>
-
 
 
 <body>
@@ -45,27 +44,32 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>To biler kolliderer og blir hengende fast i hverandre etter kollisjonen..</p>
-        <p>Kollisjonen varer i 0,20 sekunder. Se andre størrelser i figuren.</p>
+        <p>To magneter ligger inntil hverandre og med like poler mot hverandre.</p>
+        
+        <p>Magneten til venstre holdes fast. Magneten til høyre slippes og beveger seg rett fram på et horisontalt underlag før denstanser. Det virker friksjon mellom magneten og underlaget. </p>
 
-        <p><strong>Hvor stor akselerasjon har den lille bilen i kollisjonen?</strong></p>
+            <p>Grafen viser magneten til høyre sin fart \(v\) som funksjon av tiden.</p>
+
+            <p> Se bort fra luftmotstand</p>
+
+        <p><strong>Hva er riktig?</strong></p>
 
         <form id="quiz">
             <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>Ved tiden 0,1 s er akselerasjonen til magneten størst.</span>
+            </label>
+            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>121 m/s\(^2\)</span>
+                <span>Ved tiden 0,1 s er friksjonskraften og den magnetiske frastøtningskraften like store.</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="riktig">
+                <span>Ved tiden 0,2 s er friksjonskraften mindre enn den magnetiske frastøtningskraften.</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>46 m/s\(^2\)</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>165 m/s\(^2\)</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>93 m/s\(^2\)</span>
+                <span>Magneten beveger seg høyst 15 cm før den stanser.</span>
             </label>
         </form>
 
@@ -73,8 +77,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="BilKoll.png" alt="To biler som kolliderer" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="magnetpush.png" alt=" " >
     </div>
 </div>
 

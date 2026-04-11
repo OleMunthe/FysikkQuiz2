@@ -15,13 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+    max-width: 200px; /* Maks bredde*/    
 }
 </style>
 </head>
-
-
-
 
 
 <body>
@@ -47,26 +44,35 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En bil starter fra ro. I løpet av 10 sekunder har den kjørt 250 meter og fått farten 75 m/s.</p>
-        
-        <p><strong>Hvor stor er gjennomsnittsfarten til bilen?</strong></p>
+        <p>Per og Pål sitter på hver sin tømmerstokk og flyr parallelt med ulik fart i samme retning forbi
+Espen. Espen står i ro på bakken. Espen måler at farten til Per gir en mindre lorentzfaktor enn
+farten til Pål. Per måler sin tømmerstokk til 8,0 m. Pål måler sin tømmerstokk til 8,0 m.</p>
+
+        <p> Det er gitt to påstander om hva Per måler i sitt treghetssystem:</p>
+
+<ol>
+  <li>Pål har større fart enn Per.</li>
+  <li>Pål har lengre tømmerstokk enn Per.</li>
+</ol>
+
+        <p><strong>Hva er riktig?</strong></p>
 
         <form id="quiz">
             <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>ingen av påstandene</span>
+            </label>
+            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>25 m/s</span>
+                <span>bare påstand 1</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>7,5 m/s</span>
+                <span>bare påstand 2</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>37,5 m/s</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>3,3 m/s</span>
+                <span>begge påstandene</span>
             </label>
         </form>
 
@@ -74,8 +80,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-    <div class="box" style="display: grid; place-items: center;">
-        <img src="racer.png" alt="En racerbil" >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="PerPålEspen.jpeg" alt=" ">
     </div>
 </div>
 
