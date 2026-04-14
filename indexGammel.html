@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fysikk 2 Flervalgsoppgaver</title> 
+
+    <style>
+
+        h1 {
+            font-size: 50px; 
+            font-weight: bold; 
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background: #0877ab;
+            color: white;
+            padding: 3px 0;
+            text-align: center;
+        }
+
+
+
+
+        .hero {
+            background-image: url('TjomeTom.png');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            min-height: 500px;
+        }
+
+        /* Main (oppå bildet) */
+        main {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 0 15px rgba(0,0,0,0.35);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+            margin: 20px;
+        }
+
+        a {
+            color: #8B0000;
+        }
+
+        ul li {
+    margin-bottom: 10px; /* juster tallet for ønsket avstand */
+}
+    </style>
+</head>
+
+<body>
+
+<!--
+<header>
+    <h1>Flervalgsoppgaver Fysikk 2</h1>
+</header>
+-->
+
+<div class="hero">
+    <main>
+        <h1>Flervalgsoppgaver Fysikk 2</h1>
+        
+        <p><strong>Her 👇 er flervalgsoppgaver fra eksamen til alle emner i Fysikk 2.</strong></p>
+
+        <ul>
+                        <li><a href="quiz.html?kategori=Kap1" onclick="velgKategori('Kap1')">  Mekanikk </a> </li>
+                        <li><a href="quiz.html?kategori=Kap2" onclick="velgKategori('Kap2')">  Spesiell relativitetsteori </a> </li>
+                        <li><a href="quiz.html?kategori=Kap3" onclick="velgKategori('Kap3')">  Gravitasjon</a> </li>
+                        <li><a href="quiz.html?kategori=Kap4" onclick="velgKategori('Kap4')">  Elektrisitet </a> </li>
+                        <li><a href="quiz.html?kategori=Kap5" onclick="velgKategori('Kap5')">  Magnetisme og elektristet</a> </li>
+                        <li><a href="quiz.html?kategori=Kap6" onclick="velgKategori('Kap6')">  Induksjon </a> </li>
+                        <li><a href="quiz.html?kategori=Kap7" onclick="velgKategori('Kap7')">  Kvantefysikk </a> </li>
+        </ul>
+
+        <p><strong>Trykk deg inn på emnet du vil jobbe med, og trykk på alternativene du tror er riktig.
+        Hvis du svarer riktig blir svaret ditt markert grønt 💚, og svarer du feil blir det rødt 🤬.
+        </strong></p>
+
+        <p><strong>Spørsmålene du svarer feil på kommer på nytt senere
+        (helt til du har svart riktig på spørsmålet).</strong></p>
+        
+        
+        
+    </main>
+</div>
+
+
+<script>
+
+
+function velgKategori(kategori) {
+    sessionStorage.setItem("valgtKategori", kategori);
+
+    // Antall oppgaver per kapittel
+    const antall = { Kap1: 35, Kap2: 10, Kap3: 20, Kap4: 10, Kap5: 13, Kap6: 13, Kap7: 15,};
+    sessionStorage.setItem("totalOppgaver", antall[kategori] || 1);
+
+    sessionStorage.removeItem("harStartet");
+}
+
+</script>
+
+</body>
+
+</html>

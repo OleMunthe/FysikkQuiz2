@@ -1,7 +1,8 @@
-Åpne  i Terminal og legg inn følgende:
+Åpne Nettside i Terminal og legg inn følgende:
 
+git remote set-url origin https://github.com/OleMunthe/FysikkQuiz2.git
+git remote -v "Sjekker at repo er riktig! Sjekk at det stemmer!!!!!!!!!"
 git add .
 git commit -m "Bla, bla, ... hva som er endret..."
 git push
-
 
