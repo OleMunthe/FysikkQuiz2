@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="no">
+<link rel="stylesheet" href="FlervalgsStyle.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,6 +33,14 @@
             background-position: center;
             padding: 60px 20px;
             min-height: 500px;
+        }
+
+        /* 📱 Skjul bakgrunnsbilde på mobil */
+        @media (max-width: 768px) {
+        .hero {
+        background-image: none;
+        background-color: #0877ab; /* valgfri ensfarget bakgrunn */
+        }
         }
 
         main {
@@ -68,14 +77,14 @@
 
         <p><strong>Nedenfor 👇 er flervalgsoppgaver til alle emner i Fysikk 2. Hver gang du går inn på en av lenkene får du 10 tilfeldige spørsmål fra det valgte emnet.</strong></p>
      
-        <ul>
-            <li><a href="./Kap1/Oppgave1.html" onclick="velgKategori('Kap1')">Mekanikk </a> </li>
-            <li><a href="./Kap2/Oppgave1.html" onclick="velgKategori('Kap2')">Spesiell relativitetsteori </a> </li>
-            <li><a href="./Kap3/Oppgave1.html" onclick="velgKategori('Kap3')">Gravitasjon</a> </li>
-            <li><a href="./Kap4/Oppgave1.html" onclick="velgKategori('Kap4')">Elektrisitet </a> </li>
-            <li><a href="./Kap5/Oppgave1.html" onclick="velgKategori('Kap5')">Magnetisme og elektristet</a> </li>
-            <li><a href="./Kap6/Oppgave1.html" onclick="velgKategori('Kap6')">Induksjon </a> </li>
-            <li><a href="./Kap7/Oppgave1.html" onclick="velgKategori('Kap7')">Kvantefysikk </a> </li>
+       <ul class="app-link-list">
+            <li><a class="app-link" href="./Kap1/Oppgave1.html" onclick="velgKategori('Kap1')">Mekanikk </a> </li>
+            <li><a class="app-link" href="./Kap2/Oppgave1.html" onclick="velgKategori('Kap2')">Spesiell relativitetsteori </a> </li>
+            <li><a class="app-link" href="./Kap3/Oppgave1.html" onclick="velgKategori('Kap3')">Gravitasjon</a> </li>
+            <li><a class="app-link" href="./Kap4/Oppgave1.html" onclick="velgKategori('Kap4')">Elektrisitet </a> </li>
+            <li><a class="app-link" href="./Kap5/Oppgave1.html" onclick="velgKategori('Kap5')">Magnetisme og elektristet</a> </li>
+            <li><a class="app-link" href="./Kap6/Oppgave1.html" onclick="velgKategori('Kap6')">Induksjon </a> </li>
+            <li><a class="app-link" href="./Kap7/Oppgave1.html" onclick="velgKategori('Kap7')">Kvantefysikk </a> </li>
                </ul>
 
         <p><strong>
