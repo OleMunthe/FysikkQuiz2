@@ -75,7 +75,27 @@
     <main>
         <h1>Fysikk 2</h1>
 
-        <p><strong>Nedenfor 👇 er flervalgsoppgaver til alle emner i Fysikk 2. Hver gang du går inn på en av lenkene får du 10 tilfeldige spørsmål fra det valgte emnet.</strong></p>
+        <p><strong>Nedenfor 👇 er flervalgsoppgaver til alle emner i Fysikk 2. </strong></p>
+
+        
+
+        <div class="antall-velger">
+  <strong>Før du starter; Velg hvor mange oppgaver du vil ha:</strong><br><br>
+  <label>
+    <input type="radio" name="antallOppgaver" value="10">
+    10
+  </label>
+  <label>
+    <input type="radio" name="antallOppgaver" value="20">
+    20
+  </label>
+  <label>
+    <input type="radio" name="antallOppgaver" value="30">
+    30
+  </label>
+        </div>
+        <p></p>
+        <p><strong>Hver gang du går inn på en av lenkene får du trukket ut ulike tilfeldige oppgaver fra det aktuelle emnet.</strong></p>
      
        <ul class="app-link-list">
             <li><a class="app-link" href="./Kap1/Oppgave1.html" onclick="velgKategori('Kap1')">Mekanikk </a> </li>
@@ -88,8 +108,8 @@
                </ul>
 
         <p><strong>
-        Trykk deg inn på emnet du vil jobbe med. Riktig svar blir grønt 💚, feil blir rødt 🤬.
-        </strong></p>
+        Riktig svar blir grønt 💚<br>
+        Feil svar blir rødt 🤬</strong></p>
 
         <p><strong>
         Spørsmål du svarer feil på kommer igjen senere.
@@ -135,6 +155,23 @@ function velgKategori(kategori) {
     sessionStorage.setItem("aktivtOppgavesett", JSON.stringify(tilfeldig));
 }
 
+
+
+  // Sett default hvis ikke valgt tidligere
+  if (!sessionStorage.getItem("antallOppgaver")) {
+    sessionStorage.setItem("antallOppgaver", "10");
+  }
+
+  // Sett riktig radio som valgt ved lasting
+  document.querySelectorAll("input[name='antallOppgaver']").forEach(radio => {
+    if (radio.value === sessionStorage.getItem("antallOppgaver")) {
+      radio.checked = true;
+    }
+
+    radio.addEventListener("change", () => {
+      sessionStorage.setItem("antallOppgaver", radio.value);
+    });
+  });
 
 </script>
 
