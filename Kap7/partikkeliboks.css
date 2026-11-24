@@ -1,0 +1,71 @@
+#partikkeliboks-simulering {
+    max-width: 850px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+#partikkeliboks-simulering .boks-oppsett {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#partikkeliboks-simulering .boks-kontroller {
+    flex: 0 0 180px;
+    min-width: 0;
+}
+
+#partikkeliboks-simulering .boks-kontroller label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+#partikkeliboks-simulering .boks-kontroller strong {
+    display: inline;
+    margin-left: 5px;
+}
+
+#partikkeliboks-simulering input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+#partikkeliboks-simulering .boks-info {
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+#partikkeliboks-simulering .boks-grafikk {
+    flex: 1;
+    min-width: 0;
+}
+
+#partikkeliboks-simulering canvas {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    background: transparent;
+}
+
+@media (max-width: 500px) {
+    #partikkeliboks-simulering .boks-oppsett {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    #partikkeliboks-simulering .boks-kontroller {
+        flex: none;
+        width: 100%;
+    }
+}
+
+#fri-partikkel-simulering .fri-frekvens {
+    margin-top: 8px;
+    margin-bottom: 18px;
+    font-size: 16px;
+    white-space: nowrap;
+}

@@ -1,0 +1,814 @@
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Mekanikk</title>
+
+  <!-- MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="styleTeori.css">
+
+<link rel="stylesheet" href="skra-kast-homogent.css">
+<script src="skra-kast-homogent.js" defer></script>
+</head>
+
+<body>
+<nav class="side-menu" aria-label="Innholdsfortegnelse">
+<a href="../index.html" class="back-link">👈 Tilbake til hovedsiden</a>
+<br>
+<strong>Mekanikk:</strong>
+<a href="#del-1">Ikke-konstant akselerasjon</a>
+<a href="#del-1.2">Konstant akselerasjon</a>
+<a href="#del-2">Newtons lover i to dimensjoner</a>
+<a href="#del-2.1">Når noe henger i ro</a>
+<a href="#del-2.2">Skråplan</a>
+<a href="#del-3">Skrått kast</a>
+<a href="#del-4">Mekanisk energi</a>
+<a href="#del-5">Horisontal sirkelbevegelse</a>
+<a href="#del-6">Dosserte svinger</a>
+<a href="#del-7">Vertikal sirkelbevegelse</a>
+</nav>
+
+
+<div class="print-scale">
+
+<button class="print-button" onclick="window.print()">🖨️ Skriv til PDF</button>
+
+  <main>
+    <section id="del-1">
+    <h2>Bevegelse med ikke-konstant akselerasjon</h2>
+
+      <p>Gjennomsnittsfart \(\bar{v}\) er endring av strekning \(s\),</p>
+      \[
+        \bar{v} = \frac{\Delta s}{\Delta t}
+        \;\;\xrightarrow[]{\text{momentanfart når } \Delta t \rightarrow 0}\;\;
+        v(t) = s'(t)
+      \]
+
+      <p>Gjennomsnittsakselerasjon \(\bar{a}\) er endring av fart \(v\),</p>
+      \[
+        \bar{a} = \frac{\Delta v}{\Delta t}
+        \;\;\xrightarrow[]{\text{momentanakselerasjon når } \Delta t \rightarrow 0}\;\;
+        a(t) = v'(t)
+      \]
+
+      <div class="example">
+        <h3>Eksempel</h3>
+        <img src="TommyPrekestolen.png" alt="Snøball utfor klippe" style="width: 32%;">
+
+        <p>En snøball faller utfor en klippe. Grafen viser farten til snøballen som funksjon av tid.</p>
+
+          <img src="snøballfall.png" alt="Graf som viser fart som funksjon av tid" style="width: 80%;">
+
+        <p>Bestem gjennomsnittsakselerasjonen mellom 2 og 6 sekunder, og bestem den momentane akselerasjonen etter 6 sekunder.</p>
+
+        <div class="solution">
+         Gjennomsnittskselerasjonen er
+          \[
+            \bar{v} = \frac{\Delta v}{\Delta t}
+            =
+            \frac{50 \text{ m/s} - 20 \text{ m/s}}{6\text{,}0 \text{ s} - 2\text{,}0 \text{ s}} = \frac{30 \text{ m/s}}{4\text{,}0 \text{ s}}
+            =
+            7\text{,}5 \text{ m/s}^2
+          \]
+          For å bestemme (ca.) den momentane akselerasjonen ser vi på gjennomsnittsakselerasjonen i et lite intervall, f.eks. mellom et halvt sekund før og etter 6 sekunder:
+          \[  a \approx  \frac{\Delta v}{\Delta t}
+            =
+            \frac{52 \text{ m/s} - 47 \text{ m/s}}{6\text{,}5 \text{ s} - 5\text{,}5 \text{ s}} = \frac{5\text{,}0 \text{ m/s}}{1\text{,}0 \text{ s}}
+            =
+            5\text{,}0 \text{ m/s}^2  \]
+        </div>
+      </div>
+     
+       <div class="example">
+        <h3>Eksempel</h3>
+        <p>Vi ser på snøballen i forrige eksempel.</p>
+
+        <p>Bestem hvor langt snøballen faller i løpet av 10 sekunder.</p>
+
+        <div class="solution">
+         Når farten er konstant, er strekning \(s = v \cdot t \). Ved å dele opp tidsintervallet i 0,50 sekunder og late som om farten er konstant i disse tidsintervallene (noe som stemmer ganske bra),
+         får vi da at strekningen blir arealet av rektanglene nedenfor.
+         <img src="snøballfall2.png" alt="Graf som viser fart som funksjon av tid" style="width: 80%;">
+         Arealet blir ca. 410 meter.
+        </div>
+      </div>
+
+      <p>
+       Når vi skal beregne strekningen når akselerasjonen ikke er konstant, slik som i eksempet over, er det vanlig å bruke programmering.
+       Programkoden nedenfor er "standardkoden" for å beregne dette. I koden har jeg lagt inn det vanlige uttrykket for akselerasjon når det er luftmotstand 
+       (men i mange oppgaver i Fysikk 2 må dette uttrykket byttes ut med noe annet).
+      </p>
+
+      <pre class="codebox"><code>s, v, t = 0, 0, 0 # Startverdier for strekning, fart og tid
+dt = ... # Tidsintervall i beregningene
+m = ... # Massen til det som faller
+k = ... # Luftmotstandskoeffisient
+
+while ... : # Betingelse for hvor lenge koden skal kjøre
+    a = 9.81 - k*v**2/m # Uttrykket for akselerasjon med luftmotstand
+    v = v + a*dt
+    s = s + v*dt
+    t = t + dt
+
+print(t, v)</code></pre>
+</section>
+
+
+
+
+
+
+
+<section id="del-1.2">
+  <h2>Bevegelse med konstant akselerasjon</h2>
+      <p>Ved hjelp av derivasjon/antiderivasjon kan vi vise at bevegelseslikningene for konstant akselerasjon er</p>
+
+      \[
+        s = v_0 \cdot t + \frac{1}{2}at^2 \;\;\; \text{ og } \;\;\;        v = v_0 + a \cdot t
+      \]
+
+      <p>Ved hjelp av algebra kan likningene over skrives om til</p>
+      \[
+        v^2 - v_0^2 = 2as \;\;\; \text{ og } \;\;\; s = \frac{v_0 + v}{2} \cdot t
+      \]
+
+      <p>
+        Hvis vi kan se bort fra luftmotstand, er akselerasjonen til noe som faller fritt <em>tyngdeakselerasjonen</em>, som er lik
+        \(9\text{,}81 \text{ m/s}^2\). Når vi ikke har kalkulator, bruker vi tilnærmingsverdien \(10 \text{ m/s}^2\).
+      </p>
+
+      <div class="note">
+<strong>Merk:</strong>  Vi bruker symbolet \(g\) for tyngdeakselerasjonen, altså \(g = 9\text{,}81 \text{ m/s}^2 \approx 10 \text{ m/s}^2\).
+
+<br><br>Tyngdeakselerasjonen avhenger av massen til jorda, og avstanden til sentrum av jorda. 
+Jorda er ikke en perfekt kule med homogen massefordeling, så egentlig er ikke tyngdeakselerasjonen \(9\text{,}81 \text{ m/s}^2\)overalt på jordoverflaten. 
+Likevel bruker vi \(9\text{,}81 \text{ m/s}^2\) som en standard, eller \(10 \text{ m/s}^2\) når vi ikke har kalkulator.
+</div>
+
+
+      <div class="example">
+        <h3>Eksempel</h3>
+
+        <figure>
+          <img src="Fall.png" alt="Fritt fall" style="width: 60%;">
+        </figure>
+
+        <div class="solution">
+          <p>Startfarten er null, så den første bevegelsesligningen gir</p>
+
+          \[
+          \begin{aligned}
+            s &= v_0 \cdot t + \frac{1}{2}at^2 \\
+            5 &= 0 \cdot t + \frac{1}{2} \cdot 10 \cdot t^2 \\
+            t &= \sqrt{\frac{2 \cdot 5}{10}}
+            =
+          1\text{,}0 \text{ sekunder}
+          \end{aligned}
+          \]
+
+          <p>Farten kan vi finne ved hjelp av den andre bevegelsesligningen:</p>
+
+          \[
+          \begin{aligned}
+            v &= v_0 + a \cdot t \\
+            v &= 0 + 10 \cdot 1
+            =
+            10 \text{ m/s}
+          \end{aligned}
+          \]
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="del-2">
+      <h2>Newtons lover i to dimensjoner</h2>
+
+          <p><strong>Newtons 1. lov:</strong> \(\Sigma F = 0 \Leftrightarrow v = \text{konstant}\)</p>
+
+    <p>For å skjønne Newtons lov, kan det være nyttig å tenke at det å være i ro, egentlig er det samme som å bevege seg med konstant fart;
+      Om du er i ro, eller har konstant fart, avhenger bare av hvor noen ser deg fra.
+    </p>
+ <img src="TogN1.png" alt="..." style="width: 67%;">
+ 
+ <p>Newtons 1. lov sier at en kraft er noe som kan endre farten din. Newtons 2. lov sier hvordan kraften endrer farten din.</p>
+
+    <p><strong>Newtons 2. lov:</strong> \(\Sigma \vec{F} = m\vec{a}\)</p>
+<img src="kassdra.png" alt="..." style="width: 33%;">
+
+    <p><strong>Newtons 3. lov:</strong> \(\vec{F} = -\vec{F}^{*}\)</p>
+         <img src="AnneBrorN3.png" alt="Kari dytter på Per, og en kraft virker tilbake på Kari" style="width: 52%;">
+
+
+         <p>
+    I Fysikk 2 jobber vi med krefter i to dimensjoner. Vi må da bruke <em>dekomponering</em> av krefter; Vi deler opp krefter i \(x\)- og \(y\)-retning.
+      </p>
+<img src="trig.png" alt="..." style="width: 28%;">
+
+
+<div class="example">
+        <h3>Eksempel</h3>
+        Figuren viser en båt sett ovenfra. Det virker 3 horisontale krefter (sidevind, motorkraft og vannmotstand).
+        <figure>
+          <img src="Krefterbåt.png" alt="..." style="width: 52%;">
+        </figure>
+
+        <p>Bestem akselerasjonen til båten.</p>
+
+        <div class="solution">
+      Vi deler kreftene i to komponenter, \(x\)- og \(y\)-retning, og finner den totale kraften med pytagoras:
+      \[ F_x =  60 - 20 = 40 \text{ N} \;\;\; \text{ og }\;\;\; F_y = -30 \text{ N} \;\;\; \Rightarrow \;\;\; \Sigma F = \sqrt{40^2 + 30^2} = 50 \text{ N}\]
+      Akselerasjonen blir da
+      \[  a = \frac{\Sigma F}{m} = \frac{50}{1000} = 0\text{,}050 \text{ m/s}^2 \;\; \text{ (på skrå ned mot høyre i figuren)} \]
+    </div>
+      </div>
+</section>
+
+
+
+<section id="del-2.1">
+  <h2>Når noe henger i ro</h2>
+
+  <p><strong>Tyngdekraft:</strong> \(G = mg\) </p>
+
+            <div class="note">
+      <strong>Merk</strong>:
+      Det er egentlig bare nær jordoverflaten at tyngdeakselerasjonen er \(g = 9\text{,}81 \text{ m/s}^2 \).<br><br>
+      Generelt er tyngdeakselerasjonen rundt en planet (eller måne) gitt ved
+      \[  g = 6\text{,}67 \cdot 10^{-11} \cdot \frac{M}{r^2} \;\;,\;\; \text{ hvor \(M\) er planetens masse og \(r\) avstanden til planetens sentrum.} \]
+      Dette kommer vi tilbake til i kapittelet om gravitasjon.
+    </div>
+
+    <p>
+    Når vi regner på noe som henger i ro, bruker vi at summen av krefter både i \(x\)- og \(y\)-retning må være null.</p>
+    
+      <div class="example">
+        <h3>Eksempel</h3>
+        
+        <figure>
+          <img src="Lampe.png" alt="..." style="width: 42%;">
+        </figure>
+
+        <p>Bestem snordragene til de to snorene lampa henger i.</p>
+
+        <div class="solution">
+      Vi deler snordragene i to komponenter; \(x\)- og \(y\)-retning:
+      <img src="LampeKrefter.png" alt="..." style="width: 42%;">
+      Lampa henger i ro, så summen av kreftene må være null, både i \(x\)- og \(y\)-retning. 
+      <br><br>
+      Komponenetene i \(x\)-retning må da være gitt ved
+      \[  S_1 \cdot \cos 10^{\text{o}} = S_2 \cdot \cos 80^{\text{o}}\]
+      <p>      Tyngdekraften er \(mg = 1\text{,}0 \cdot 9\text{,}81 = 9\text{,}81 \text{ N} \).</p>
+      Komponenetene i \(y\)-retning må da være gitt ved
+      \[  S_1 \cdot \sin 10^{\text{o}} + S_2 \cdot \sin 80^{\text{o}} = mg \]
+          Vi løser likningssettet (med litt algebrakadabra) og får 
+      \[  S_1 = \frac{mg}{\sin 10^{\text{o}} + \cos 10^{\text{o}} \cdot  \tan 80^{\text{o}} } = 1\text{,}7 \text{ N} \;\;\text{ og }\;\;S_2 = \frac{S_1 \cdot \cos 10^{\text{o}}}{\cos 80^{\text{o}}} 9\text{,}7 \text{ N}\]
+    </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+<section id="del-2.2">
+  <h2>Skråplan</h2>
+    
+  <p>
+Når vi regner på bevegelse på skråplan, er det (nesten alltid) lurt å lage et koordinatsystem hvor \(x\)-retning er nedover langs skråplanet, i bevegelsesretningen. 
+Vi må da dekomponere gravitasjonen slik:
+  </p>
+  <img src="Skråplan.png" alt="..." style="width: 37%;">
+
+      <div class="example">
+        <h3>Eksempel</h3>
+        
+        <figure>
+          <img src="SkråplanEks2.png" alt="..." style="width: 67%;">
+        </figure>
+
+        <p>Bestem akselerasjonen til kassa når den glir nedover skråplanet.</p>
+
+        <div class="solution">
+      Friksjonskraften er
+      \[ R = \mu \cdot N = \mu \cdot mg \cos 30^{\text{o}} = 5\text{,}0974 \text{ N}  \]
+     Friksjonen virker i motsatt retning av fartsretningen, slik at summen av kreftene nedover skråplanet blir
+      \[  \Sigma F = mg \sin 30^{\text{o}} - R = 4\text{,}7126 \text{ N}  \]
+      og akselerasjonen blir da 
+      \[  a = \frac{\Sigma F}{m} = \frac{4\text{,}7126}{2\text{,}0} = 2\text{,}4 \text{ m/s}^2 \;\; \text{ (nedover langs skråplanet)}\]
+    </div>
+      </div>
+
+      <div class="example">
+        <h3>Eksempel</h3>
+      <p>Vi ser fortsatt på kassa i forrige eksempel, men vi tenker oss at den har fått en startfart i bunnen av skråplanet, og glir oppover.</p>
+
+        <p>Bestem akselerasjonen til kassa.</p>
+
+        <div class="solution">
+      Friksjonskraften er fortsatt
+      \[ R = \mu \cdot N = \mu \cdot mg \cos 30^{\text{o}} = 5\text{,}0974 \text{ N}  \]
+     men siden klossen glir oppover, virker friksjonen i samme retning som fartsretningen, slik at summen av kreftene blir
+      \[  \Sigma F = mg \sin 30^{\text{o}} + R = 14\text{,}9074 \text{ N}  \]
+      og akselerasjonen blir da 
+      \[  a = \frac{\Sigma F}{m} = \frac{14\text{,}9074}{2\text{,}0} = 7\text{,}5 \text{ m/s}^2\;\; \text{ (nedover langs skråplanet)} \]
+    </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+
+
+    <section id="del-3">
+      <h2>Skrått kast</h2>
+
+      <p>Bevegelseslikningene i to dimensjoner, som beskriver skrått kast (uten luftmotstand), er</p>
+      \[  \vec{r}(t) = [x(t), y(t)] = \left[  v_{0x} \cdot t \;,\;\; h_0 + v_{0y}\cdot t - \frac{1}{2} gt^2 \right] \;\;\; \text{ og }\;\;\; \vec{v}(t) = \left[  v_{0x} \;,\;\; v_{0y}-  gt \right] \]
+      <p>hvor startfarten i \(x\)- og \(y\)-retning er \(v_{0x} = v_0 \cdot \cos \alpha\) og \(v_{0y} = v_0 \cdot \sin \alpha\).</p>
+         <img src="Kast.png" alt="..." style="width: 17%;">
+<p>Simuleringen nedenfor viser hvordan bevegelseslikningene over gir at noe beveger seg når det kastes på skrå.</p>
+         <div id="skra-kast">
+    <div class="kast-panel">
+        <label for="kastHeight">
+            Starthøyde:
+            <span id="kastHeightValue">1.5</span> m
+        </label>
+        <input type="range"
+               id="kastHeight"
+               min="0"
+               max="2"
+               step="0.1"
+               value="1.5">
+
+        <label for="kastSpeed">
+            Startfart:
+            <span id="kastSpeedValue">2.9</span> m/s
+        </label>
+        <input type="range"
+               id="kastSpeed"
+               min="0"
+               max="5"
+               step="0.1"
+               value="2.9">
+
+        <label for="kastAngle">
+            Utgangsvinkel:
+            <span id="kastAngleValue">30</span>°
+        </label>
+        <input type="range"
+               id="kastAngle"
+               min="-90"
+               max="90"
+               step="1"
+               value="30">
+
+        <div class="kast-knapper">
+    <button id="kastStart">Start</button>
+    <button id="kastReset">Nullstill</button>
+</div>
+
+    </div>
+
+  <div class="kast-grafikk">
+
+    <canvas id="kastCanvas" width="800" height="500"></canvas>
+
+ <div class="kast-info">
+    <p>Tid: <span id="kastTime">0.00</span> s</p>
+    <p>Hastighet: <span id="kastVelocity">3.00</span> m/s</p>
+    <p>Høyde: <span id="kastAltitude">1.50</span> m</p>
+    <p>Strekning: <span id="kastDistance">0.00</span> m</p>
+</div>
+
+</div>
+
+</div>
+
+
+
+
+      <div class="example">
+        <h3>Eksempel</h3>
+        <p>En gjenstand kastes fra en starthøyde 1,5 meter over bakken. Startfarten på 2,9 m/s danner en vinkel \(\alpha=30^{\text{o}}\) med horisontalen.</p>
+
+        <p>Bestem lengden på kastet.</p>
+
+        <div class="solution">
+         Gjenstanden lander når høyden er null:
+         \[  h_0 + v_{0y}\cdot t - \frac{1}{2} gt^2 = 0 \]
+         <em>abc</em>-formelen gir 
+         \[  t = \frac{-v_{0}\sin 30^{\text{o}} \pm \sqrt{(v_{0}\sin 30^{\text{o}})^2+2gh_0}}{-g} = 0\text{,}7202 \text{ s} \vee -0\text{,}4246 \text{ s} \]
+         Gjenstanden lander altså etter 0,7202 sekunder. Strekningen i \(x\)-retning er da
+         \[  x = v_0 \cdot \cos 30^{\text{o}} \cdot t = 2\text{,}9 \cdot \cos 30^{\text{o}} \cdot 0\text{,}7202 = 1\text{,}8 \text{ meter}  \]
+        </div>
+      </div>
+
+      <p>Hvis vi skal ta hensyn til luftmotstand i skrått kast, må vi bruke at luftmotstanden hele tiden virker i motsatt retning av farten:</p>
+      <img src="KastMedLuft.png" alt="..." style="width: 42%;">
+      <p>
+      For å gjøre beregninger med dette må vi regne numerisk (programmere), fordi vi må dele opp beregningene i små tidssteg, og vi må gjøre beregninger både i \(x\)- og \(y\)-retning.
+      Programkoden for dette blir omtrent som programkoden i fritt fall i én dimensjon. 
+      Programkoden nedenfor beregner tiden og lengden i eksempelet over når vi tar hensyn til luftmotstand, og når gjenstanden er en skumgummiball (sånn som man bruker i kanonball i gymtimene).
+        </p>
+<pre class="codebox"><code>from math import sqrt
+
+x, y, vx, vy, t = 0, 1.5, 2.51, 1.45, 0 
+dt = 0.001 
+m, k = 0.080, 0.060         # Masse og luftmotstandskoeffisient for en skumgummiball 
+
+while y > 0: 
+    v = sqrt(vx**2 + vy**2)                     # Bruker pytagoras for å beregne farten
+    ax, ay = -k*vx*v/m, -k*vy*v/m - 9.81        # Akselerasjon i x- og y-retning
+    vx, vy = vx + ax*dt, vy + ay*dt
+    x, y = x + vx*dt, y + vy*dt
+    t = t + dt
+
+print(t, x) # Skriver ut hvor lenge ballen er i lufta, og hvor langt den kommer</code></pre>
+
+      <div class="note">
+<strong>Merk:</strong>  Uttrykkene for akselerasjonen i \(x\)- og \(y\)-retning i koden over, kommer av dekomponering av luftmotstanden:
+\[
+\begin{alignedat}{2}
+L = k \cdot v^2
+\quad \Rightarrow \quad L_x &= k \cdot v^2 \cdot \cos \alpha
+&\qquad \text{og } \qquad L_y &= k \cdot v^2 \cdot \sin \alpha \\
+&= k \cdot v^2 \cdot \frac{v_x}{v}
+&\qquad &= k \cdot v^2 \cdot \frac{v_y}{v} \\
+&= k \cdot v \cdot v_x
+&\qquad &= k \cdot v \cdot v_y
+\end{alignedat}
+\]
+</div>
+
+
+    </section>
+
+
+
+
+
+
+
+    <section id="del-4">
+      <h2>Mekanisk energi</h2>
+
+    <p><strong>Mekanisk energi</strong> er summen av kinetisk og potensiell energi:
+    \(
+      E_{\text{mek.}} = \frac{1}{2} mv^2 + mgh
+    \)</p>
+
+    <p><strong>Bevaring av mekanisk energi:</strong> Når ikke det virker friksjon eller luftmotstand er den mekaniske energien bevart:</p>
+
+    \[   \frac{1}{2} mv_0^2 + mgh_0 = \frac{1}{2} mv^2 + mgh  \]
+
+        <div class="example">
+      <h3>Eksempel</h3>
+      <p>En skater ruller gjennom en bane, som vist i figuren nedenfor.</p>
+      <img src="Maja.png" alt=" " style="width: 67%;">
+
+      <p>Hvor stor fart har hun på toppen av skråplanet? Se bort fra friksjon og luftmotstand.</p>
+
+      <div class="solution">
+        Bevaring av mekanisk energi gir 
+        \[ 
+        \begin{align}
+         \frac{1}{2} mv_0^2 + mgh_0 &= \frac{1}{2} mv^2 + mgh \\
+          v &= \sqrt{v_0^2 + 2gh_0 - 2gh } = \sqrt{10^2 + 2 \cdot 9\text{,}81 \cdot 5 - 2 \cdot 9\text{,}81 \cdot 4} = 11 \text{ m/s} 
+        \end{align}
+        \]
+      </div>
+    </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <section id="del-5">
+      <h2>Horisontal sirkelbevegelse</h2>
+
+      <p><strong>Sentripetalakselerasjon:</strong> Når et objekt beveger seg med konstant fart i en sirkelbevegelse, 
+        så akslerer det mot sentrum av sirkelen med <em>sentripetalakselerasjonen</em> (sentripetal betyr "sentersøkende"), som er gitt ved</p>
+      \[
+        a = \frac{v^2}{r} , \;\;\text{ hvor \(v\) er banefarten og \(r\) er baneradien.}
+      \]
+      <p><strong>MERK:</strong> Det er ganske enkelt å utlede uttrykket for sentripetalakselerasjonen ved hjelp av vektorregning og derivasjon, men dette er mer matematikk enn fysikk, 
+      så jeg gjør ikke det her.</p>
+
+<p>Simuleringen nedenfor viser sammenhengen mellom sentripetalakselerasjonen (rød vektor) og farten (grønn vektor) i en sirkel med radius på 1,0 meter. 
+  Siden akselerasjonen (og kraften) står 90° på farten, gjør ikke kraften noe arbeid på farten; Størrelsen til farten endrer seg ikke, men retningen endrer seg.
+</p>
+
+<link rel="stylesheet" href="sirkelbevegelse.css">
+
+<div id="sirkel-simulering">
+
+  <div class="sirkel-oppsett">
+
+    <!-- Sirkelbevegelsen -->
+    <div class="sirkel-grafikk">
+        <canvas
+            id="sirkelCanvas"
+            width="420"
+            height="280">
+        </canvas>
+    </div>
+
+    <!-- Glidebryter og verdier -->
+    <div class="sirkel-kontroller">
+
+<label for="sirkelV">
+    Fart: \(v = \)
+    <strong>
+        <span id="sirkelVVerdi">2.0</span> m/s
+    </strong>
+</label>
+
+<input
+    type="range"
+    id="sirkelV"
+    min="1"
+    max="3"
+    step="0.1"
+    value="2"
+>
+
+        <button id="sirkelStart" type="button">Start</button>
+
+        <div class="sirkel-info">
+            <div>
+                Akselerasjon: \(a = \) <span id="sirkelAks">2.47</span> m/s²
+            </div>
+            <div>
+        Rundetid: \(T = \) <span id="sirkelRundetid">3.14</span> s
+    </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="sirkelbevegelse.js" defer></script>
+
+
+      Siden farten er konstant, er sammenhengen mellom rundetiden, farten og radien gitt ved 
+      \[  v = \frac{\text{strekning}}{\text{tid}} = \frac{2\pi \cdot r}{T} \]
+      Vinkelfarten, hvor mange grader eller radianer objektet tilbakelegger per sekund, er gitt ved 
+      \[  \omega = \frac{360^{\text{o}}}{T} = \frac{2\pi}{T} \]
+
+
+       <div class="example">
+        <h3>Eksempel</h3>
+         <p>Månen går i en sirkelbane med radius 384 000 km rundt jorda, og den bruker 27,3 døgn på et omløp.</p>
+
+          <img src="Månen.png" alt="..." style="width: 24%;">
+          
+        <p>Bestem banefarten, vinkelfarten og sentripetalakselerasjonen til månen.</p>
+
+<div class="solution">
+\[ \begin{align}
+v &= \frac{2\pi \, r}{T} = \frac{2\pi \cdot 384\,000 \cdot 10^3}{27\text{,}3 \cdot 24 \cdot 60 \cdot 60} = 1023 \text{ m/s} = 1\text{,}0 \text{ km/s} \\[8pt]
+\omega &= \frac{360^{\text{o}}}{T} = \frac{360^{\text{o}}}{27\text{,}3 \cdot 24 \cdot 60 \cdot 60} = 0\text{,}00015° \text{ per sekund} = 13° \text{ per døgn} \\[8pt]
+\omega &= \frac{2\pi}{T} = \frac{2\pi}{27\text{,}3 \cdot 24 \cdot 60 \cdot 60} = 0\text{,}0000027 \text{ radianer per sekund} \\[8pt]
+a &= \frac{v^2}{r} = \frac{1023^2}{384\,000 \cdot 10^3} = 0\text{,}0027 \text{ m/s}^2
+\end{align}
+\]
+      </div>
+      </div>
+
+            <div class="note">
+      <strong>Merk:</strong> Det kanskje mest interessante resultatet i eksmpelet over, er vinkelfarten på 13° per døgn. Dette er nemlig noe vi kan observere; Hvis du ser på månen til samme tidspunkt to kvelder på rad,
+så har månen flyttet seg 13° fra den ene dagen til den andre.<br>
+(Du må se på den på samme tidspunkt fordi jorda roterer...)
+</div>
+
+
+   <div class="example">
+        <h3>Eksempel</h3>
+        <p>En bil med masse 2000 kg kjører med farten 20 m/s gjennom en sving. <br>Svingen er en del av en horisontal sirkel med radius 70 meter.</p>
+
+        <p>Bestem friksjonskraften mellom dekkene og veien.</p>
+
+        <div class="solution">
+         <img src="Udossert.png" alt="..." style="width: 35%;">
+         Det er friksjonskraften som dytter bilen inn mot sentrum. Dermed er friksjonskraften lik uttrykket for sentripetalkraft:
+         \[ R =  ma = m \cdot \frac{v^2}{r} = 2000 \cdot \frac{20^2}{70} = 1143 \text{ N} = 11 \text{ kN}\]
+        </div>
+      </div>
+
+      <div class="example">
+        <h3>Eksempel</h3>
+        <p>Friksjonstallet mellom dekkene og underlaget til bilen i eksempelet over, er \(\mu\) = 0,90.</p>
+
+        <p>Hvor fort kan bilen kjøre gjennom svingen uten å gli?</p>
+
+        <div class="solution">
+          Friksjonskrafen er gitt ved \(R = \mu N\), og normalkraften er \(N = mg\). Dermed får vi
+        \[ \mu mg = \mu = m \cdot \frac{v^2}{r} \; \; \Rightarrow \;\; v = \sqrt{\mu g r} = \sqrt{0\text{,}90 \cdot 9\text{,}81 \cdot 70} = 25 \text{ m/s} = 90\text{ km/h} \]
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+    <section id="del-6">
+      <h2>Dosserte svinger</h2>
+      <p>
+        Når fly svinger føles det som om man kjører rett fram; Dette kommer av at svingradien, farten og helningsvinkelen er tilpasset til hverandre. 
+      </p>
+      <img src="flysving.png" alt="..." style="width: 42%;">
+      <p>Når en bil kjører gjennom en dossert sving, dytter normalkraften bilen delvis inn mot sentrum.
+        Hvis farten er akkurat passe stor, er det derfor mulig å kjøre gjennom en sving uten at friksjonskraften trenger å dytte bilen inn mot sentrum.
+      Vi får da samme effekt som når et fly svinger; Det føles som om vi kjører rett fram.</p>
+<img src="Dosert.png" alt="..." style="width: 35%;">
+        
+      
+      <div class="example">
+        <h3>Eksempel</h3>
+        <p>En bil med masse 2000 kg kjører gjennom en dosert sving som er en del av en horisontal sirkel med radius 10 meter. Doseringsvinkelen i svingen er 30°.</p>
+
+          <img src="BilDo.png" alt="..." style="width: 42%;">
+
+
+        <p>Hvor fort må bilen kjøre hvis ikke det skal virke sideveis friksjon mellom dekkene og veien?<br>
+        Hvor stor er da normalkraften?</p>
+
+        <div class="solution">
+         Ved å se på figuren foran eksempelet, og bruke trigonometri, så kan vi se at 
+         \[  \tan 30° = \frac{\text{motstående katet}}{\text{hosliggende katet}} = \frac{\Sigma F}{G} = \frac{\frac{mv^2}{r}}{mg} \;\;\; \Rightarrow \;\;\; v = \sqrt{gr\tan 30°} = 7\text{,}5 \text{ m/s}\]
+         
+         Normalkraften er hypotenusen i en rettvinklet trekant hvor \(G\) og \(\Sigma F\) er kateter:
+         \[ N = \sqrt{G^2 + \Sigma F^2} = \sqrt{\left(mg\right)^2 + \left( \frac{mv^2}{r} \right)^2} = 23 \text{ kN} \]
+        </div>
+      </div>
+
+
+      <div class="note">
+<strong>Merk:</strong>  Det er fort gjort å blande utregningene i eksempelet over med utregningene vi gjør når vi ser på skråplan;
+Disse utregningene ligner på hverandre, men de er ikke de samme. Så vær OBS på å skille mellom situasjonene nedenfor:
+<img src="dosVSskrå.png" alt="..." style="width: 67%;">
+En vesentlig forskjell på situasjonene er at normalkraften er større enn tyngdeakselerasjonen i en dosert sving,
+mens normalkraften er mindre enn gravitasjonskraften på et skråplan.
+</div>
+
+
+      <div class="example">
+        <h3>Eksempel</h3>
+        <p>En syklist sykler gjennom en sving med radius 75 meter. Syklisten svinger ikke med styret, men lener seg til siden slik at hun følger svingen.
+          Vinkelen mellom verikalen og syklisten er 70°. Den samlede massen til syklisten og sykkelen er 68 kg.
+        </p>
+          <img src="Sykkel.png" alt="..." style="width: 42%;">
+        <p>Hvor stor er friksjonskraften mellom dekkene og veien?</p>
+
+        <div class="solution">
+         Det at hun må lene seg til siden, tilsvarer en dosseringsvinkel på 20°.  Tilsvarende utregning som i forrige eksempel gir da farten hennes:
+         \[  \tan 20° = \frac{\text{motstående katet}}{\text{hosliggende katet}} = \frac{\Sigma F}{G} = \frac{\frac{mv^2}{r}}{mg} \;\;\; \Rightarrow \;\;\; v = \sqrt{gr\tan 20°} = 16\text{,}36 \text{ m/s } (\approx 60 \text{ km/h})\]
+         Friksjonskraften, kraften fra veien som dytter henne mot sentrum av sirkelen, er da 
+         \[  R = \frac{mv^2}{r} = \frac{68 \cdot 16^2}{75} = 243 \text{ N} = 0\text{,}24 \text{ kN}  \]
+         (i tillegg er det egentlig en friksjonskraften i fartsretningen, som får hjulene til å rulle..., men vi den er mye mindre, så vi kan se bort fra denne)
+        </div>
+      </div>
+
+
+    </section>
+
+
+
+
+
+
+
+    <section id="del-7">
+      <h2>Vertikal sirkelbevegelse</h2>
+      <p>
+        Når vi jobber med vertikal sirkelbevegelse er det lurt å dekomponere kreftene i en komponent mot sentrum og en komponent i fartsretningen.
+        Summen av komponentene mot sentrum, er lik uttrykket for sentripetalkraft:
+      </p>
+ <img src="SentrumKomp.png" alt="..." style="width: 52%;">
+      <p>
+       Figuren nedenfor viser sammenhengen mellom kreftene \(G\) og \(N\), og uttrykket for sentripetalkraft, i ulike steder i en vertikal sirkel. 
+      </p>
+      <img src="VertikalS.png" alt="..." style="width: 67%;">
+      <div class="note">
+<strong>Merk:</strong>  Normalkraften er kraften vi kjenner (fra underlaget). Hvis denne er stor (som i dumpen til venstre), føler vi oss tyngre. 
+Over bakketoppen, hvor \(N\) er mindre enn \(G\) føler vi oss letter. Hvis \(N=0\) mister bilen kontakten med underlaget, og vi blir vektløse.
+</div>
+
+
+      <div class="example">
+        <h3>Eksempel</h3>
+        <p>Se på figuren over. Bilen har masse 1000 kg og kjører med en konstant fart. Radien i sirklene er 100 m.
+          Når vinkelen \(\alpha = 30°\) mister bilen kontakten med underlaget.
+        </p>
+
+        <p>Bestem farten til bilen, og bestem normalkraften nederst i dumpen og over bakketoppen.</p>
+
+        <div class="solution">
+         Siden bilen mister kontakten med underlaget når  \(\alpha = 30°\), får vi 
+         \[ \frac{mv^2}{r} = mg \cdot \cos 30° \;\;\; \Rightarrow \;\;\; v = \sqrt{gr \cos  30°} = \sqrt{9\text{,}81 \cdot 100 \cdot  \cos  30°} = 29 \text{ m/s}\]
+         Normalkraften i bunnen og på toppen blir da 
+         \[ N_{\text{bunnen}} = \frac{mv^2}{r} + G = \frac{1000 \cdot 29^2}{100} + 1000 \cdot 9\text{,}81 = 18306 \text{ N} \]
+         \[ N_{\text{toppen}} =  G - \frac{mv^2}{r}  =  1000 \cdot 9\text{,}81 - \frac{1000 \cdot 29^2}{100} = 1314 \text{ N} \]
+        </div>
+      </div>
+
+
+                  <div class="example">
+        <h3>Eksempel</h3>
+        <p>En ape med masse 12 kg starter i ro, og svinger seg i en liane med lengde 5,0 meter, fra toppen av et tre 6,0 meter over bakken. <br>
+        Det laveste punktet i banen er 1,0 meter over bakken.</p>
+        <img src="apesving.png" alt="..." style="width: 52%;">
+<p>Når vinkelen mellom lianen og loddlinjen er 30°, ryker lianen. Se bort fra friksjon og luftmotstand.</p>
+
+        <p>Hvor stort var snordraget i lianen like før den røk?</p>
+
+        <div class="solution">
+         Snordraget \(S\) like før lianen ryker er gitt ved 
+          \[ \boxed{\Sigma F = \frac{mv^2}{r} = S - mg \cdot \cos 30°} \;\;\; 
+          \Rightarrow \;\;\; S = \frac{mv^2}{r} + mg \cdot \cos 30°  \]
+          Dermed trenger vi farten \(v\), som vi kan finne med bevaring av mekanisk energi. <br><br>
+       
+          Trigonometri gir at høyden til apen når lianen ryker, er
+      \[  h = 1\text{,}0 +  \left(  5\text{,}0 - 5\text{,}0 \cos 30° \right) = 1\text{,}670 \text{ m} \]
+      Bevaring av mekanisk energi gir farten like før lianen ryker:
+      \[\begin{align} 
+      \frac{1}{2}mv_0^2 + mgh_0 &= \frac{1}{2}mv^2 + mgh \\[8pt]
+      v &= \sqrt{2g(h_0 - h)} = \sqrt{2 \cdot 9\text{,}81 \cdot \left(6\text{,}0 - 1\text{,}670\right)} = 9\text{,}217 \text{ m/s}
+      \end{align}
+      \]
+          Snordraget \(S\) er dermed 
+          \[ S = \frac{mv^2}{r} + mg \cdot \cos 30° =\frac{12 \cdot 9\text{,}217^2}{5\text{,}0} + 12 \cdot 9\text{,}81 \cdot \cos 30° = 306 \text{ N} \]
+        </div>
+      </div>
+
+
+            <div class="example">
+        <h3>Eksempel</h3>
+        <p>En person skal sykle gjennom en vertikal loop med radius 10 m. I bunnen av loopen har syklisten farten 30 m/s.
+        </p>
+        
+<p>Massen til syklisten og sykkelen er 70 kg.</p>
+
+        <p>Hvor mye mekanisk energi mister syklisten hvis hun såvidt ikke mister kontakt med underlaget i toppen av loopen?</p>
+
+        <div class="solution">
+      <img src="SykkelLoop.png" alt="..." style="width: 35%;">
+      Vi finner farten som gjør at normalkraften er null i toppen (som vil si at hun såvidt/såvidt ikke mister kontakt med underlaget i toppen av loopen):
+      \[ \Sigma F_{\text{toppen}} = \frac{mv^2}{r} = G + N \;\;\; \xrightarrow{N = 0} \;\;\; v = \sqrt{gr} = \sqrt{10 \cdot 10} = 10 \text{ m/s} \]
+      Dette gir at den mekaniske energien på toppen er
+      \[ E_{text{topp}} = \frac{1}{2}mv^2 + mgh = \frac{1}{2}\cdot 70 \cdot 10^2 + 70 \cdot 10 \cdot 10 = 3500 + 7000 = 10\,500 \text{ J} = 10\text{,}5 \text{ kJ} \]
+      I bunnen var den mekaniske energien 
+      \[ E_{\text{bunn}} = \frac{1}{2}mv_0^2 = \frac{1}{2}\cdot 70 \cdot 30^2 = 31\,500 \text{ J} = 31\text{,}5 \text{ kJ} \]
+      Altså har hun mistet 21 kJ (på grunn av friksjon og luftmotstand).
+        </div>
+      </div>
+
+
+   
+
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

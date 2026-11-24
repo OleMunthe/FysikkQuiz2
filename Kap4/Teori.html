@@ -1,0 +1,284 @@
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Elektriske felt</title>
+
+  <!-- MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="styleTeori.css">
+</head>
+
+<body>
+<nav class="side-menu" aria-label="Innholdsfortegnelse">
+<a href="../index.html" class="back-link">👈 Tilbake til hovedsiden</a>
+<br>
+<strong>Innhold</strong>
+<a href="#del-1">Coulombs lov</a>
+<a href="#del-2">Sentralfelt</a>
+<a href="#del-3">Platekondensator</a>
+</nav>
+
+
+<div class="print-scale">
+
+<button class="print-button" onclick="window.print()">🖨️ Skriv til PDF</button>
+
+  <main>
+
+
+    <section id="del-1">
+      <h2>Coulombs lov</h2>
+
+      <p>
+        <strong>Couloms lov:</strong> Det elektriske kraften mellom to ladninger \(q\) og \(Q\) er 
+        \[   F_e = k_e \frac{qQ}{r^2} \]
+        hvor \(k_e = 8\text{,}99 \cdot 10^9 \text{Nm}^2\text{C}^2\) er en konstant og \(r\) er avstanden mellom ladningene.
+</p>
+
+        <p><strong>Elementærladningen:</strong> Elektroner har ladning \(-e\) og protoner har ladning \(e\), hvor \(e = 1\text{,}60 \cdot 10^{-19} \text{ C}\) er <em>elementærladningen</em>.</p>
+  
+      <div class="example">
+        <h3>Eksempel</h3>
+        <p>Avstanden mellom et elektron og et proton i et hydrogenatom er ca. \(10^{-10}\) meter.</p>
+
+        <p>Bestem den elektriske kraften mellom elektronet og protonet.</p>
+
+           <div class="solution">
+         \[  F_e = k_e \frac{Qq}{r^2} \approx 8\text{,}99 \cdot 10^9 \cdot \frac{1\text{,}60 \cdot 10^{-19} \cdot 1\text{,}60 \cdot 10^{-19}}{\left( 10^{-10} \right)^2} \approx 10^{-7} \text{ N} \]
+        </div>
+      </div>
+
+      <div class="note">
+<strong>Merk:</strong>  Kraften over høres liten ut, men masse til et elektron er ca. \(10^{-30}\) kg, så kraften tilsvarer en akselerasjon på 
+\[ a = \frac{F}{m}  \approx \frac{10^{-7}}{10^{-30}} = 10^{23} \text{ m/s}^2\]
+</div>
+
+
+
+      <div class="example">
+        <h3>Eksempel</h3>
+        <p>To ballonger er elektrisk ladd med like stor ladning \(q\), og henger i to snorer slik figuren viser.</p>
+<img src="Ballonger.png" alt="..." style="width: 24%;">
+
+        <p>Hvor stor ladning \(q\) har ballongene?</p>
+
+           <div class="solution">
+         <img src="BallongerKreft.png" alt="..." style="width: 24%;">
+         Trigonometri og Coulombs lov gir 
+         \[  \tan 10^{\text{o}} = \frac{F_e}{G} = \frac{k_e \frac{q^2}{r^2}}{mg} \;\;\;\Rightarrow\;\;\; q = \sqrt{\frac{mg\,r^2\,\tan 10^{\text{o}} }{k_e}} = 1\text{,}7 \cdot 10^{-6} \text{ C} \]
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <section id="del-2">
+      <h2>Sentralfelt</h2>
+      Rundt en punktladning \(Q\) får vi et sentralfelt med feltstyrke \(E = k_e \cdot \frac{Q}{r^2}\).
+       <img src="Ladninger.png" alt="..." style="width: 52%;">
+
+             <div class="example">
+        <h3>Eksempel</h3>
+<img src="Ladninger2.png" alt="..." style="width: 28%;">
+
+        <p>Bestem det elektriske feltet i punktet P.</p>
+
+           <div class="solution">
+            For å bestemme feltstyrken må vi legge sammen feltet fra hver av ladningene ved hjelp av vektorregning:
+         <img src="Ladninger3.png" alt="..." style="width: 33%;">
+         Feltstyrkene fra hver av ladningene er gitt ved 
+         \[ \begin{align} E_1 &= 8\text{,}99 \cdot 10^9 \cdot  \frac{2\text{,}0 \cdot 10^{-6}}{(0\text{,}050)^2} = 7\text{,}19 \cdot 10^6 \text{ N/C} \;\;\text{ (på skrått oppover)}\\
+         E_2 &= 8\text{,}99 \cdot 10^9 \cdot  \frac{1\text{,}0 \cdot 10^{-6}}{(0\text{,}030)^2} = 9\text{,}99 \cdot 10^6 \text{ N/C} \;\;\text{ (vertikalt nedover)} \end{align} \]
+         Feltet i henholdsvis \(x\)- og \(y\)-retning blir 
+         \[  \begin{align} E_x &= 7\text{,}19 \cdot 10^6 \cdot \frac{4}{5} = 5\text{,}75 \cdot 10^6 \text{ N/C} \\
+         E_y &= 7\text{,}19 \cdot 10^6 \cdot \frac{3}{5} - 9\text{,}99 \cdot 10^6 = 5\text{,}67 \cdot 10^6 \text{ N/C} 
+         \end{align} \]
+         Det totale feltet blir 
+         \[  E = \sqrt{E_x^2 + E_y^2} = 8\text{,}08 \cdot 10^6 \text{ N/C} \]
+        </div>
+      </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="del-3">
+      <h2>Platekondensator</h2>
+<p>En platekondensator består av to metallplater hvor det er en elektrisk spenning \(U\) over platene,
+  som gjør den ene platen negativ og den andre positiv.
+</p>
+
+<p><strong>Skrått kast i elektrisk felt:</strong> Det elektriske feltet mellom platene er homogent. 
+  Elektriske ladninger som skytes inn mellom platene beveger seg derfor som en ball i et gravitasjonsfelt (skrått kast).</p>
+
+      <link rel="stylesheet" href="elektron-kondensator.css">
+
+<div id="elektron-kondensator">
+
+    <div class="ek-kontroller">
+
+        <label for="ekFart">
+            Startfart:
+            <strong>
+                \(v_0 =\)
+                <span id="ekFartVerdi">5</span>
+                \(\cdot 10^6\) m/s
+            </strong>
+        </label>
+
+        <input
+            type="range"
+            id="ekFart"
+            min="1"
+            max="10"
+            step="0.5"
+            value="5"
+        >
+
+        <label for="ekAvstand">
+            Plateavstand:
+            <strong>
+                \(d =\)
+                <span id="ekAvstandVerdi">6</span> cm
+            </strong>
+        </label>
+
+        <input
+            type="range"
+            id="ekAvstand"
+            min="5"
+            max="7"
+            step="0.2"
+            value="6"
+        >
+
+        <label for="ekSpenning">
+            Spenning:
+            <strong>
+                \(U =\)
+                <span id="ekSpenningVerdi">5</span> V
+            </strong>
+        </label>
+
+        <input
+            type="range"
+            id="ekSpenning"
+            min="1"
+            max="10"
+            step="0.5"
+            value="5"
+        >
+
+        <button id="ekSkyt" type="button">
+    Skyt elektron
+</button>
+
+    </div>
+
+    <div class="ek-grafikk">
+<canvas
+    id="ekCanvas"
+    width="1200"
+    height="500"
+></canvas>
+    </div>
+
+</div>
+
+<script src="elektron-kondensator.js" defer></script>
+
+
+<p>
+<strong>Elektrisk feltet mellom kondensatorplater:</strong>
+\[ E = \frac{U}{d} \;,\;\;\text{ hvor \(U\) er spenningen og \(d\) er avstanden mellom platene.} \]
+<strong>Kraft på ladning i elektrisk felt:</strong> Den elektriske kraften på en ladning \(q\) i et felt \(E\) er 
+\[  F = qE \]
+</p>
+
+
+            <div class="example">
+        <h3>Eksempel</h3>
+        Et elektron skytes inn midt mellom to kondensatorplater, slik figuren viser.
+<img src="plateskudd.png" alt="..." style="width: 67%;">
+Bestem hvor langt \(x\) elektronet beveger seg i horisontal retning før det treffer den øverste plata.
+           <div class="solution">
+            <p>
+              Akselerasjonen til ladningen er 
+              \[ a = \frac{F}{m} = \frac{qE}{m} = \frac{qU}{md} = \frac{1\text{,}60 \cdot 10^{-19} \cdot 5\text{,}0}{9\text{,}11 \cdot 10^{-31} \cdot 0\text{,}060} = 1\text{,}46 \cdot 10^{13} \text{ m/s}^2 \]
+              Den treffer den øverste plata når den har bevegd seg \(y=3\text{,}0\) cm oppover, noe som gir tiden:
+              \[  y = \frac{1}{2} at^2 \;\;\; \Rightarrow \;\;\; t = \sqrt{\frac{2y}{a}} = \sqrt{\frac{2\cdot 0\text{,}030}{1\text{,}46 \cdot 10^{13}}} = 6\text{,}40 \cdot 10^{-8} \text{ s}\]
+              Avstanden i \(x\)-retning blir da 
+              \[  x = v \cdot t = 6\text{,}0 \cdot 10^6 \cdot 6\text{,}40 \cdot 10^{-8} = 0\text{,}38 \text{ m} = 38 \text{ cm} \]
+            </p>
+          
+
+        </div>
+      </div>
+
+
+
+      <p>
+Arbeidet (endringen av kinetisk energi) en ladning \(q\) får fra en spenning \(U\) er 
+\[  W = \Delta E_k = qU \]
+</p>
+
+            <div class="example">
+        <h3>Eksempel</h3>
+        Et elektron akselereres fra ro av en spenning på 100 V.
+<img src="Elektronkanon.png" alt="..." style="width: 30%;">
+Bestem farten elektronet får.
+           <div class="solution">
+       \[  qU = W = \Delta E_k = \frac{1}{2}mv^2 \;\;\; \Rightarrow \;\;\; v = \sqrt{\frac{2qU}{m}} = \sqrt{\frac{2\cdot 1\text{,}60 \cdot 10^{-19} \cdot 100}{9\text{,}11\cdot 10^{-31}}} = 5\text{,}9 \cdot 10^6 \text{ m/s}\]
+          
+
+        </div>
+      </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </main>
+</div>
+</body>
+</html>

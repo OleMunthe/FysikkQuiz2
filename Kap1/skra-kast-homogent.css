@@ -1,0 +1,133 @@
+/* SKRÅTT KAST I HOMOGENT GRAVITASJONSFELT */
+
+#skra-kast {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+#skra-kast .kast-panel {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#skra-kast .kast-panel h3 {
+    text-align: center;
+}
+
+#skra-kast label {
+    margin-top: 10px;
+}
+
+#skra-kast input[type="range"] {
+    width: 100%;
+}
+
+#skra-kast .kast-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#skra-kast button {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#skra-kast button:hover {
+    background: #1d4ed8;
+}
+
+#skra-kast .kast-info {
+    margin-top: 15px;
+}
+
+#skra-kast .kast-info p {
+    margin: 6px 0;
+}
+
+#skra-kast canvas {
+    display: block;
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+   background: transparent;
+    border: 1px solid #cbd5e1;
+}
+
+@media (max-width: 800px) {
+    #skra-kast {
+        flex-direction: column-reverse;
+    }
+
+    #skra-kast .kast-panel {
+        width: 90%;
+    }
+
+    #skra-kast canvas {
+        width: 100%;
+    }
+}
+
+
+/* Beholder for grafikk og informasjon */
+#skra-kast .kast-grafikk {
+    position: relative;
+    width: 500px;
+    max-width: 100%;
+}
+
+/* Grafikkfelt */
+#skra-kast .kast-grafikk canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Informasjon øverst til høyre */
+#skra-kast .kast-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+     background: transparent;
+    padding: 8px 12px;
+    border-radius: 6px;
+
+    font-size: 14px;
+    color: #1e293b;
+
+    pointer-events: none;
+}
+
+/* Avstand mellom informasjonslinjene */
+#skra-kast .kast-info p {
+    margin: 4px 0;
+}
+
+
+/* Start og Nullstill ved siden av hverandre */
+#skra-kast .kast-knapper {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#skra-kast .kast-knapper button {
+    flex: 1;
+    width: auto;
+}

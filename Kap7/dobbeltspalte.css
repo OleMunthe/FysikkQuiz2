@@ -1,0 +1,74 @@
+#dobbeltspalte-simulering {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+
+    max-width: 750px;
+    margin: 25px auto;
+
+    font-family: Arial, sans-serif;
+}
+
+/* Kontroller til venstre */
+
+#dobbeltspalte-simulering .ds-kontroller {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    flex: 0 0 170px;
+    gap: 10px;
+}
+
+/* Tekst over glidebryterne */
+
+#dobbeltspalte-simulering label {
+    display: block;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+/* Kortere glidebrytere */
+
+#dobbeltspalte-simulering input[type="range"] {
+    width: 150px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* Grafikkfelt til høyre */
+
+#dobbeltspalte-simulering .ds-grafikk {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Behold grafikkens størrelse */
+
+#dobbeltspalte-simulering canvas {
+    display: block;
+    width: 100%;
+    max-width: 525px;
+    height: auto;
+    background: white;
+}
+
+/* Mobiltilpasning */
+
+@media (max-width: 600px) {
+
+    #dobbeltspalte-simulering {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    #dobbeltspalte-simulering .ds-kontroller {
+        flex: none;
+        width: 100%;
+    }
+
+    #dobbeltspalte-simulering .ds-grafikk {
+        width: 100%;
+    }
+}

@@ -1,0 +1,114 @@
+#sirkel-simulering {
+    max-width: 620px;
+    margin: -30px auto 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Figur og kontroller ved siden av hverandre */
+
+#sirkel-simulering .sirkel-oppsett {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Grafikkfelt */
+
+#sirkel-simulering .sirkel-grafikk {
+    position: relative;
+    flex: 0 1 420px;
+    min-width: 0;
+}
+
+#sirkel-simulering canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: transparent;
+}
+
+/* Fart og akselerasjon under glidebryteren */
+
+#sirkel-simulering .sirkel-info {
+    position: static;
+    margin-top: 18px;
+    padding: 0;
+
+    background: transparent;
+    border-radius: 0;
+
+    font-size: 14px;
+    line-height: 2;
+    white-space: nowrap;
+}
+
+/* Glidebryter */
+
+#sirkel-simulering .sirkel-kontroller {
+    flex: 1 0 140px;
+    min-width: 0;
+}
+
+#sirkel-simulering .sirkel-kontroller label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+#sirkel-simulering .sirkel-kontroller strong {
+    display: inline;
+    margin-top: 5px;
+}
+
+#sirkel-simulering input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Smale skjermer */
+
+@media (max-width: 480px) {
+
+    #sirkel-simulering .sirkel-oppsett {
+        gap: 8px;
+    }
+
+    #sirkel-simulering .sirkel-kontroller {
+        flex-basis: 100px;
+    }
+
+    #sirkel-simulering .sirkel-kontroller label {
+        font-size: 13px;
+    }
+
+    #sirkel-simulering .sirkel-info {
+        font-size: 11px;
+        right: 5px;
+        bottom: 5px;
+        padding: 4px 6px;
+    }
+}
+
+/* Start/Pause-knapp */
+
+#sirkel-simulering #sirkelStart {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    padding: 8px 20px;
+
+    background: #2563eb;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#sirkel-simulering #sirkelStart:hover {
+    background: #1d4ed8;
+}

@@ -1,0 +1,94 @@
+#sirkel-simulering {
+    max-width: 620px;
+    margin: 15px auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Figur og kontroller ved siden av hverandre */
+
+#sirkel-simulering .sirkel-oppsett {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Grafikkfelt */
+
+#sirkel-simulering .sirkel-grafikk {
+    position: relative;
+    flex: 0 1 420px;
+    min-width: 0;
+}
+
+#sirkel-simulering canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: transparent;
+}
+
+/* Informasjon inne i grafikkfeltet */
+
+#sirkel-simulering .sirkel-info {
+    position: absolute;
+
+    right: 10px;
+    bottom: 12px;
+
+    padding: 6px 10px;
+
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 6px;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    white-space: nowrap;
+}
+
+/* Glidebryter */
+
+#sirkel-simulering .sirkel-kontroller {
+    flex: 1 0 140px;
+    min-width: 0;
+}
+
+#sirkel-simulering .sirkel-kontroller label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+#sirkel-simulering .sirkel-kontroller strong {
+    display: block;
+    margin-top: 5px;
+}
+
+#sirkel-simulering input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Smale skjermer */
+
+@media (max-width: 480px) {
+
+    #sirkel-simulering .sirkel-oppsett {
+        gap: 8px;
+    }
+
+    #sirkel-simulering .sirkel-kontroller {
+        flex-basis: 100px;
+    }
+
+    #sirkel-simulering .sirkel-kontroller label {
+        font-size: 13px;
+    }
+
+    #sirkel-simulering .sirkel-info {
+        font-size: 11px;
+        right: 5px;
+        bottom: 5px;
+        padding: 4px 6px;
+    }
+}

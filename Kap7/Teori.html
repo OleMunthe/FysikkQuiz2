@@ -1,0 +1,611 @@
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Kvantefysikk</title>
+
+  <!-- MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="styleTeori.css">
+</head>
+
+<body>
+<nav class="side-menu" aria-label="Innholdsfortegnelse">
+<a href="../index.html" class="back-link">👈 Tilbake til hovedsiden</a>
+<br>
+<strong>Innhold</strong>
+<a href="#del-1">Fotoner</a>
+<a href="#del-2">Bølgeegenskaper</a>
+<a href="#del-3">Bølgefunksjonen</a>
+<a href="#del-4">Kvantisering og tunnelering</a>
+</nav>
+
+
+<div class="print-scale">
+
+<button class="print-button" onclick="window.print()">🖨️ Skriv til PDF</button>
+
+  <main>
+
+
+    <section id="del-1">
+      <h2>Fotoner (lys)</h2>
+      <p>Lys kommer i bølgepakker (fotoner), som både har bølge- og partikkelegenskaper. </p>
+
+      <p>Fargen på lyset avhenger av bølgelengden og frekvensen, slik simuleringen nedenfor viser.</p>
+
+            <div class="note">
+<strong>Merk:</strong>  Bølgelengden \(\lambda\) måles i nm = \(10^{-9}\) m.
+Frekvensen \(f\) måles i Hz (hertz), som betyr antall svingninger per sekund.
+</div>
+
+<link rel="stylesheet" href="fri-partikkel.css">
+
+<div class="fri-partikkel-simulering" data-versjon="enkel">
+
+    <div class="fri-oppsett">
+
+        <div class="fri-kontroller">
+
+            <label>
+                Bølgelengde:
+                <strong>
+                    \(\lambda =\)
+                    <span class="fri-lambda-verdi">550</span> nm
+                </strong>
+            </label>
+
+            <input
+                class="fri-lambda"
+                type="range"
+                min="400"
+                max="700"
+                step="10"
+                value="550"
+                aria-label="Bølgelengde, forenklet versjon"
+            >
+
+            <div class="fri-frekvens">
+                Frekvens:
+                <span class="fri-frekvens-verdi"></span>
+            </div>
+
+        </div>
+
+        <div class="fri-grafikk">
+            <canvas
+                class="fri-canvas"
+                width="840"
+                height="360"
+                aria-label="Gaussisk bølgepakke uten koordinatakser"
+            ></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+<img src="Farger.png" alt="..." style="width: 67%;">
+
+<p>Sammenhengen mellom energien \(E_f\), bølgelengden \(\lambda\), frekvensen \(f\) og
+bevegelsesmengden \(p\) til et foton er</p>
+\[ E_f = \frac{hc}{\lambda} = hf = pc\]
+<p>hvor \(h=6\text{,}63 \cdot 10^{-34} \text{ Js}\) kalles Planck's konstant.</p>
+
+
+ <div class="example">
+        <h3>Eksempel</h3>
+        <p>En lommelykt sender ut lys med bølgelengde \(\lambda = 600\) nm. Effekten til lommelykta er 30 W.</p>
+          <img src="lommelyktfoton.png" alt="..." style="width: 52%;">
+        <p>Bestem frekvensen til fotonene, og bestem hvor mange fotoner som sendes ut hvert sekund.</p>
+
+        <div class="solution">
+<p>Fra likningen over får vi at frekvensen er</p>
+\[  f = \frac{c}{\lambda} = \frac{3\text{,}00 \cdot 10^8 \text{ m/s}}{600 \cdot 10^{-9} \text{ m}} = 5\text{,}00 \cdot 10^{14} \text{ Hz}\]
+<p>Effekt på 30 W betyr 30 joule per sekund, og energien til ett foton er
+\[  E = hf = 6\text{,}63 \cdot 10^{-34} \text{ Js} \cdot 5\text{,}00 \cdot 10^{14} \text{ Hz} = 3\text{,}32 \cdot 10^{-19} \text{ J}  \]
+som gir at antall fotoner blir
+\[  \frac{30 \text{ J per sekund}}{3\text{,}32 \cdot 10^{-19} \text{ J}} = 9\text{,}1 \cdot 10^{19} \text{ per sekund} \]
+</p>
+        </div>
+      </div>
+
+
+
+<p><strong>Fotoelektrisk effekt:</strong> Et foton absorberes av et metall, og et elektron spretter ut.
+Dette viser at fotoner (lys) har partikkelegenskaper.</p>
+<img src="Fotoel.png" alt="..." style="width:35%;">
+
+<p>Den kinetiske energien \(E_k\) elektronene (maksimalt) får er gitt ved 
+    \[ E_k = E_f - W \]
+    hvor \(E_f\) er fotonenergien og \(W\) er løsrivningsarbeidet til metallet.
+</p>
+
+      <div class="note">
+<strong>Merk:</strong>  I forsøk måles ofte frekvensen \(f\) til fotonene som sendes inn mot metallet. 
+Likningen over skrives ofte derfor slik:
+\[  E_k = hf - W \]
+Et vanlig spørsmål/LAB-forsøk er å måle \(E_k\) for ulike frekvenser \(f\), og utfra dette bestemme Planck's konstant \(h\) og løsrivningsarbeidet til metallet.<br><br>
+
+Den minste frekvensen som kreves for å løsrive elektroner kalles <em>grensefrekvensen</em> til metallet.
+</div>
+
+      <div class="example">
+        <h3>Eksempel</h3>
+        <p>I et forsøk måles sammenhengen mellom frekvensen \(f\) til fotonene som sendes inn mot en magnesiumplate,
+            og den maksimale kinetiske energien til elektronene som løsrives.
+        </p>
+        <p>Målepunktene i grafikkfeltet viser resultatene fra forsøket. Den stiplede linja viser en regresjon for punktene.</p>
+          <img src="fotoforsøk.png" alt="..." style="width: 52%;">
+
+
+        <p>Bruk grafen til å bestemme løsrivningsarbeidet for magnesium, grensefrekvensen for magnesium og Planck's konstant.</p>
+
+        <div class="solution">
+            <p>
+    Likningen til den rette linja er
+    \(  \overbrace{y}^{E_k} = \overbrace{a}^{h} \cdot \overbrace{x}^{f} + \overbrace{b}^{-W} \).
+    </p>
+    <p>
+    Skjæringen med \(y\)-aksen gir løsrivningsarbeidet:  \(W = \underline{0\text{,}60 \cdot 10^{-18} \text{ J}}\).
+</p>
+         <p>Nullpunktet gir grensefrekvensen: \(f_g = \underline{0\text{,}90 \cdot 10^{15} \text{ Hz}}\).
+         </p>
+         <p>
+         Planck's konstant (stigningstallet) er
+             \[  h = \frac{\Delta x}{\Delta y} = \frac{0\text{,}60 \cdot 10^{-18}}{0\text{,}90 \cdot 10^{15}} = \underline{6\text{,}7 \cdot 10^{-34} \text{ Js}} \]
+        </p>
+        <p>
+        <strong>MERK:</strong> Planck's konstant er i virkeligheten \(6\text{,}63 \cdot 10^{-34} \text{ Js}\), og løsrivningsarbeidet og grensefrekvensen for magnesium er henholdsvis
+        \(0\text{,}586 \cdot 10^{-18} \text{ J}\) og \(0\text{,}885 \cdot 10^{15} \text{ Hz}\). Dermed stemmer resultatene fra forskøet ganske bra 
+        (men, som nesten alltid pga. usikkerheter i målingene, ikke helt).
+        </p>
+        </div>
+      </div>
+
+      <p>
+<strong>Comptonstøt:</strong> Et foton (vekselvirker) kolliderer med et elektron på (omtrent) samme måte som to biljardkuler kolliderer.
+<img src="Com.png" alt="..." style="width: 42%;">
+Dette viser at fotoner har partikkelegenskaper; <br>Hvis fotonet hadde oppført seg som en bølge her, ville det bare tatt med seg elektronet rett framover.
+<img src="ComptonCartoon.png" alt="..." style="width: 60%;">
+        </p>
+
+
+              <div class="example">
+        <h3>Eksempel</h3>
+        <p>Et foton kolliderer med et elektron i ro. Før støtet har fotonet bølgelengde \(\lambda_1 = 0\text{,}80 \cdot 10^{-10}\) m. Fotonet etter kollisjonen har bølgelengde \(\lambda _2 = 1\text{,}00 \cdot 10^{-10}\) m.</p>
+
+          <img src="Co.png" alt="..." style="width: 52%;">
+
+        <p>Bruk bevaring av energi og bevegelsesmengde til å vise at vinkelen \(\theta \neq 0\).<br>
+        (Altså; Vis at fotonet og elektronet <em>ikke</em> går rett fram etter støtet)</p>
+
+        <div class="solution">
+            <p>Her må vi bruke sammenhengene mellom energi, bølgelengde og bevegelsesmengde for fotoner:
+                \[ E_f = \frac{hc}{\lambda} = pc \]
+            </p>
+            <p>
+                Bevegelsesmengden til fotonet før og etter søtet er
+                \[  p_1 = \frac{h}{\lambda_1} = \frac{6\text{,}63\cdot 10^{-34}}{0\text{,}80 \cdot 10^{-10}} = 8\text{,}29 \cdot 10^{-24} \text{ kg m/s}
+                \;\;\; \text{ og } \;\;\;
+                 p_2 = \frac{h}{\lambda_2} = \frac{6\text{,}63\cdot 10^{-34}}{1\text{,}00 \cdot 10^{-10}} = 6\text{,}63 \cdot 10^{-24} \text{ kg m/s} \]
+                </p>
+         <p>Energibevaring gir den kinetiske energien til elektronet:
+\[  E_k = \frac{hc}{\lambda_2} - \frac{hc}{\lambda_1} 
+= \frac{6\text{,}63 \cdot 10^{-34} \cdot 3\text{,}00 \cdot 10^8}{0\text{,}80 \cdot 10^{-10}}  - \frac{6\text{,}63 \cdot 10^{-34} \cdot 3\text{,}00 \cdot 10^8}{1\text{,}00 \cdot 10^{-10}}
+= 4\text{,}9725 \cdot 10^{-16} \text{ J} \]
+<p>
+Bevegelsesmengden til elektronet blir da
+\[  E_k = \frac{1}{2}mv^2 \;\; \text{og}\;\; p =mv \;\;\; \Rightarrow p = \sqrt{2mE_k} = \sqrt{2\cdot 9\text{,}11 \cdot 10^{-31} \cdot 4\text{,}9725 \cdot 10^{-16}} = 3\text{,}01 \cdot 10^{-23} \text{ kg m/s}\]
+</p>
+Hvis \(\theta =0\) får vi 
+\[  \overbrace{8\text{,}29 \cdot 10^{-24} \text{ kg m/s}}^{\text{Bev.mengde før}} < \overbrace{6\text{,}63 \cdot 10^{-24} \text{ kg m/s} + 3\text{,}01 \cdot 10^{-23} \text{ kg m/s}}^{\text{Bev.mengde etter}}\]
+men bevegelsesmengden skal være den samme før og etter støtet. <br><br>
+
+Dermed må noe av bevegelsesmengden etter støtet gå i \(y\)-retning,
+sånn at noe av bevegelsesmengden til fotonet og elektronet kansellerer hverandre ut. Dermed er \(\theta \neq 0\).
+        </div>
+      </div>
+
+
+            <div class="note">
+<strong>Merk:</strong>  Både fotoelektrisk effekt og Comptonstøt viser at fotoner har partikkelegenskaper,
+men fotoner har også bølgeegenskaper, noe som er kjent som <em>bølge-partikkel-dualiteten</em>. 
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+        <section id="del-2">
+      <h2>Bølgeegenskaper</h2>
+
+      <p><strong>Thomas Youngs dobbeltspalteforsøk:</strong> Når fotoner (lys) sendes gjennom en dobbeltspalte og treffer en vegg bak spalten, er det som om 
+        hvert foton er en bølge som går gjennom begge spalteåpningene. 
+    </p>
+
+      <img src="pakker.png" alt="..." style="width: 75%;">
+
+      <p>Når vi skal regne ut hvor det er mest sannsynlig at fotonene treffer veggen, ser vi på hvert foton som en vannbølge. 
+        Der bølgen fra spalteåpningene slår seg sammen, får vi en større bølge, som tilsvarer at det er mer sannsynlig at fotonet treffer veggen der. 
+    Dette er markert med prikkene på veggen i simuleringen nedenfor.</p>
+
+      <link rel="stylesheet" href="dobbeltspalte.css">
+
+<div id="dobbeltspalte-simulering">
+
+    <div class="ds-kontroller">
+
+        <label for="dsTid">
+            Tid:
+        </label>
+
+        <input
+            type="range"
+            id="dsTid"
+            min="0"
+            max="300"
+            step="1"
+            value="0"
+        >
+
+        <label for="dsLambda">
+            Bølgelengde:
+            <strong>
+                \(\lambda =\)
+                <span id="dsLambdaVerdi">550</span> nm
+            </strong>
+        </label>
+
+        <input
+            type="range"
+            id="dsLambda"
+            min="400"
+            max="700"
+            step="10"
+            value="550"
+        >
+
+    </div>
+
+    <div class="ds-grafikk">
+        <canvas
+            id="dsCanvas"
+            width="1000"
+            height="620"
+        ></canvas>
+    </div>
+
+</div>
+
+<script src="dobbeltspalte.js" defer></script>
+
+<p>
+<strong>de Broglie-bølgelengde:</strong> <em>Alle</em> partikler har bølgeegenskaper, hvor sammenhengen mellom bølgelengden \(\lambda\) og bevegelsesmengden er
+\[  \lambda = \frac{h}{p} \]
+Bølgeegenskapene gjør seg gjeldene på liten skala; Hvis f.eks. spalteåpningene i dobbeltspalteforsøket er omtrent like store som bølgelengden.
+ </p>   
+
+      <div class="note">
+<strong>Merk:</strong>  Vi kan gjøre dobbeltspalteforsøket over også med partikler, f.eks. elektroner.
+</div>
+
+              <div class="example">
+        <h3>Eksempel</h3>
+        <p>Bestem bølgelengden til <p>
+          <ul>
+            <li>en fotball med masse 0,50 kg og fart 10 m/s.</li><br>
+            <li>et elektron med fart 1000 m/s.</li>
+            </ul>
+
+        <div class="solution">
+            \[ \lambda_{\text{fotball}} = \frac{6\text{,}63 \cdot 10^{-34}}{0\text{,}50 \cdot 10} = 1\text{,}3 \cdot 10^{-34} \text{ m} 
+            \;\;\;,\;\;\;
+            \lambda_{\text{elektron}} = \frac{6\text{,}63 \cdot 10^{-34}}{9\text{,}11 \cdot 10^{-31} \cdot 1000} = 7\text{,}3 \cdot 10^{-7} \text{ m} \]
+        </div>
+      </div>
+
+         <div class="note">
+<strong>Merk:</strong>  Eksempelet over viser hvorfor vi ikke får kvanteeffekter med ting vi vanligvis observerer i hverdagen; <br>
+Vi kan ikke sende fotballer gjennom spalteåpninger på ca. \(1\text{,}3 \cdot 10^{-34}\) meter.
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+        <section id="del-3">
+      <h2>Bølgefunksjonen</h2>
+
+      <p>Alle partikler har en bølgefunksjon \(\Psi\) som kan avhenge av posisjon og tid. </p>
+
+        <p>
+            Figuren under viser hvordan en klassisk partikkel og en kvantepartikkel beveger seg bortover;
+            <br> Den klassiske partikkelen har en bestemt posisjon ved hvert tidspunkt, mens kvantepartikkelen er en bølge, som endrer seg.
+        </p>
+
+              <img src="kvantVSkl.png" alt="..." style="width: 67%;">
+
+    <p>
+        <strong>Kollaps av bølgefunksjonen:</strong> Hvis vi gjør en måling av posisjonen til kvantepartikkelen, f.eks. ved å la den kollidere med en vegg, "kollapser" bølgefunksjonen: 
+        Partikkelen er da plutselig på et bestemt sted, akkurat som den klassiske partikkelen. 
+</p>
+
+<p><strong>Uskarphet i posisjon \(\Delta x\):</strong> Siden bølgefunksjonen er litt "smurt utover", sier vi at kvantepartikler har en uskarphet \(\Delta x\) i posisjonen sin.
+Dette er et matematisk mål på hvor mye bølgen er "smurt utover".</p>
+
+<p>
+        <strong>Sannsynlighetsfordeling:</strong> Det er mest sannsynlig å finne partikkelen der bølgen har størst utslag.
+        Arealet under grafen til kvadratet av bølgefunksjonen, \(\Psi^2\), gir sannsynligheten for å finne partikkelen i intervallet vi ser på.
+</p>
+
+              <div class="example">
+        <h3>Eksempel</h3>
+        <p>Figuren viser den kvadrerte bølgefunksjonen for en kvantepartikkel som det er mest sannsynlig å finne i nærheten av \(x=0\).<p>
+
+            <p>Arealet mellom grafen og \(x\)-aksen i intervallet \(x \in [-\Delta x, \Delta x]\) er 0,68.</p>
+ 
+<img src="sans.png" alt="..." style="width: 52%;">
+
+            <p>Hva er sannsynligheten for å finne partikkelen i intervallet \(x \in [-\Delta x, \Delta x]\)?<br>
+            Hva er sannsynligheten for å finne partikkelen utenfor dette intervallet?</p>
+
+        <div class="solution">
+            <p>Arealet gir sannsynligheten, så sannsynligheten for å finne den i intervallet \(x \in [-\Delta x, \Delta x]\) er 68 %.</p>
+            <p>Sannsynligheten for å finne partikkelen ett eller annet sted er 100 %, så dermed er sannsynligheten for finne partikkelen utenfor intervallet 32 %.</p>
+            
+        </div>
+      </div>
+
+<p><strong>Heisenberg's uskarphetsrelasjon:</strong> Sammenhengen mellom uskarpheten i posisjon \(\Delta x\) og bevegelsesmengde \(\Delta p\) er
+\[  \Delta x \cdot \Delta p \geq \frac{h}{4\pi} \;\;\;,\;\;\text{ hvor }h = 6\text{,}63 \cdot 10^{-34} \text{ Js er Planck's konstant.}\]
+For frie fotoner er uskarphetsrelasjonen en likhet; Dermed øker \(\Delta p\) når \(\Delta x\) avtar, og vica verca, slik simuleringen under viser.
+</p>
+
+
+
+
+
+      <div class="fri-partikkel-simulering" data-versjon="full">
+
+    <div class="fri-oppsett">
+
+        <div class="fri-kontroller">
+
+            <label>
+                Bølgelengde:
+                <strong>
+                    \(\lambda =\)
+                    <span class="fri-lambda-verdi">550</span> nm
+                </strong>
+            </label>
+
+            <input
+                class="fri-lambda"
+                type="range"
+                min="400"
+                max="700"
+                step="10"
+                value="550"
+                aria-label="Bølgelengde, fullstendig versjon"
+            >
+
+            <div class="fri-frekvens">
+                Frekvens:
+                <span class="fri-frekvens-verdi"></span>
+            </div>
+
+            <label class="fri-alpha-label">
+                Uskarphet \(x\):
+                <strong>
+                    \(\Delta x =\)
+                    <span class="fri-deltax-verdi">300</span> nm
+                </strong>
+            </label>
+
+            <input
+                class="fri-alpha"
+                type="range"
+                min="10000"
+                max="160000"
+                step="5000"
+                value="90000"
+                aria-label="Spredning, fullstendig versjon"
+            >
+
+            <div class="fri-p-info">
+    Uskarphet \(p\):
+    <span class="fri-deltap-verdi"></span>
+</div>
+
+        </div>
+
+       <div class="fri-grafikk">
+
+    <!-- Bølgefunksjonen -->
+    <canvas
+        class="fri-canvas"
+        width="840"
+        height="360"
+        aria-label="Bølgefunksjonen"
+    ></canvas>
+
+    <!-- Kvadratet av bølgefunksjonen -->
+    <canvas
+        class="fri-sannsynlighet-canvas"
+        width="840"
+        height="280"
+        aria-label="Kvadratet av bølgefunksjonen"
+    ></canvas>
+
+</div>
+
+    </div>
+
+
+</div>
+
+<script src="fri-partikkel.js" defer></script>
+
+
+
+
+                    <div class="example">
+        <h3>Eksempel</h3>
+        <p>Et foton har bølgelengde \(\lambda = 550 \text{ nm}\) og en uskarphet i posisjon på \(\Delta x = 300 \text{ nm}\)
+        </p>
+
+            <p>Bestem bevegelsesmengden til fotonet, og den minste mulige uskarpheten til bevegelsesmengden.</p>
+
+        <div class="solution">
+            <p>Sammenhengen mellom bølgelengde og bevegelsesmengde gir
+                \[  p = \frac{h}{\lambda} = \frac{6\text{,}63 \cdot 10^{-34}}{550 \cdot 10^{-9}} = 1\text{,}21 \cdot 10^{-27} \text{ kg m/s} \]
+                Heisenberg's uskarphetsrelasjon gir 
+                \[  \Delta x \cdot \Delta p \geq \frac{h}{4\pi} \;\;\; \Rightarrow \;\;\; \Delta p \geq \frac{h}{4\pi \cdot \Delta x} 
+                = \frac{6\text{,}63 \cdot 10^{-34}}{4\pi \cdot 300 \cdot 10^{-9}} = 1\text{,}76 \cdot 10^{-28} \text{ kg m/s} \]
+            </p>
+            
+        </div>
+      </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section id="del-4">
+      <h2>Kvantisering og tunnelering</h2>
+
+      <p><strong>Kvantisering:</strong> I mange situasjoner er bølgefunksjonen og energien til en partikkel <em>kvantisert</em>.
+    Det mest kjente eksempelet på dette er kvantiseringen av elektronbanene rundt hydrogenkjernen.
+<img src="Bohr.png" alt="..." style="width: 30%;">
+</p>
+
+<p>
+<strong>Partikkel i boks:</strong> Når en partikkel, f.eks. et elektron, er sperret inne i en boks, kvantiseres bølgefunksjonen slik simuleringen nedenfor viser.
+Bølgefunksjonen er null i kantene, og det er et helt antall halve bølgelengder mellom veggene.
+</p>
+
+
+      <link rel="stylesheet" href="partikkeliboks.css">
+
+<div id="partikkeliboks-simulering">
+
+    <div class="boks-oppsett">
+
+        <div class="boks-kontroller">
+
+            <label for="boksN">
+                Energinivå:
+                <strong>\(n = \)<span id="boksNVerdi">3</span></strong>
+            </label>
+
+            <input
+                type="range"
+                id="boksN"
+                min="1"
+                max="6"
+                step="1"
+                value="3"
+            >
+
+            <div class="boks-info">
+                <div>
+                    Energi: <span id="boksEnergi">\(\cdot E_1\)</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="boks-grafikk">
+
+<canvas
+    id="boksCanvas"
+    width="840"
+    height="560">
+</canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="partikkeliboks.js" defer></script>
+
+
+ <div class="example">
+        <h3>Eksempel</h3>
+<p>Et elektron er sperret inne i en boks med lengde \(10^{-10}\) meter.</p>
+          <img src="Kvanteball.png" alt="..." style="width: 30%;">
+
+        <p>Bølgefunksjonen er da gitt ved
+\[ \Psi(x) = \sqrt{2} \sin\left(n \cdot \pi \cdot x\right) \]
+hvor posisjonen \(x\) måles i \(10^{-10}\) meter, og hvor \(n\) er et posistivt heltall.
+        </p>
+
+        <p>Tegn bølgen for \(n\) = 4, og bestem sannsynligheten for å finne elektronet mellom \(x=0\text{,}25\) og \(x=0\text{,}75\).</p>
+
+        <div class="solution">
+            <p>
+                Når \(n=4\) blir bølgefunksjonen
+                \[ \Psi(x) = \sqrt{2} \sin\left(4\pi \cdot x\right) \]
+                og bølgelengden er da \(\lambda = \frac{2\pi}{4\pi} = 0\text{,}50\), noe som gir denne grafen:
+ <img src="kvanten4.png" alt="..." style="width: 42%;">
+                Vi ser at halvparten av arealet ligger mellom \(x=0\text{,}25\) og \(x=0\text{,}75\).
+            </p>
+            <p>
+            Dermed er sannsynligheten 50 % for å finne elektronet mellom \(x=0\text{,}25\) og \(x=0\text{,}75\).
+            </p>
+</div>
+</div>
+
+<p>
+<strong>Tunnelering:</strong> Hvis det ikke kreves uendelig mye energi å komme seg fri, er det mulig for en kvantepartikkel å komme seg gjennom en sperring, 
+selv om partikkelen ifølge klassisk fysikk ikke kan komme seg fri.<br><br> 
+Tunnelering kan illustreres med en kvantepartikkel som er sperret inne i en boks, hvor <em>mesteparten</em> av bølgefunksjonen er i boksen, men hvor litt av bølgefunksjonen er på utsiden:
+Det er en liten sannsynlighet for at vi finner partikkelen på utsiden.
+ <img src="tunnellering.png" alt="..." style="width: 42%;">
+</p>
+
+ <div class="example">
+        <h3>Eksempel</h3>
+<p>En polonium-kjerne kan sende ut en helumkjerne.</p>
+          <img src="Helium.png" alt="..." style="width: 30%;">
+<p>Ifølge klassisk fysikk har ikke heliumkjernen nok energi til å "rive seg løs" fra den tyngre atomkjernen,
+    men fordi det ikke kreves uendelig mye energi, gir tunneleringseffekten i kvantefysikken at det er en viss sannsynlighet for at den kommer seg fri.
+</p>
+</div>
+
+</section>
+
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,535 @@
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Gravitasjon</title>
+
+  <!-- MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="stylesheet" href="styleTeori.css">
+
+
+  <!-- Newtons kanon og skrått kast-->
+<script src="newtons-kanon.js" defer></script>
+<link rel="stylesheet" href="newtons-kanon.css">
+
+<script src="skra-kast.js" defer></script>
+<link rel="stylesheet" href="skra-kast.css">
+</head>
+
+<body>
+<nav class="side-menu" aria-label="Innholdsfortegnelse">
+<a href="../index.html" class="back-link">👈 Tilbake til hovedsiden</a>
+<br>
+<strong>Innhold</strong>
+<a href="#del-1">Newtons gravitasjonslov</a>
+<a href="#del-2">Sirkulær satellittbane</a>
+<a href="#del-3">Gravitasjonsfelt</a>
+<a href="#del-4">Mekanisk energi</a>
+<a href="#del-5">Einsteins gravitasjonsteori (GRT)</a>
+</nav>
+
+
+<div class="print-scale">
+
+<button class="print-button" onclick="window.print()">🖨️ Skriv til PDF</button>
+
+  <main>
+
+    <section id="del-1">
+      <h2>Newtons gravitasjonslov</h2>
+<img src="SolJord.png" alt="..." style="width: 52%;">
+      <p>Newtons gravitasjonslov sier at to masse \(M\) og \(m\) tiltrekker hverandre med kraften</p>
+      \[
+        G = \gamma \cdot \frac{Mm}{r^2}
+      \]
+      <p>
+      hvor \(\gamma = 6\text{,}67 \cdot 10^{-11} \text{ Nm}^2/\text{kg}^2\) er en naturkonstant (gravitasjonskonstanten) og \(r\) er avstanden mellom sentrum av massene.
+      </p>
+
+      <div class="note">
+<strong>Merk:</strong>  I norske lærebøker er det vanlig å bruke \(G\) istedenfor \(F\) når det er snakk om gravtiasjonskraft.<br><br>
+
+I engelsk litteratur er det vanlig å bruke \(F\), og så er det vanlig å bruke \(G\) istedenfor \(\gamma\)  som symbol for gravitasjonskonstanten. Dette er kanskje forvirrende, 
+men vanskelig å gjøre noe med...
+</div>
+
+      <div class="example">
+        <h3>Eksempel</h3>
+        <p>Gravitasjonskraften på en asteroide er 10 kN når den er ved jordoverflaten.</p>
+
+        <p>Jordas radius er \(R = 6371 \) km og jordas masse er \(M = 5\text{,}97 \cdot 10^{24}\) kg.</p>
+          <img src="AstR.png" alt="..." style="width: 24%;">
+          
+        <p>Hvor stor er gravitasjonskraften på asteroiden når den er  \(R = 6370 \) km over jordoverflaten? </p>
+
+        <div class="solution">
+         <strong>Metode 1:</strong><br>
+         Vi kan løse dette ved å først finne massen til asteroiden,
+         \[   G = \gamma \frac{Mm}{r^2} \;\;\; \Rightarrow \;\;\; m = \frac{G \cdot r^2}{\gamma \cdot M} 
+         = \frac{10 \cdot 10^3 \cdot \left(6371 \cdot 10^3\right)^2}{6\text{,}67 \cdot 10^{-11} \cdot 5\text{,}97 \cdot 10^{24}} 
+         = 1019 \text{ kg}\]
+         Deretter kan vi regne ut gravtiasjonskraften:
+         \[  G = \gamma \frac{Mm}{r^2} = 6\text{,}67 \cdot 10^{-11} \cdot \frac{5\text{,}97 \cdot 10^{24} \cdot 1019}{\left(2 \cdot 6371 \cdot 10^3\right)^2} = 2500 = 2\text{,}5 \text{ kN}  \]
+         <br>
+         <strong>Metode 2:</strong><br>
+         Vi kan løse dette ved å se på hva som skjer med formelen for gravitasjonskraft når \(R \rightarrow 2R\):
+         \[  G = \gamma \frac{Mm}{R^2} \;\;\;\rightarrow\;\;\; \gamma \frac{Mm}{(2R)^2} = \gamma \frac{Mm}{4R^2} = \frac{1}{4} \cdot \gamma \frac{Mm}{R^2}  \]
+         Vi ser at gravitasjonskraften blir 1/4 når avstanden til sentrum av jorda dobles, altså at 
+         \[ G_{2R} = \frac{G_R}{4} = \frac{10 \text{ kN}}{4} = 2\text{,}5  \text{ kN}\]
+        </div>
+      </div>
+
+<p>
+Hvis vi skal gjøre beregninger med bevegelsen av noe som faller mot jorda, må vi ofte programmere, siden gravitasjonskraften endrer seg; Vi får en ikke-konstant akselerasjon.
+</p> 
+
+      <div class="example">
+        <h3>Eksempel</h3>
+          <p>Jordas radius er \(R = 6371 \) km og jordas masse er \(M = 5\text{,}97 \cdot 10^{24}\) kg.</p>
+
+         <p>Månens radius er \(r = 1737 \) km og jordas masse er \(m = 7\text{,}35 \cdot 10^{22}\) kg.</p>
+
+         <p>Avstanden mellom månen og jorda er 384 000 km.</p>
+
+          <img src="AstRFall.png" alt="..." style="width: 24%;">
+          
+        <p>Hvor lang tid bruker månen på å falle mot jorda hvis den stopper opp?</p>
+
+<div class="solution">
+Vi bruker Newtons gravitasjonslov, og standardkoden for bevegelse med ikke-konstant akselerasjon.
+
+<pre class="codebox"><code>M, m = 5.97E24, 7.35E22    # Massen til jorda og månen
+R, r = 6371E3, 1737E3      # Radiusen til jorda og månen
+x = 384000E3               # Startavstand
+v = 0
+t = 0
+dt = 1
+
+while x > R + r:
+    F = 6.67E-11*M*m/x**2  # Newtons gravitasjonslov
+    a = F/m
+    v = v + a*dt 
+    x = x - v*dt 
+    t = t + dt 
+
+print(t, "sekunder")
+print(t/(60*60*24), "dager")
+      </code></pre>
+
+      Programmet skriver ut at fallet tar 418294 sekunder, eller 4,8 dager.
+        </div>
+      </div>
+
+</section>
+
+
+      <section id="del-2">
+        <h2>Sirkulær satellittbane</h2>
+      <p>
+Grunnen til at månen ikke faller ned på jorda, er at den har en fart (nesten) vinkelrett på gravitasjonskraften, noe som gjør at den (nesten) går i en sirkelbane.
+</p>
+<p>
+Når en liten masse \(m\) går i sirkelbane rundt en større masse \(M\), er sammenhengen mellom massene, baneradius \(r,\) og banefart gitt ved
+\[ G = \gamma \frac{Mm}{r^2} = \frac{mv^2}{r} \]
+For å beskrive satellittbaner gjorde Newtons følgende tankeeksperiment:
+Han tenkte seg at en kanonkule ble skutt horisontalt ut fra et høyt fjell. Med økende fart vil den gå lenger og lenger.
+Og med nok fart vil den falle rundt hele jorda.
+</p>
+
+  <!-- Newtons kanon-->
+ <div id="newtons-kanon">
+
+    <!-- Kontrollpanel til venstre -->
+    <div class="kanon-panel">
+
+        <div class="kanon-controls">
+            <label for="kanonSpeed">
+                Starthastighet:
+                <span id="kanonSpeedValue">6000</span> m/s
+            </label>
+
+            <input
+                type="range"
+                id="kanonSpeed"
+                min="0"
+                max="8000"
+                step="100"
+                value="6000"
+            >
+
+            <div class="kanon-buttons">
+                <button id="kanonStart">▶ Start</button>
+                <button id="kanonPause">⏸ Pause</button>
+                <button id="kanonReset">↺ Nullstill</button>
+            </div>
+        </div>
+
+        <div class="kanon-info">
+            <p>Tid: <span id="kanonTime">0</span> s</p>
+            <p>Hastighet: <span id="kanonVelocity">0</span> m/s</p>
+            <p>Høyde: <span id="kanonAltitude">350</span> km</p>
+        </div>
+
+    </div>
+
+    <!-- Simuleringen til høyre -->
+    <canvas id="kanonCanvas" width="800" height="600"></canvas>
+
+</div>
+
+<div class="example">
+        <h3>Eksempel</h3>
+          <p>Jordas radius er \(R = 6371 \) km og jordas masse er \(M = 5\text{,}97 \cdot 10^{24}\) kg.</p>
+
+          <p>Bildet viser den internasjonale romstasjonen (ISS), som går i en sirkelbane 350 km over jordoverflata (bildet er hentet fra <em>European Space Agancy</em>, esa.int).</p>
+          <img src="ISSesa2.jpg" alt="..." style="width: 42%;">
+
+        <p>Bestem farten til ISS.</p>
+
+<div class="solution">
+  Newtons gravitasjonslov og uttrykket for sentripetalkraft gir
+\[ G = \gamma \frac{Mm}{r^2} = \frac{mv^2}{r} \;\;\; \Rightarrow \;\;\; v = \sqrt{\frac{\gamma M}{r}} 
+= \sqrt{\frac{6\text{,}67 \cdot 10^{-11} \cdot 5\text{,}97 \cdot 10^{24}}{6371 \cdot 10^3 + 350 \cdot 10^3}} = 7697 \text{ m/s} = 7\text{,}7 \text{ km/s}\]
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="example">
+        <h3>Eksempel</h3>
+          <p>Jordas masse er \(M = 5\text{,}97 \cdot 10^{24}\) kg, og avstanden mellom månen og jorda er 384 000 km.</p>
+          
+        <p>Bestem omløpstiden til månen.</p>
+
+<div class="solution">
+Banefarten er gitt ved 
+\[  G = \gamma \frac{Mm}{r^2} = \frac{mv^2}{r} 
+\;\;\; \Rightarrow \;\;\; v = \sqrt{\frac{\gamma M}{r}} 
+= \sqrt{\frac{6\text{,}67 \cdot 10^{-11} \cdot 5\text{,}97 \cdot 10^{24}}{384\,000 \cdot 10^3}} = 1018 \text{ m/s} = 1\text{,}02 \text{ km/s} \]
+Ompløpstiden er da gitt ved
+\[  v = \frac{2\pi \, r}{T} \;\;\;\Rightarrow \;\;\; T = \frac{2\pi \, r}{v} = \frac{2\pi \cdot 384\,000 \cdot 10^3}{1018} = 2369336 \text{ s} = 27\text{,}4 \text{ døgn}\]
+        </div>
+      </div>
+
+
+<div class="example">
+        <h3>Eksempel</h3>
+
+               <img src="binærstjerner.png" alt="..." style="width: 30%;">
+<p>Bestem banefarten til to stjerner som går i sirkelbane rundt et felles massesenter, slik figuren viser.</p>
+
+<div class="solution">
+Banefarten er gitt ved 
+\[  G = \gamma \frac{m\cdot m}{(2r)^2} = \frac{mv^2}{r} 
+\;\;\; \Rightarrow \;\;\; v = \sqrt{\frac{\gamma M}{4r}} 
+= \sqrt{\frac{6\text{,}67 \cdot 10^{-11} \cdot 2\text{,}0 \cdot 10^{30}}{4\cdot 1\text{,}5 \cdot 10^{11}}} = 14911 \text{ m/s} = 15 \text{ km/s} \]
+        </div>
+      </div>
+
+      <div class="note">
+<strong>Merk:</strong>  I eksempelet over er ikke baneradien det samme som avstanden mellom stjernene; Legg merke til hvordan dette må tas hensyn til i utregningen.<br><br>
+
+Det er bare når den ene massen er mye mindre enn den andre at baneradien og avstanden er (omtrent) det samme.
+</div>
+      
+
+    </section>
+
+
+
+
+
+
+<section id="del-3">
+<h2>Gravitasjonsfelt</h2>
+<p>Gravtiasjonsfeltet i en avstand \(r\) fra en masse \(M\) er
+\(  g = \frac{G}{m} = \gamma \frac{M}{r^2} \).
+<img src="Gravfelt.png" alt="..." style="width: 24%;">
+Gravitasjonsfeltet peker inn mot sentrum av massen \(M\), og viser hvilken vei en masse \(m\) blir akselerert hvis den plasseres i feltet.
+</p>
+
+<div class="example">
+        <h3>Eksempel</h3>
+          <p>Jordas radius er \(R = 6371 \) km og jordas masse er \(M = 5\text{,}97 \cdot 10^{24}\) kg.</p>
+
+          <p>Den internasjonale romstasjonen er 350 km over jordoverflata (bildet er hentet fra <em>European Space Agancy</em>, esa.int).</p>
+          <img src="ISSesa2.jpg" alt="..." style="width: 42%;">
+
+        <p>Bestem gravitasjonsfeltstyrken ved jordoverflaten og gravitasjonsdeltstyrken ved ISS.</p>
+
+<div class="solution">
+  Ved jordoverflaten er gravitasjonsfeltstyrken
+\[  g = \gamma \frac{M}{r^2} = 6\text{,}67 \cdot 10^{-11} \cdot \frac{5\text{,}97 \cdot 10^{24}}{\left(6371 \cdot 10^3 \right)^2} = 9\text{,}81 \text{ N/kg} = 9\text{,}81 \text{ m/s}^2\]
+  
+350 km over jordoverflaten er gravitasjonsfeltstyrken
+\[  g = \gamma \frac{M}{r^2} = 6\text{,}67 \cdot 10^{-11} \cdot \frac{5\text{,}97 \cdot 10^{24}}{\left(6371 \cdot 10^3 + 350 \cdot 10^3 \right)^2} = 8\text{,}82 \text{ N/kg} = 8\text{,}82 \text{ m/s}^2\]
+</div>
+</div>
+
+<div class="note">
+<strong>Merk:</strong>  Gravitasjonsfeltstyrken/tyngdeakselerasjonen på den internasjonale romstasjonen 350 km over jordoverflaten er bare litt mindre enn ved jordoverflaten.<br><br>
+Likevel er astronautene vektløse i romstasjonen; Det er fordi de faller (rundt jorda); De er vektløse, akkurat som at du er vektløs når du hopper fra 5-meteren i svømmehallen.
+ <img src="astronaut5meteren.png" alt="..." style="width: 42%;">
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="del-4">
+<h2>Mekanisk energi</h2>
+
+<p>
+I en satellittbane, eller i en "kastbevegelse" i verdensrommet, er den mekaniske energien bevart. Nær jordoverflaten bruker vi
+\[  \frac{1}{2}mv_0^2 + mgh_0 = \frac{1}{2} mv^2 + mgh \]
+hvor vi setter \(h=0\) ved jordoverflaten. For store høyder må vi ta hensyn til at \(g\) endrer verdi. Vi må da bruke 
+\[  \frac{1}{2}mv_0^2 - \gamma \frac{Mm}{r_0} = \frac{1}{2} mv^2 -  \gamma \frac{Mm}{r} \]
+hvor \(r = 0\) er i sentrum av himmellegemet (f.eks. jorda).
+</p>
+
+      <div class="note">
+<strong>Merk:</strong> Det nederste uttrykk over kan også brukes nær jordoverflaten,
+men siden det er enklere å bruke det øverste uttrykket, og dette gir samme resultat når bevegelsen er nær jordoverflaten,
+bruker vi det nederste når vi kan.
+</div>
+
+<p>
+Simuleringen nedenfor viser hvordan formelen over gir at avstand og fart endrer seg når noe "faller"/"kastes" rundt jorda.
+</p>
+
+
+  <div id="skra-kast">
+
+    <div class="kast-panel">
+
+        <div class="kast-controls">
+
+            <label for="kastSpeed">
+                Starthastighet:
+                <span id="kastSpeedValue">9000</span> m/s
+            </label>
+
+            <input
+                type="range"
+                id="kastSpeed"
+                min="0"
+                max="12000"
+                step="100"
+                value="9000"
+            >
+
+            <label for="kastAngle">
+                Utskytningsvinkel:
+                <span id="kastAngleValue">0</span>°
+            </label>
+
+            <input
+                type="range"
+                id="kastAngle"
+                min="0"
+                max="90"
+                step="1"
+                value="0"
+            >
+
+            <label for="kastHeight">
+    Starthøyde:
+    <span id="kastHeightValue">500</span> km
+</label>
+
+<input
+    type="range"
+    id="kastHeight"
+    min="0"
+    max="1000"
+    step="10"
+    value="500"
+>
+
+            <div class="kast-buttons">
+                <button id="kastStart">▶ Start</button>
+                <button id="kastPause">⏸ Pause</button>
+                <button id="kastReset">↺ Nullstill</button>
+            </div>
+
+        </div>
+
+        <div class="kast-info">
+            <p>Tid: <span id="kastTime">0</span> s</p>
+            <p>Hastighet: <span id="kastVelocity">0</span> m/s</p>
+            <p>Høyde: <span id="kastAltitude">0</span> km</p>
+        </div>
+
+    </div>
+
+    <canvas id="kastCanvas" width="800" height="800"></canvas>
+    </div>
+    <canvas id="kastOverlay"></canvas>
+
+
+<div class="example">
+        <h3>Eksempel</h3>
+        <p>En gjenstand går i en ellipsebane rundt jorda.</p>
+        
+        <p>Når den er på sitt nærmeste er den 500 km over jordoverflaten,
+          og har en fart på 9,0 km/s.</p>
+
+          <p>Når den er i punktet lengst fra jorda er den 9520 km over jordoverflaten.</p>
+
+          <p>Hva er den minste farten gjenstanden har?</p>
+
+<div class="solution">
+  Farten er minst når den er lengst unna jorda:
+ \[ 
+ \begin{align} \frac{1}{2}mv_0^2 - \gamma \frac{Mm}{r_0} &= \frac{1}{2} mv^2 -  \gamma \frac{Mm}{r}  \\
+ v &= \sqrt{v_0^2 + 2\gamma M \left( \frac{1}{r} - \frac{1}{r_0} \right)} \\
+ &= \sqrt{9000^2 + 2\cdot 6\text{,}67 \cdot 10^{-11} \cdot 5\text{,}97 \cdot 10^{24} \cdot \left( \frac{1}{\left(9500 + 6371\right)\cdot 10^3} - \frac{1}{\left(500 + 6371\right)\cdot 10^3} \right)}\\
+ &\text{ }\\
+ &= 3900 \text{ m/s} = 3\text{,}9 \text{ km/s}
+ \end{align}
+ \]
+</div>
+</div>
+
+
+<p>
+<strong>Unnslipningshastigheten:</strong> Farten noe må ha for såvidt å komme fri fra gravitasjonsfeltet.
+</p>
+
+<div class="example">
+        <h3>Eksempel</h3>
+        <p>En gjenstand skytes ut fra overflaten til jorda.</p>
+      
+          <p>Hvor stor startfart må gjenstanden ha for å slippe fri fra jordas gravitasjonsfelt?<br>
+          (Hva er unnslipningshastigheten fra overflaten av jorda?)</p>
+
+<div class="solution">
+ Vi finner startfarten \(v_0\) som gjør at farten blir 0 m/s når den har kommet \(\infty\) langt bort fra jorda:
+ \[ 
+ \begin{align} \frac{1}{2}mv_0^2 - \gamma \frac{Mm}{r_0} &= \frac{1}{2} mv^2 -  \gamma \frac{Mm}{r}  \\
+ \frac{1}{2}mv_0^2 - \gamma \frac{Mm}{r_0} &= \frac{1}{2} m\cdot 0^2 -  \gamma \frac{Mm}{\infty}  \\
+ \frac{1}{2}mv_0^2 - \gamma \frac{Mm}{r_0} &= 0  \\
+v_0 &= \sqrt{\frac{2\gamma M}{r_0}} = \sqrt{\frac{2 \cdot 6\text{,}67\cdot 10^{-11} \cdot 5\text{,}97 \cdot 10^{24}}{6371 \cdot 10^3}} = 11\,181 \text{ m/s} = 11 \text{ km/s} 
+ \end{align}
+ \]
+</div>
+</div>
+
+      <div class="note">
+<strong>Merk:</strong> Så lenge man ikke skyter ned i bakken, har ikke utgangsvinkelen noe å si i eksempelet over.
+</div>
+
+<p>
+<strong>Utledning av uttrykket for potensiell energi:</strong> <br>
+Den potensielle energien i et punkt er arbeidet gravitasjonen gjør på gjenstanden hvis vi flytter den uendelig langt bort:
+\[ E_p = W = F \cdot s \]
+Siden kraften \(F\) endrer seg, må vi integrere (som betyr å summere arbeidet over små intervaller):
+\[  \begin{align}
+E_p = W = &\int^{\infty}_r \left( - \gamma \frac{Mm}{x^2}\right) \, dx\\
+ = - &\int^{\infty}_0 \gamma Mm \cdot x^{-2} \, dx 
+=\left[ \gamma Mm \cdot x^{-1}\right]^{\infty}_0 = \left[ \gamma \frac{Mm}{x}\right]^{\infty}_0 = \gamma \frac{Mm}{\infty} - \gamma \frac{Mm}{r} = -\gamma \frac{Mm}{r}
+\end{align}
+\]
+</p>
+<img src="arbeid.png" alt="..." style="width: 67%;">
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="del-5">
+<h2>Einsteins gravitasjonsteori (Generell relativitetsteori, GRT)</h2>
+<p>Ifølge Einsteins gravitasjonsteori (GRT) virker det ikke gravitasjonskrefter, men masser krummer rommet og tiden.</p>
+
+<img src="krum.png" alt="..." style="width: 52%;">
+
+<p>Ifølge GRT går ikke en satellitt i bane rundt jorda på grunn av en kraft, men på grunn av en "grop" i rommet.</p>
+
+<p>Krumningen påvirker andre masser omtrent på samme måte som
+gravitasjonskrefter i Newtons gravitasjonsteori, men det er noen vesentlige
+forskjeller; Ifølge Newtons gravitasjonsteori blir ikke lys påvirket av
+gravitasjon, men observasjoner viser at lys faktisk blir påvirket av
+gravitasjon, noe som kan forklares med Einsteins gravitasjonsteori.</p>
+
+<p>
+<strong>Ekvivalensprinsippet:</strong> Gravitasjon og akselerasjon ekvivalent på liten skala.
+<img src="Ekvivalens.png" alt="..." style="width: 52%;">
+Når vi står på jorda kjenner vi normalkraften dytte oss opp. Dette kjennes helt likt ut som å stå i en rakett langt ute i verdensrommet, som akselererer med 9,81 m/s\(^2\).
+</p>
+
+<p>
+<strong>Tid i gravitasjonsfelt:</strong> Frekvensen \(f\) til en lysbølge er antall bølgetopper per sekund.
+Sammenhengen mellom frekvens \(f\) og tid \(T\) (periode) mellom hver bølgetopp er
+\[ f = \frac{1}{T}\]
+Når lys sendes nedover i et gravitasjonsfelt øker frekvensen \(f\) (fordi det er som om at bakken akselererer oppover), og dermed minker tiden \(T\) mellom hver bølgetopp.
+Fordi lysfarten ikke endres, betyr dette at tiden går saktere nede i et gravitasjonsfelt.
+<img src="TidGRT.png" alt="..." style="width: 35%;">
+Sammenhengen mellom tiden \(t_0\) nede i et gravitasjonsfelt, og tiden \(t\) i en høyde \(h\) er
+\[  t = \frac{t_0}{\sqrt{1- \frac{2gh}{c^2}}} \]
+Fordi lysfarten er så høy, og gravitasjonsfeltet på jorda er så svakt, blir \(t\approx t_0\) i de fleste praktiske situasjoner, men i noen tilfeller er det viktig å ta høyde for
+tidsdilatasjonen. I f.eks. GPS-teknologi gir tidsdilatasjonen et vesentlig bidrag.
+</p>
+
+<div class="example">
+        <h3>Eksempel</h3>
+        <p>GPS-satellitter beveger seg med en fart 4000 m/s i en høyde 20 000 km over jordoverflaten.
+        <img src="GPS.png" alt="..." style="width: 35%;">
+        Hvor stor blir tidsdifferansen i løpet av et år mellom en klokke på jorda og en klokke i en GPS-satellitt?
+</p>
+<div class="solution">
+  Hvis det har gått ett år på jorda, gir generell relativitetsteori at tiden \(t\) i satellitten er gitt ved 
+  \[  t = \frac{1 \text{ år}}{\sqrt{1 - \frac{2gh}{c^2}}} = \frac{1 \text{ år}}{\sqrt{1 - \frac{2\cdot 9\text{,}81 \cdot 20\,000 \cdot 10^3}{\left(3\text{,}00\cdot 10^8\right)^2}}} = 1\text{,}00000000218 \text{ år} \]
+    Hvis det har gått ett år på jorda, gir spesiell relativitetsteori at tiden \(t_0\) i satellitten er gitt ved 
+    \[ 1 \text{ år} = \frac{t_0}{\sqrt{1 - \left( \frac{v}{c} \right)^2}} \;\;\; \Rightarrow \;\;\; t_0 = 1 \text{ år} \cdot \sqrt{1 - \left(\frac{4000}{3\text{,}00 \cdot 10^8}\right)^2} = 0\text{,}9999999999111 \text{ år}\]
+Dermed gir gravitasjonen at 0,00000000218 år mer i satellitten, og farten gir 0,0000000000889 år mindre i satellitten. Tilsammen gir dette at tidsdifferansen mellom jorda og satellitten i løpet av et år er 
+\[ 0\text{,}00000000218 - 0\text{,}0000000000889 \approx 0\text{,}00000000209 \text{ år} = 0\text{,}0658 \text{ sekunder}  \]
+Dette høres kanskje ikke så mye ut, men satellittene beregner posisjonen vår ved å sende lyssignaler, så tidsfeilen her gir en avstandsfeil \(s\) gitt ved 
+\[  s = v \cdot t = 3\text{,}00\cdot 10^8 \cdot 0\text{,}0658 = 19750 \text{ km per år} = 54 \text{ meter per dag}  \]
+</div>
+</div>
+
+
+      <div class="note">
+<strong>Merk:</strong> Det viktigste i eksempelet over er ikke utregningen, men følgende:
+<ul>
+  <li>Generell relativitetsteori: Klokkene går raskere i GPS-satellittene</li><br>
+  <li>Spesiell relativitetsteori: Klokkene går saktere i GPS-satellittene (observert fra jorda)</li>
+</ul>
+Altså gir generell og spesiell relativitetsteori motsatte effekter, men de er ikke like store, så de nuller hverandre ikke ut.
+</div>
+
+Som en huskeregel for hvordan tiden går i følge relativitetsteoriene kan man bruke filmen <em>Interstellar</em>. 
+<ul>
+<li>På starten av filmen reiser Cooper fra datteren sin Murph.</li>
+<li>På slutten av filmen kommer Cooper tilbake til jorda. Murph er da mye eldre enn faren sin.</li>
+</ul>
+        <img src="InterS.png" alt="..." style="width: 96%;">
+Tiden går saktere for Cooper både fordi han reiser raskt (spesiell relativitetsteori) og fordi han oppholder seg i nærheten av et sort hull, med et sterkt gravitasjonsfelt (generell relativitetsteori).
+
+</section>
+  </main>
+</div>
+</body>
+</html>

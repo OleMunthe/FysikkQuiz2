@@ -1,0 +1,113 @@
+.fri-partikkel-simulering {
+    max-width: 900px;
+    margin: 25px auto;
+    font-family: Arial, sans-serif;
+}
+
+.fri-partikkel-simulering .fri-oppsett {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.fri-partikkel-simulering .fri-kontroller {
+    flex: 0 0 210px;
+    min-width: 0;
+}
+
+.fri-partikkel-simulering .fri-kontroller label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.fri-partikkel-simulering .fri-kontroller strong {
+    margin-left: 5px;
+}
+
+.fri-partikkel-simulering input[type="range"] {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+
+.fri-partikkel-simulering .fri-frekvens {
+    margin-top: 8px;
+    margin-bottom: 18px;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.fri-partikkel-simulering .fri-alpha-label {
+    margin-top: 45px;
+}
+
+.fri-partikkel-simulering .fri-grafikk {
+    flex: 1;
+    min-width: 0;
+}
+
+.fri-partikkel-simulering canvas {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    background: transparent;
+}
+
+.fri-partikkel-simulering .fri-p-info {
+    margin-top: 12px;
+    font-size: 16px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+@media (max-width: 500px) {
+    .fri-partikkel-simulering .fri-oppsett {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .fri-partikkel-simulering .fri-kontroller {
+        flex: none;
+        width: 100%;
+    }
+
+    .fri-partikkel-simulering .fri-frekvens,
+    .fri-partikkel-simulering .fri-p-info {
+        white-space: normal;
+    }
+}
+
+/* To grafer under hverandre i den nederste simuleringen */
+
+.fri-partikkel-simulering .fri-sannsynlighet-canvas {
+    margin-top: 15px;
+}
+
+/* Kontroller øverst når det er to grafer */
+
+.fri-partikkel-simulering[data-versjon="full"] .fri-oppsett {
+    align-items: flex-start;
+}
+
+/* Tilpass til små skjermer */
+
+@media (max-width: 500px) {
+    .fri-partikkel-simulering .fri-oppsett {
+        gap: 15px;
+    }
+}
+
+
+/* Flytt grafene 50 px mot høyre */
+.fri-partikkel-simulering .fri-grafikk {
+    position: relative;
+    left: 78px;
+}
+
+@media (max-width: 600px) {
+    .fri-partikkel-simulering .fri-grafikk {
+        left: 0;
+    }
+}

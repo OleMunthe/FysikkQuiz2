@@ -1,0 +1,354 @@
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Elektromagnetisme</title>
+
+  <!-- MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="styleTeori.css">
+</head>
+
+<body>
+<nav class="side-menu" aria-label="Innholdsfortegnelse">
+<a href="../index.html" class="back-link">👈 Tilbake til hovedsiden</a>
+<br>
+<strong>Innhold</strong>
+<a href="#del-1">Magnetisme</a>
+<a href="#del-2">Ladning i magnetfelt</a>
+<a href="#del-3">Strømleder i magnetfelt</a>
+<a href="#del-4">Magnetfelt fra strømleder</a>
+</nav>
+
+
+<div class="print-scale">
+
+<button class="print-button" onclick="window.print()">🖨️ Skriv til PDF</button>
+
+  <main>
+
+    <section id="del-1">
+      <h2>Magnetisme</h2>
+
+      <p><strong>Magnetiske feltlinjer:</strong> Det går magentiske feltlinjer fra nord til sør på en magnet, og en magnet har alltid en sør- og en nordpol.</p>
+
+      <img src="Stav.png" alt="..." style="width: 52%;">
+
+      <p><strong>Jordas magentiske poler:</strong> Nordpolen på en magnet peker mot jordas magnetiske sørpol; Jordas geografiske nordpol er ved jordas magnetiske sørpol!</p>
+
+      <img src="Polene.png" alt="..." style="width: 24%;">
+
+      <p><strong>Magnetiske krefter:</strong> Like poler frastøter hverandre, og ulike poler tiltrekker hverandre, noe f.eks. Brio-tog viser.</p>
+
+      <img src="Brio.png" alt="..." style="width: 24%;">
+
+      <p><strong>Magnetisk feltstyrke/flukstetthet \(B\):</strong> Vi har to ord (synonymer) for styrken på magnetfelt; <em>feltstyrke</em> og <em>flukstetthet</em>. 
+    Enheten for magnetisk feltstyrke/fukstetthet \(B\)  er T (tesla). </p>
+
+    <p>Når vi tegner magnetfelt er det ofte praktisk å tegne feltlinjene inn eller ut av arket. Vi bruker da denne symbolikken:</p>
+
+      <img src="Bretn.png" alt="..." style="width: 32%;">
+     
+    </section>
+
+
+
+
+
+
+
+
+
+        <section id="del-2">
+      <h2>Ladning i magnetfelt</h2>
+
+      <p><strong>Kraft på ladning i magnetfelt</strong>: Den magnetiske kraften \(F_m\) på en ladning \(q\) i et magnetfelt med feltstyrke \(B\), er gitt ved 
+      \[  F_m = qvB \]
+      </p>
+
+      <p>
+      <strong>Høyrehåndregel nummer 1 </strong> viser sammenhengen mellom farten, magnetfeltet og den magnetiske kraften:
+      <img src="HHR1.png" alt="..." style="width: 24%;">
+      </p>
+
+           <div class="note">
+<strong>Merk:</strong>  For en negativ ladning virker kraften i motsatt retning av det høyrehåndsregelen gir. Vi kan da bruke venstrehånden.
+</div>
+
+ <link rel="stylesheet" href="elektron-magnetfelt.css">
+
+<div id="elektron-magnetfelt">
+
+    <div class="em-kontroller">
+
+        <!-- Partikkeltype -->
+        <div class="em-partikkelvalg">
+
+            <span class="em-overskrift">Partikkel:</span>
+
+            <label class="em-radio">
+                <input
+                    type="radio"
+                    name="emPartikkel"
+                    value="-1"
+                    checked
+                >
+                Elektron (−)
+            </label>
+
+            <label class="em-radio">
+                <input
+                    type="radio"
+                    name="emPartikkel"
+                    value="1"
+                >
+                Positron (+)
+            </label>
+
+        </div>
+
+        <!-- Fart -->
+        <label for="emFart">
+            Startfart:
+            <strong>
+                \(v_0 =\)
+                <span id="emFartVerdi">5</span>
+                \(\cdot 10^6\) m/s
+            </strong>
+        </label>
+
+        <input
+            type="range"
+            id="emFart"
+            min="1"
+            max="10"
+            step="0.5"
+            value="5"
+        >
+
+        <!-- Magnetfelt -->
+        <label for="emB">
+            Magnetfelt:
+            <strong>
+                \(B =\)
+                <span id="emBVerdi">0,5</span> mT
+            </strong>
+        </label>
+
+        <input
+            type="range"
+            id="emB"
+            min="0.1"
+            max="2"
+            step="0.1"
+            value="0.5"
+        >
+
+        <!-- Knapp -->
+        <button id="emSkyt" type="button">
+            Skyt partikkel
+        </button>
+
+    </div>
+
+    <!-- Simulering -->
+    <div class="em-grafikk">
+
+        <canvas
+            id="emCanvas"
+            width="1200"
+            height="600"
+        ></canvas>
+
+    </div>
+
+</div>
+
+<script src="elektron-magnetfelt.js" defer></script>
+
+
+      <div class="example">
+        <h3>Eksempel</h3>
+      <img src="ElektronBfelt.png" alt="..." style="width: 35%;">
+Bestem retningen og størrelsen til kraften som virker på et elektron når det kommer inn i magnetfeltet som vist over.
+           <div class="solution">
+\[ F_m = qvB = 1\text{,}60 \cdot 10^{-19} \cdot 2\text{,}0 \cdot 10^{5} \cdot 3\text{,}0 = 9\text{,}6 \cdot 10^{-14} \text{ N} \]
+Høyrehåndsregelen (eller venstrehåndsregelen) gir at kraften virker nedover, langs papirplanet, like etter at elektronet kommer inn i feltet.
+        </div>
+      </div>
+
+      <p><strong>Sirkelbane i magnetfelt:</strong> Når en ladning beveger seg i et homogent magnetfelt med en fart vinkelrett på feltet,
+får vi en sirkelbane, hvor summen av kreftene er
+\[  \Sigma F = \frac{mv^2}{r} = qvB \]
+</p>
+
+      <div class="example">
+        <h3>Eksempel</h3>
+      <img src="ElektronBfelt.png" alt="..." style="width: 35%;">
+Bestem radien i sirkelbanen elektronet følger.
+           <div class="solution">
+\[ \Sigma F = \frac{mv^2}{r} = qvB \;\;\; \Rightarrow \;\;\; r = \frac{mv}{qB} = \frac{9\text{,}11\cdot 10^{-31} \cdot 2\text{,}0\cdot 10^5}{1\text{,}60\cdot 10^{-19} \cdot 3\text{,}0} 
+= 3\text{,}8 \cdot 10^{-7} \text{ meter}\]
+        </div>
+      </div>
+
+
+          <div class="note">
+<strong>Merk:</strong>  Hvis farten er høy (mer enn 0,10c), så må uttrykket for radiusen i eksempelet over skrives som 
+\[  r = \frac{p}{qB}\;\;\;,\;\;\; \text{ hvor } p = \gamma mv = \frac{mv}{\sqrt{1 - \left(\frac{v}{c}\right)^2}} \]
+Resultatet av dette er at radien egentlig blir større enn det vi ville fått med i utregningen i eksempelet over.
+</div>
+
+
+
+
+      <div class="example">
+        <h3>Eksempel</h3>
+        Figuren viser en prinsippskisse for et <em>massespektrometer</em>.
+      <img src="MS.png" alt="..." style="width: 67%;">
+Én-verdige ioner med ukjent masse skytes inn i et område med et <em>krysset elektrisk og magnetisk felt</em>.<br><br>
+
+Ioner som har så stor fart at de går rett frem, fortsetter inn i et område med bare et magnetisk felt.<br><br>
+
+Ved å måle radien til sirkelbanen ionene følger, kan vi bestemme massen.<br><br>
+
+Bestem massen til ionet ovenfor.
+           <div class="solution">
+For å gå rett fram i det kryssede feltet, så må den elektriske og magnetiske kraften være like stor: 
+\[  qE = qvB \;\;\; \Rightarrow \;\;\; v = \frac{E}{B} = \frac{52400}{0\text{,}75} = 69\,867 \text{ m/s} \]
+I området med bare et magnetisk felt har vi en sirkelbane, noe som gir 
+\[ \Sigma F = \frac{mv^2}{r} = qvB \;\;\; \Rightarrow \;\;\; m = \frac{qBr}{v} = \frac{1\text{,}60\cdot 10^{-19} \cdot 0\text{,}75 \cdot \frac{0\text{,}194}{2}}{69\,867} 
+= 1\text{,}67 \cdot 10^{-25} \text{ kg}\]
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+        <section id="del-3">
+      <h2>Strømleder i magnetfelt</h2>
+
+       <p><strong>Kraft på strømledning i magnetfelt</strong>: Den magnetiske kraften \(F_m\) på en strømleder som fører en strøm \(I\) i et magnetfelt med feltstyrke \(B\), er gitt ved 
+      \[  F_m = ILB \]
+      hvor \(L\) er lengden av lederen som henger inne i magnetfeltet.
+      </p>
+
+       <p>
+      <strong>Høyrehåndregel nummer 1 </strong> viser sammenhengen mellom strømretningen, magnetfeltet og den magnetiske kraften:
+      <img src="HHR12.png" alt="..." style="width: 24%;">
+      </p>
+
+
+<div class="example">
+             <h3>Eksempel</h3>
+        En strømkretse med masse 200 gram henger i et magnetfelt, slik figuren viser.
+        <img src="strømvekt.png" alt="..." style="width: 32%;">
+        Bestem hvor stor kraft kraftmåleren viser.
+
+           <div class="solution">
+Høyrehåndsregelen gir at den nederste delen av strømlederen blir dratt nedover av en magnetisk kraft. I tillegg virker tyngdekraften nedover.
+Den totale kraften nedover, som kraftmåleren viser, er 
+\[   F = mg + ILB = 0\text{,}200 \cdot 9\text{,}81 + 1\text{,}5  \cdot 0\text{,}10 \cdot 2\text{,}0 = 2\text{,}3 \text{ N}\]
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+'
+
+        <section id="del-4">
+      <h2>Magnetfelt fra strømleder</h2>
+
+     <p><strong>Biot-Savarts lov:</strong> I en avstand \(r\) fra en lang, rett strøm \(I\), er det et magnetfelt med feltstyrke 
+    \[  B = k_m  \frac{I}{r} \;\;\;,\;\; \text{ hvor } k_m = 2 \cdot 10^{-7} Tm/A \]
+<strong>Høyrehåndsregel nummer 2</strong> gir retningen:</p>
+      <img src="Biot.png" alt="..." style="width: 32%;">
+
+
+      <div class="example">
+             <h3>Eksempel</h3>
+                <img src="HusEks.png" alt="..." style="width: 52%;">
+        Bestem styrken og retningen til magnetfeltet ved bakken, rett nedenfor strømledningen.
+
+
+
+           <div class="solution">
+\[  B = k_m  \frac{I}{r} = 2 \cdot 10^{-7} \cdot \frac{10}{4} = 5\text{,}0 \cdot 10^{-7} \text{ T} \]
+Høyrehåndsregel nummer 2 gir at retningen er parallell med bakken, ut av bildet (mot oss).        
+</div>
+      </div>
+
+
+
+            <div class="example">
+             <h3>Eksempel</h3>
+                
+                <img src="protonMotLeder.png" alt="..." style="width: 52%;">
+                Forklar hvordan protonet blir påvirket av strømlederen.
+
+           <div class="solution">
+Høyrehåndsregel nummer 2 gir at  strømlederen gir et magnetfelt nedover, langs papirplanet, der protonet er.<br><br>
+
+Høyrehåndsregel nummer 1 gir da at protonet dyttes inn i papirplanet (bort fra oss); Det vil svinge mot venstre for sin egen fartsretning.<br><br>
+
+Når protonet kommer nærmere, blir magnetfeltet sterkere, slik at kraften blir større, og protonet vil svinge skarpere.<br><br> 
+
+Siden den magnetiske kraften hele tiden er vinkelrett på farten, påvirker ikke magnetfeltet størrelsen til kraften, bare retningen.
+</div>
+      </div>
+
+
+
+
+
+
+      <strong>Høyrehåndsregel nummer 3</strong>: Ved å sende en strøm i en sirkel, kan vi lage en <em>elektromagnet</em>.</p>
+      <img src="HHR3.png" alt="..." style="width: 42%;">
+      
+                 <div class="note">
+<strong>Merk:</strong> Vi kan tenke på tommelen som en nordpol når vi bruker høyrehåndsregel nummer 3.
+</div>
+
+
+
+
+            <div class="example">
+             <h3>Eksempel</h3>
+                En magnet plasseres foran en strømspole, slik figuren viser.
+                <img src="spolemagnet.png" alt="..." style="width: 42%;">
+                Hva skjer med magneten når vi sender strøm gjennom spolen, med retning som vist i figuren?
+
+           <div class="solution">
+Høyrehåndsregel nummer 3 gir at strømspolen lager en magnetisk nordpol mot stavmagneten. <br><br>
+
+Like poler frastøter hverandre, så magneten dyttes mot høyre.
+</div>
+      </div>
+
+
+    </section>
+
+
+  </main>
+</div>
+</body>
+</html>
