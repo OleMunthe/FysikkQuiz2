@@ -1,0 +1,133 @@
+#fartsvelger {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    max-width: 1100px;
+    margin: 0 auto;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* Kontroller */
+
+#fartsvelger .fv-kontroller {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    flex: 0 0 230px;
+    gap: 12px;
+}
+
+#fartsvelger .fv-feltverdier {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+#fartsvelger label {
+    display: block;
+    font-size: 15px;
+}
+
+#fartsvelger input[type="range"] {
+    width: 200px;
+    margin: 0 0 5px;
+    cursor: pointer;
+}
+
+
+/* Knapp */
+
+#fartsvelger button {
+    padding: 9px 20px;
+
+    background: #2563eb;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+#fartsvelger button:hover {
+    background: #1d4ed8;
+}
+
+
+/* Krefter */
+
+#fartsvelger .fv-krefter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+#fartsvelger .fv-elektrisk {
+    color: #dc2626;
+}
+
+#fartsvelger .fv-magnetisk {
+    color: #2563eb;
+}
+
+#fartsvelger #fvStatus {
+    font-size: 14px;
+    min-height: 36px;
+    color: #475569;
+}
+
+
+/* Grafikk */
+
+#fartsvelger .fv-grafikk {
+    flex: 1;
+    min-width: 0;
+}
+
+#fartsvelger canvas {
+    display: block;
+
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+
+    background: white;
+}
+
+
+/* Mobilvisning */
+
+@media (max-width: 650px) {
+
+    #fartsvelger {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    #fartsvelger .fv-kontroller {
+        flex: none;
+        width: 100%;
+    }
+
+    #fartsvelger .fv-grafikk {
+        width: 100%;
+    }
+}
+
+
+#fartsvelger .fv-momentanfart {
+    font-size: 16px;
+    color: #d97706;
+    margin-top: 5px;
+}

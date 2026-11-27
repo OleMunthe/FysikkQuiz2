@@ -6,6 +6,7 @@
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="styleTeori.css">
+<link rel="stylesheet" href="elektromagnetisk-induksjon.css">
 </head>
 
 <body>
@@ -28,18 +29,18 @@
     <section id="del-1">
       <h2>Faradays induksjonslov</h2>
 
-      <p>Når det skjer en endring av mengden med magnetfelt gjennom en lukket strømsløyfe, <em>induseres</em> (lages) det en elektrisk strøm.</p>
+      <p>Når det skjer en endring av mengden magnetfelt gjennom en lukket strømsløyfe, <em>induseres</em> (lages) det en elektrisk strøm.</p>
       
-      <p><strong>Lenz's lov:</strong> Retningen på strømmen motvirker det som induserer strømmen.</p>
+      <p><strong>Lenz' lov:</strong> Retningen på strømmen motvirker det som induserer strømmen.</p>
 
       <div class="example">
         <h3>Eksempel</h3>
-        <p>En magnet beveger seg i nærheten av en spole. Det induseres en strøm med retning som vist i figuren.</p>
+        <p>En magnet beveger seg nær en spole. Det induseres en strøm med retning som vist i figuren.</p>
 
           <img src="spolemagnetIND.png"..." style="width: 42%;">
 
 
-        <p>Hvilken retning beveger magneten seg?</p>
+        <p>I hvilken retning beveger magneten seg?</p>
 
         <div class="solution">
          Høyrehåndsregel nummer 3 gir at strømmen i spolen lager et magnetfelt med nordpol mot stavmagneten.<br><br> 
@@ -64,7 +65,7 @@
           </p>
 
         <div class="solution">
-                Lenz's log og høyrehåndsregel nummer 3 gir 
+                Lenz' lov og høyrehåndsregel nummer 3 gir 
          <ul>
           <li>strøm mot klokka når magneten er på vei mot kretsen, for å lage et magnetfelt som bremser magneten.</li>
           <li>strøm med klokka når magneten har falt gjennom, for å lage et magnetfelt som bremser magneten.</li>
@@ -74,7 +75,8 @@
 
 <p><strong>Magnetisk fluks:</strong> Magnetisk fluks \(\phi\) er mengde med magnetfelt gjennom en lukket krets: 
 \[  \phi = \vec{B} \cdot \vec{A} = B \cdot A \cdot \cos \alpha \]
-hvor \(B\) er flukstetthet (aka. feltstyrke) og \(A\) er arealet av åpningen til strømsløyfen.
+hvor \(B\) er flukstetthet (aka. feltstyrke) og \(A\) er arealet av åpningen til strømsløyfen. 
+Enheten for magnetisk fluks er Wb (weber), som er det samme som Tm\(^2\) (tesla ganger kvadratmeter).
 </p>
  <img src="Fluks.png"..." style="width: 42%;">
 <p><strong>Faradays induksjonslov:</strong> Det induseres en spenning \(U=\varepsilon\) når det skjer en fluksendring gjennom en lukket strømkrets: 
@@ -93,7 +95,7 @@ men istedenfor å se på fortegnet i formelen, er det som regel bedre å bruke L
 
        <div class="example">
         <h3>Eksempel</h3>
-        En ledersløyfe med areal 0,025 m\(^2\) ligger i et magnetfelt med flukstetthet (feltstyrke) 2,0 T. Resistansen i kretsen \(R\) = 10 Ω. Arealvektoren og fellinjene er
+        En ledersløyfe med areal 0,025 m\(^2\) ligger i et magnetfelt med flukstetthet (feltstyrke) 2,0 T. Resistansen i kretsen \(R\) = 10 Ω. Arealvektoren og feltlinjene er
 parallelle. I løpet av 0,10 sekunder roteres sløyfa slik at α = 60\(^{\text{o}}\).
  <img src="Fluks.png"..." style="width: 42%;">
 
@@ -101,13 +103,13 @@ parallelle. I løpet av 0,10 sekunder roteres sløyfa slik at α = 60\(^{\text{o
           </p>
 
         <div class="solution">
-          Fluksendringen er
-          \[  \varepsilon = \frac{\Delta \varphi}{\Delta t} = \frac{B \cdot A \cos \alpha = B \cdot A}{t} 
-          = \frac{2\text{,}0 \cdot 0\text{,}025 \cos 60^{\text{o}} - 2\text{,}0 \cdot 0\text{,}025}{0\text{,}10} = -0\text{,}25 \text{ V}  \]
+          Den induserte spenningen blir
+          \[  \varepsilon = -\frac{\Delta \phi}{\Delta t} = -\frac{B \cdot A \cos \alpha - B \cdot A}{t} 
+          = -\frac{2\text{,}0 \cdot 0\text{,}025 \cos 60^{\text{o}} - 2\text{,}0 \cdot 0\text{,}025}{0\text{,}10} = 0\text{,}25 \text{ V}  \]
           Dette gir at strømmen blir 
-          \[ I = \frac{U}{R} = \frac{-0\text{,}25}{10} = -0\text{,}025 \text{ A} \]
-          hvor minustegnet forteller at strømmen lager et magnetfelt mot det ytre magnetfeltet, altså nedover;
-          Høyrehåndsregel 3 gir da at strømmen går med klokka (sett ovenfra).
+          \[ I = \frac{U}{R} = \frac{0\text{,}25}{10} = 0\text{,}025 \text{ A} \]
+          At strømmen er positiv, betyr at strømmen lager et magnetfelt i samme retning som det ytre magnetfeltet, altså oppover;
+          Høyrehåndsregel 3 gir da at strømmen går mot klokka (sett ovenfra).
         </div>
       </div>
 
@@ -120,10 +122,72 @@ parallelle. I løpet av 0,10 sekunder roteres sløyfa slik at α = 60\(^{\text{o
 
         <section id="del-2">
       <h2>Rektangulær strømsløyfe i magnetfelt</h2>
-       <img src="Sløyfe.png"..." style="width: 18%;">
-      Når en rektangulær ledersløyfe går inn eller ut av et magnetfelt med farten \(v\), blir det indusert en spenningen gitt ved
-      \[  \varepsilon = vBL \]
-      hvor \(L\) er lengden av lederen som beveger seg vinkelrett på fletet og farten.
+           <p> Når en rektangulær ledersløyfe går inn eller ut av et magnetfelt med farten \(v\), blir det indusert en spenning gitt ved
+      \[  \varepsilon = vBL \;,\;\;\text{ hvor \(L\) er lengden vinkelrett på feltet og farten.}\]
+      </p>
+
+      <p>Simuleringen nedenfor viser hvordan fluksen \(\phi\) og spenningen \(\varepsilon\) endrer seg når en leder glir gjennom et magnetfelt.</p>
+
+
+<div id="elektromagnetisk-induksjon">
+
+    <div class="ei-kontroller">
+
+        <button type="button" id="eiStart">
+            Start
+        </button>
+
+        <button type="button" id="eiNullstill">
+            Nullstill
+        </button>
+
+    </div>
+
+    <div class="ei-grafikk">
+
+        <!-- Ledersløyfe og magnetfelt -->
+
+        <canvas id="eiSimulering"
+                width="1400"
+                height="380"></canvas>
+
+        <!-- Magnetisk fluks -->
+
+        <canvas id="eiFluks"
+                width="1400"
+                height="300"></canvas>
+
+        <!-- Indusert spenning -->
+
+        <canvas id="eiSpenning"
+                width="1400"
+                height="300"></canvas>
+
+    </div>
+
+</div>
+
+<script src="elektromagnetisk-induksjon.js" defer></script>
+
+
+ <div class="example">
+        <h3>Eksempel</h3>
+En ledersløyfe med sidekanter \(L = 10 \) cm glir med en konstant fart \(v = 2\text{,}0 \) cm/s inn i et magnetfelt med flukstetthet \(B = 1\text{,}5\) T. 
+Den totale resistansen i kretsen er \(0\text{,}20 \; \Omega\).
+               <img src="Sløyfe.png"..." style="width: 22%;">
+Bestem retningen og styrken på den induserte strømmen.
+        <div class="solution">
+Den induserte spenningen blir
+\[  \varepsilon = vBL = 0\text{,}020 \cdot 1\text{,}5 \cdot 0\text{,}10 = 0\text{,}0030 \text{ V} = 3\text{,}0 \text{ mV} \]
+Ohm's lov gir da at strømstyrken er 
+\[  I = \frac{U}{R} = \frac{0\text{,}0030}{0\text{,}20} = 0\text{,}015 \text{ A} = 15 \text{ mA} \]
+For å bestemme retningen på strømmen, bruker vi Lenz' lov:
+<ul>
+<li>Når kretsen glir inn i feltet, øker antall feltlinjer inn i kretsen. </li>
+<li>For å motvirke dette, induseres det en <strong>strøm mot klokka</strong>, siden dette induserer et magnetfelt med feltlinjer ut av kretsen (mot oss).</li>
+<ul>
+        </div>
+      </div>
 
 
 
@@ -132,7 +196,7 @@ parallelle. I løpet av 0,10 sekunder roteres sløyfa slik at α = 60\(^{\text{o
         <h3>Eksempel</h3>
 En ledersløyfe med resistans 20 \(\Omega\) faller inn i et magnetfelt, slik figuren viser.
        <img src="Lederfall.png"..." style="width: 18%;">
-Bestem akselerasjonen til sløfa idet den begynner å bevege seg inn i feltet.
+Bestem akselerasjonen til sløyfa idet den begynner å bevege seg inn i feltet.
 
         <div class="solution">
       Den induserte strømmen blir 
@@ -159,11 +223,11 @@ Bestem akselerasjonen til sløfa idet den begynner å bevege seg inn i feltet.
 
         <section id="del-3"></section>
       <h2>Energiproduksjon</h2>
-For å produsere elektrisk strøm bruker man energien fra vind-, vann eller atomkraft for å skape en endring av magnetisk fluks gjennom en lukket krets. 
+For å produsere elektrisk strøm bruker man energien fra vind-, vann- eller kjernekraft for å skape en endring av magnetisk fluks gjennom en lukket krets. 
 Vi kan f.eks. bruke vind til å rotere en propell, som er festet til en krets som roterer i et magnetfelt.
        <img src="Vindmølle.png"..." style="width: 42%;">
 Spenningen som produseres av en roterende strømsløyfe er 
-\[  \varepsilon = - \frac{\Delta \phi}{\Delta t} = \left(  B \cdot A \cdot \cos \omega t \right)' = \omega B A \sin \omega t \]
+\[  \varepsilon = - \frac{\Delta \phi}{\Delta t} = \left(  -B \cdot A \cdot \cos \omega t \right)' = \omega B A \sin \omega t \]
 hvor \(\omega = \frac{2\pi}{T} \) er vinkelfarten, der \(T\) er rundetiden. 
 
 
@@ -175,23 +239,27 @@ magnetiske flukstettheten er 0,10 T.<br><br>
 Tegn en graf som viser den induserte spenningen.
 
         <div class="solution">
-  200 <strong>vindinger</strong>, betyr at det er 200 elektriske kretser, hvor hver av dem lager en elektrisk spenning gitt av formelen over.<br><br>
+  200 <strong>vindinger</strong> tilsvarer 200 elektriske kretser, hvor hver av dem lager en elektrisk spenning gitt av formelen over.<br><br>
 
   Den induserte spenningen blir dermed 
-  \[  \varepsilon = n \cdot \omega B A \sin \omega t = 200 \cdot \frac{2\pi}{0\text{,}20} \cdot 0\text{,}10 \cdot 0\text{,}50 \cos \left( \frac{2\pi}{0\text{,20}} \cdot t \right) = 314 \cos \left( 10\pi \cdot t \right)\]
+  \[  \varepsilon = n \cdot \omega B A \sin \omega t = 200 \cdot \frac{2\pi}{0\text{,}20} \cdot 0\text{,}10 \cdot 0\text{,}50 \sin \left( \frac{2\pi}{0\text{,20}} \cdot t \right) = 314 \sin \left( 10\pi \cdot t \right)\]
 <img src="Sinus.png"..." style="width: 67%;">
         </div>
       </div>
 
 
 
-      <strong>Transformator:</strong> En spenningskilde med spenning \(U_p\) sender strøm gjennom en spole (primærspole), som induserer et magnetfelt. 
+      <strong>Transformator:</strong> En spenningskilde med en vekselspenning \(U_p\) sender strøm gjennom en spole (primærspole), som induserer et magnetfelt. 
       Magnetfeltet går inn i en annen spole (sekundærspole), og induserer da en ny spenning \(U_s\).
+
+                 <div class="note">
+<strong>Merk:</strong>  En transformator fungerer bare med vekselspenning; Det er en <em>endring</em> av magnetfelt fra primærspolen som induserer en spenning i sekundærspolen.
+</div>
 
 <img src="trasformator.png"..." style="width: 52%;">
 
            <div class="note">
-<strong>Merk:</strong>  Tranformatorene pleier å være koblet sammen med en jernkjerne; 
+<strong>Merk:</strong>  Transformatorene pleier å være koblet sammen med en jernkjerne; 
 Dette gjør at mer av magnetfeltet kommer seg fra primær- til sekundærspolen.
 </div>
 
@@ -210,7 +278,7 @@ Det gjør det ikke, og i tillegg tapes det energi til varme. Dermed stemmer i pr
 
 <div class="example">
         <h3>Eksempel</h3>
-Spenningen i stikkontakter er 220 V. En PC-lader tranformerer spenningen til 20 V.<br><br> 
+Spenningen i stikkontakter er 220 V. En PC-lader transformerer spenningen til 20 V.<br><br> 
 
 Hva er forholdet mellom antall vindinger i primær- og sekundærspolen i transformatoren i PC-laderen?
 
@@ -222,13 +290,13 @@ Hva er forholdet mellom antall vindinger i primær- og sekundærspolen i transfo
 
 <strong>Effekt:</strong> Elektrisk effekt \(P\) er gitt ved 
 \[ P = U \cdot I \;,\;\;\; \text{ hvor \(I\) er strømstyrke.}\]
-I en ideell transformator er effekten bevart fra primær- til sekundærspolen. I en virkelig tranformator vil energitap (varme) føre til en lavære effekt på sekundærsiden. 
+I en ideell transformator er effekten bevart fra primær- til sekundærspolen. I en virkelig transformator vil energitap (varme) føre til en lavere effekt på sekundærsiden. 
 
 
 
 <div class="example">
         <h3>Eksempel</h3>
-Spenningen i stikkontakter er 220 V. En PC-lader trekker en strøm på 0,50 A fra stikkontakten og tranformerer spenningen til 20 V.<br><br> 
+Spenningen i stikkontakter er 220 V. En PC-lader trekker en strøm på 0,50 A fra stikkontakten og transformerer spenningen til 20 V.<br><br> 
 
 Hvor stor strøm leverer laderen til PC'en?
 

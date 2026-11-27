@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flervalgsoppgaver Fysikk 2</title>
+
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../FlervalgsStyle.css">
+
+<script src="../FlervalgScript.js" defer></script>
+
+<style>
+img {
+       max-height: 500px; /* Maks høyde */
+    max-width: 500px; /* Maks bredde*/    
+}
+</style>
+</head>
+
+
+<body>
+
+<a href="../index.html">← Tilbake til hovedsiden</a>
+
+<div class="status">
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="teller">
+        Riktig: <span id="riktig">0</span> |
+        Feil: <span id="feil">0</span> |
+        Score: <span id="prosent">0</span>%
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="box">
+        <p>Et proton beveger seg mot en strømleder, som vist på bildet.</p>
+
+       <p><strong>Hva er riktig om den magnetiske kraften fra lederen på protonet?</strong></p>
+
+        <form id="quiz">
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>den virker nedover, langt papirplanet</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="riktig">
+                <span>den virker innover (inn i papirplanet)</span>
+            </label>
+                    <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>den virker utover (ut av papirplanet) </span>
+            </label>
+                    <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>den virker rett bort fra lederen</span>
+            </label>
+        </form>
+
+        <div id="resultat"></div>
+        <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
+    </div>
+
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="protonMotLeder.png" alt=" " >
+    </div>
+</div>
+
+
+</body>
+</html>

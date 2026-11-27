@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flervalgsoppgaver Fysikk 2</title>
+
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../FlervalgsStyle.css">
+
+<script src="../FlervalgScript.js" defer></script>
+
+<style>
+img {
+       max-height: 300px; /* Maks høyde */
+    max-width: 280px; /* Maks bredde*/    
+}
+</style>
+</head>
+
+
+<body>
+
+<a href="../index.html">← Tilbake til hovedsiden</a>
+
+<div class="status">
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="teller">
+        Riktig: <span id="riktig">0</span> |
+        Feil: <span id="feil">0</span> |
+        Score: <span id="prosent">0</span>%
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="box">
+        <p>To elektrisk ladde ballonger henger slik figuren viser.</p>
+
+        <p>Snorene er like lange, og ballongene henger like langt ut til siden..</p>
+
+        <p><strong>Hva er riktig?</strong></p>
+
+        <form id="quiz">
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>ballongene må ha like stor ladning, men ikke like stor masse</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>ballongene må både ha like stor ladning og like stor masse</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="riktig">
+               <span>ballongene må ha like stor masse, men ikke like stor ladning</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>ballongene trenger verken å ha like stor ladning eller like stor masse</span>
+            </label>
+        </form>
+
+        <div id="resultat"></div>
+        <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
+    </div>
+
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="Ballonger2.png" alt=" " >
+    </div>
+</div>
+
+
+</body>
+</html>

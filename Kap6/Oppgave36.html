@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flervalgsoppgaver Fysikk 2</title>
+
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../FlervalgsStyle.css">
+
+<script src="../FlervalgScript.js" defer></script>
+
+<style>
+img {
+       max-height: 500px; /* Maks høyde */
+    max-width: 500px; /* Maks bredde*/    
+}
+</style>
+</head>
+
+
+<body>
+
+<a href="../index.html">← Tilbake til hovedsiden</a>
+
+<div class="status">
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="teller">
+        Riktig: <span id="riktig">0</span> |
+        Feil: <span id="feil">0</span> |
+        Score: <span id="prosent">0</span>%
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="box">
+        <p>En rektangulær, lukket ledersløyfe trekkes fra posisjon 1 til
+posisjon 2 slik figuren viser. Ledersløyfa trekkes med konstant fart
+gjennom et område hvor det er et homogent magnetfelt.</p>
+
+
+        <p><strong>Hvilken av grafene viser fluksen gjennom ledersløyfa som funksjon av tiden?</strong></p>
+
+<form id="quiz" class="bilde-grid">
+
+   <label class="svar bilde-svar">
+        <input type="radio" name="svar" value="feil">
+        <img src="vBL11.png" alt=" ">
+        <span> </span> 
+    </label>
+
+    <label class="svar bilde-svar">
+        <input type="radio" name="svar" value="riktig">
+        <img src="vBL22.png" alt=" ">
+        <span> </span>
+    </label>
+
+    <label class="svar bilde-svar">
+        <input type="radio" name="svar" value="feil">
+        <img src="vBL33.png" alt=" ">
+        <span> </span>
+    </label>
+
+    <label class="svar bilde-svar">
+        <input type="radio" name="svar" value="feil">
+        <img src="vBL44.png" alt=" ">
+        <span> </span>
+    </label>
+
+</form>
+
+        <div id="resultat"></div>
+        <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
+    </div>
+
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="vBLgraf.png" alt="" >
+    </div>
+</div>
+
+
+</body>
+</html>

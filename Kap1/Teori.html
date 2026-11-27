@@ -62,9 +62,9 @@
         <p>Bestem gjennomsnittsakselerasjonen mellom 2 og 6 sekunder, og bestem den momentane akselerasjonen etter 6 sekunder.</p>
 
         <div class="solution">
-         Gjennomsnittskselerasjonen er
+         Gjennomsnittsakselerasjonen er
           \[
-            \bar{v} = \frac{\Delta v}{\Delta t}
+            \bar{a} = \frac{\Delta v}{\Delta t}
             =
             \frac{50 \text{ m/s} - 20 \text{ m/s}}{6\text{,}0 \text{ s} - 2\text{,}0 \text{ s}} = \frac{30 \text{ m/s}}{4\text{,}0 \text{ s}}
             =
@@ -94,7 +94,7 @@
       </div>
 
       <p>
-       Når vi skal beregne strekningen når akselerasjonen ikke er konstant, slik som i eksempet over, er det vanlig å bruke programmering.
+       Når vi skal beregne strekningen når akselerasjonen ikke er konstant, slik som i eksempelet over, er det vanlig å bruke programmering.
        Programkoden nedenfor er "standardkoden" for å beregne dette. I koden har jeg lagt inn det vanlige uttrykket for akselerasjon når det er luftmotstand 
        (men i mange oppgaver i Fysikk 2 må dette uttrykket byttes ut med noe annet).
       </p>
@@ -110,7 +110,7 @@ while ... : # Betingelse for hvor lenge koden skal kjøre
     s = s + v*dt
     t = t + dt
 
-print(t, v)</code></pre>
+print(t, s, v)</code></pre>
 </section>
 
 
@@ -204,7 +204,7 @@ Likevel bruker vi \(9\text{,}81 \text{ m/s}^2\) som en standard, eller \(10 \tex
     <section id="del-2">
       <h2>Newtons lover i to dimensjoner</h2>
 
-          <p><strong>Newtons 1. lov:</strong> \(\Sigma F = 0 \Leftrightarrow v = \text{konstant}\)</p>
+          <p><strong>Newtons 1. lov:</strong> \(\Sigma \vec{F} = \vec{0} \Leftrightarrow \vec{v} = \text{konstant}\)</p>
 
     <p>For å skjønne Newtons lov, kan det være nyttig å tenke at det å være i ro, egentlig er det samme som å bevege seg med konstant fart;
       Om du er i ro, eller har konstant fart, avhenger bare av hvor noen ser deg fra.
@@ -276,13 +276,13 @@ Likevel bruker vi \(9\text{,}81 \text{ m/s}^2\) som en standard, eller \(10 \tex
       <img src="LampeKrefter.png" alt="..." style="width: 42%;">
       Lampa henger i ro, så summen av kreftene må være null, både i \(x\)- og \(y\)-retning. 
       <br><br>
-      Komponenetene i \(x\)-retning må da være gitt ved
+      Komponentene i \(x\)-retning må da være gitt ved
       \[  S_1 \cdot \cos 10^{\text{o}} = S_2 \cdot \cos 80^{\text{o}}\]
       <p>      Tyngdekraften er \(mg = 1\text{,}0 \cdot 9\text{,}81 = 9\text{,}81 \text{ N} \).</p>
-      Komponenetene i \(y\)-retning må da være gitt ved
+      Komponentene i \(y\)-retning må da være gitt ved
       \[  S_1 \cdot \sin 10^{\text{o}} + S_2 \cdot \sin 80^{\text{o}} = mg \]
           Vi løser likningssettet (med litt algebrakadabra) og får 
-      \[  S_1 = \frac{mg}{\sin 10^{\text{o}} + \cos 10^{\text{o}} \cdot  \tan 80^{\text{o}} } = 1\text{,}7 \text{ N} \;\;\text{ og }\;\;S_2 = \frac{S_1 \cdot \cos 10^{\text{o}}}{\cos 80^{\text{o}}} 9\text{,}7 \text{ N}\]
+      \[  S_1 = \frac{mg}{\sin 10^{\text{o}} + \cos 10^{\text{o}} \cdot  \tan 80^{\text{o}} } = 1\text{,}7 \text{ N} \;\;\text{ og }\;\;S_2 = \frac{S_1 \cdot \cos 10^{\text{o}}}{\cos 80^{\text{o}}} = 9\text{,}7 \text{ N}\]
     </div>
       </div>
 
@@ -330,7 +330,7 @@ Vi må da dekomponere gravitasjonen slik:
         <div class="solution">
       Friksjonskraften er fortsatt
       \[ R = \mu \cdot N = \mu \cdot mg \cos 30^{\text{o}} = 5\text{,}0974 \text{ N}  \]
-     men siden klossen glir oppover, virker friksjonen i samme retning som fartsretningen, slik at summen av kreftene blir
+     men siden kassa glir oppover, virker friksjonen i motsatt retning som fartsretningen, slik at summen av kreftene blir
       \[  \Sigma F = mg \sin 30^{\text{o}} + R = 14\text{,}9074 \text{ N}  \]
       og akselerasjonen blir da 
       \[  a = \frac{\Sigma F}{m} = \frac{14\text{,}9074}{2\text{,}0} = 7\text{,}5 \text{ m/s}^2\;\; \text{ (nedover langs skråplanet)} \]
@@ -522,7 +522,7 @@ L = k \cdot v^2
       <h2>Horisontal sirkelbevegelse</h2>
 
       <p><strong>Sentripetalakselerasjon:</strong> Når et objekt beveger seg med konstant fart i en sirkelbevegelse, 
-        så akslerer det mot sentrum av sirkelen med <em>sentripetalakselerasjonen</em> (sentripetal betyr "sentersøkende"), som er gitt ved</p>
+        så akselererer det mot sentrum av sirkelen med <em>sentripetalakselerasjonen</em> (sentripetal betyr "sentersøkende"), som er gitt ved</p>
       \[
         a = \frac{v^2}{r} , \;\;\text{ hvor \(v\) er banefarten og \(r\) er baneradien.}
       \]
@@ -530,7 +530,7 @@ L = k \cdot v^2
       så jeg gjør ikke det her.</p>
 
 <p>Simuleringen nedenfor viser sammenhengen mellom sentripetalakselerasjonen (rød vektor) og farten (grønn vektor) i en sirkel med radius på 1,0 meter. 
-  Siden akselerasjonen (og kraften) står 90° på farten, gjør ikke kraften noe arbeid på farten; Størrelsen til farten endrer seg ikke, men retningen endrer seg.
+  Siden akselerasjonen (og kraften) står 90° på farten, gjør ikke kraften noe arbeid; Størrelsen til farten endrer seg ikke, men retningen endrer seg.
 </p>
 
 <link rel="stylesheet" href="sirkelbevegelse.css">
@@ -613,7 +613,7 @@ a &= \frac{v^2}{r} = \frac{1023^2}{384\,000 \cdot 10^3} = 0\text{,}0027 \text{ m
       </div>
 
             <div class="note">
-      <strong>Merk:</strong> Det kanskje mest interessante resultatet i eksmpelet over, er vinkelfarten på 13° per døgn. Dette er nemlig noe vi kan observere; Hvis du ser på månen til samme tidspunkt to kvelder på rad,
+      <strong>Merk:</strong> Det kanskje mest interessante resultatet i eksempelet over, er vinkelfarten på 13° per døgn. Dette er nemlig noe vi kan observere; Hvis du ser på månen til samme tidspunkt to kvelder på rad,
 så har månen flyttet seg 13° fra den ene dagen til den andre.<br>
 (Du må se på den på samme tidspunkt fordi jorda roterer...)
 </div>
@@ -628,7 +628,7 @@ så har månen flyttet seg 13° fra den ene dagen til den andre.<br>
         <div class="solution">
          <img src="Udossert.png" alt="..." style="width: 35%;">
          Det er friksjonskraften som dytter bilen inn mot sentrum. Dermed er friksjonskraften lik uttrykket for sentripetalkraft:
-         \[ R =  ma = m \cdot \frac{v^2}{r} = 2000 \cdot \frac{20^2}{70} = 1143 \text{ N} = 11 \text{ kN}\]
+         \[ R =  ma = m \cdot \frac{v^2}{r} = 2000 \cdot \frac{20^2}{70} = 11429 \text{ N} = 11 \text{ kN}\]
         </div>
       </div>
 
@@ -639,8 +639,8 @@ så har månen flyttet seg 13° fra den ene dagen til den andre.<br>
         <p>Hvor fort kan bilen kjøre gjennom svingen uten å gli?</p>
 
         <div class="solution">
-          Friksjonskrafen er gitt ved \(R = \mu N\), og normalkraften er \(N = mg\). Dermed får vi
-        \[ \mu mg = \mu = m \cdot \frac{v^2}{r} \; \; \Rightarrow \;\; v = \sqrt{\mu g r} = \sqrt{0\text{,}90 \cdot 9\text{,}81 \cdot 70} = 25 \text{ m/s} = 90\text{ km/h} \]
+          Friksjonskraften er gitt ved \(R = \mu N\), og normalkraften er \(N = mg\). Dermed får vi
+        \[ \mu mg = m \cdot \frac{v^2}{r} \; \; \Rightarrow \;\; v = \sqrt{\mu g r} = \sqrt{0\text{,}90 \cdot 9\text{,}81 \cdot 70} = 25 \text{ m/s} = 90\text{ km/h} \]
         </div>
       </div>
 
@@ -665,7 +665,7 @@ så har månen flyttet seg 13° fra den ene dagen til den andre.<br>
       
       <div class="example">
         <h3>Eksempel</h3>
-        <p>En bil med masse 2000 kg kjører gjennom en dosert sving som er en del av en horisontal sirkel med radius 10 meter. Doseringsvinkelen i svingen er 30°.</p>
+        <p>En bil med masse 2000 kg kjører gjennom en dossert sving som er en del av en horisontal sirkel med radius 10 meter. Dosseringsvinkelen i svingen er 30°.</p>
 
           <img src="BilDo.png" alt="..." style="width: 42%;">
 
@@ -687,15 +687,15 @@ så har månen flyttet seg 13° fra den ene dagen til den andre.<br>
 <strong>Merk:</strong>  Det er fort gjort å blande utregningene i eksempelet over med utregningene vi gjør når vi ser på skråplan;
 Disse utregningene ligner på hverandre, men de er ikke de samme. Så vær OBS på å skille mellom situasjonene nedenfor:
 <img src="dosVSskrå.png" alt="..." style="width: 67%;">
-En vesentlig forskjell på situasjonene er at normalkraften er større enn tyngdeakselerasjonen i en dosert sving,
-mens normalkraften er mindre enn gravitasjonskraften på et skråplan.
+En vesentlig forskjell på situasjonene er at normalkraften er større enn tyngdekraften i en dossert sving,
+mens normalkraften er mindre enn tyngdekraften på et skråplan.
 </div>
 
 
       <div class="example">
         <h3>Eksempel</h3>
         <p>En syklist sykler gjennom en sving med radius 75 meter. Syklisten svinger ikke med styret, men lener seg til siden slik at hun følger svingen.
-          Vinkelen mellom verikalen og syklisten er 70°. Den samlede massen til syklisten og sykkelen er 68 kg.
+          Vinkelen mellom horisontalen og syklisten er 70°. Den samlede massen til syklisten og sykkelen er 68 kg.
         </p>
           <img src="Sykkel.png" alt="..." style="width: 42%;">
         <p>Hvor stor er friksjonskraften mellom dekkene og veien?</p>
@@ -705,7 +705,6 @@ mens normalkraften er mindre enn gravitasjonskraften på et skråplan.
          \[  \tan 20° = \frac{\text{motstående katet}}{\text{hosliggende katet}} = \frac{\Sigma F}{G} = \frac{\frac{mv^2}{r}}{mg} \;\;\; \Rightarrow \;\;\; v = \sqrt{gr\tan 20°} = 16\text{,}36 \text{ m/s } (\approx 60 \text{ km/h})\]
          Friksjonskraften, kraften fra veien som dytter henne mot sentrum av sirkelen, er da 
          \[  R = \frac{mv^2}{r} = \frac{68 \cdot 16^2}{75} = 243 \text{ N} = 0\text{,}24 \text{ kN}  \]
-         (i tillegg er det egentlig en friksjonskraften i fartsretningen, som får hjulene til å rulle..., men vi den er mye mindre, så vi kan se bort fra denne)
         </div>
       </div>
 
@@ -726,12 +725,12 @@ mens normalkraften er mindre enn gravitasjonskraften på et skråplan.
       </p>
  <img src="SentrumKomp.png" alt="..." style="width: 52%;">
       <p>
-       Figuren nedenfor viser sammenhengen mellom kreftene \(G\) og \(N\), og uttrykket for sentripetalkraft, i ulike steder i en vertikal sirkel. 
+       Figuren nedenfor viser sammenhengen mellom kreftene \(G\) og \(N\), og uttrykket for sentripetalkraft, på ulike steder i en vertikal sirkel. 
       </p>
       <img src="VertikalS.png" alt="..." style="width: 67%;">
       <div class="note">
 <strong>Merk:</strong>  Normalkraften er kraften vi kjenner (fra underlaget). Hvis denne er stor (som i dumpen til venstre), føler vi oss tyngre. 
-Over bakketoppen, hvor \(N\) er mindre enn \(G\) føler vi oss letter. Hvis \(N=0\) mister bilen kontakten med underlaget, og vi blir vektløse.
+Over bakketoppen, hvor \(N\) er mindre enn \(G\) føler vi oss lettere. Hvis \(N=0\) mister bilen kontakten med underlaget, og vi blir vektløse.
 </div>
 
 
@@ -789,17 +788,23 @@ Over bakketoppen, hvor \(N\) er mindre enn \(G\) føler vi oss letter. Hvis \(N=
         
 <p>Massen til syklisten og sykkelen er 70 kg.</p>
 
-        <p>Hvor mye mekanisk energi mister syklisten hvis hun såvidt ikke mister kontakt med underlaget i toppen av loopen?</p>
+        <p>Hvor mye mekanisk energi mister syklisten hvis hun så vidt ikke mister kontakt med underlaget i toppen av loopen?</p>
 
         <div class="solution">
       <img src="SykkelLoop.png" alt="..." style="width: 35%;">
-      Vi finner farten som gjør at normalkraften er null i toppen (som vil si at hun såvidt/såvidt ikke mister kontakt med underlaget i toppen av loopen):
-      \[ \Sigma F_{\text{toppen}} = \frac{mv^2}{r} = G + N \;\;\; \xrightarrow{N = 0} \;\;\; v = \sqrt{gr} = \sqrt{10 \cdot 10} = 10 \text{ m/s} \]
-      Dette gir at den mekaniske energien på toppen er
-      \[ E_{text{topp}} = \frac{1}{2}mv^2 + mgh = \frac{1}{2}\cdot 70 \cdot 10^2 + 70 \cdot 10 \cdot 10 = 3500 + 7000 = 10\,500 \text{ J} = 10\text{,}5 \text{ kJ} \]
-      I bunnen var den mekaniske energien 
-      \[ E_{\text{bunn}} = \frac{1}{2}mv_0^2 = \frac{1}{2}\cdot 70 \cdot 30^2 = 31\,500 \text{ J} = 31\text{,}5 \text{ kJ} \]
-      Altså har hun mistet 21 kJ (på grunn av friksjon og luftmotstand).
+Vi finner farten som gjør at normalkraften er null på toppen av loopen (som vil si at hun så vidt klarer å holde kontakten med underlaget):
+\[ \Sigma F_{\text{toppen}} = \frac{mv^2}{r} = G + N \;\;\; \xrightarrow{N = 0} \;\;\; v = \sqrt{gr} = \sqrt{10 \cdot 10} = 10 \text{ m/s} \]
+
+Siden høydeforskjellen mellom bunnen og toppen av loopen er 20 m, blir den mekaniske energien på toppen
+\[ E_{\text{topp}} = \frac{1}{2}mv^2 + mgh = \frac{1}{2}\cdot 70 \cdot 10^2 + 70 \cdot 10 \cdot 20 = 3500 + 14\,000 = 17\,500 \text{ J} = 17\text{,}5 \text{ kJ} \]
+
+I bunnen var den mekaniske energien
+\[ E_{\text{bunn}} = \frac{1}{2}mv_0^2 = \frac{1}{2}\cdot 70 \cdot 30^2 = 31\,500 \text{ J} = 31\text{,}5 \text{ kJ} \]
+
+Tapet av mekanisk energi blir dermed
+\[ E_{\text{tap}} = E_{\text{bunn}} - E_{\text{topp}} = 31\text{,}5 \text{ kJ} - 17\text{,}5 \text{ kJ} = 14 \text{ kJ} \]
+
+Altså har hun mistet 14 kJ mekanisk energi på grunn av friksjon og luftmotstand.
         </div>
       </div>
 

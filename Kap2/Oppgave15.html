@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flervalgsoppgaver Fysikk 2</title>
+
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../FlervalgsStyle.css">
+
+<script src="../FlervalgScript.js" defer></script>
+
+<style>
+img {
+       max-height: 400px; /* Maks høyde */
+    max-width: 500px; /* Maks bredde*/    
+}
+</style>
+</head>
+
+
+<body>
+
+<a href="../index.html">← Tilbake til hovedsiden</a>
+
+<div class="status">
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="teller">
+        Riktig: <span id="riktig">0</span> |
+        Feil: <span id="feil">0</span> |
+        Score: <span id="prosent">0</span>%
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="box">
+        <p>Albert står i en rakett midt mellom to vegger, og skyter et foton framover og et foton bakover.
+            Ifølge Albert treffer fotonene veggene samtidig.
+        </p>
+
+        <p>Niels ser raketten komme mot seg med stor fart.</p>
+
+        <p><strong>Hvilken vegg blir truffet først av et foton ifølge Niels?</strong></p>
+
+        <form id="quiz">
+            <label class="svar">
+                <input type="radio" name="svar" value="riktig">
+                <span>den bakerste</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>den fremste</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>veggene blir truffet samtidig</span>
+            </label>
+        </form>
+
+        <div id="resultat"></div>
+        <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
+    </div>
+
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="tidsdil2.png" alt=" " >
+    </div>
+</div>
+
+
+</body>
+</html>

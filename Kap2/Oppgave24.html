@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flervalgsoppgaver Fysikk 2</title>
+
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../FlervalgsStyle.css">
+
+<script src="../FlervalgScript.js" defer></script>
+
+<style>
+img {
+       max-height: 500px; /* Maks høyde */
+    max-width: 500px; /* Maks bredde*/    
+}
+</style>
+</head>
+
+
+<body>
+
+<a href="../index.html">← Tilbake til hovedsiden</a>
+
+<div class="status">
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="teller">
+        Riktig: <span id="riktig">0</span> |
+        Feil: <span id="feil">0</span> |
+        Score: <span id="prosent">0</span>%
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="box">
+        <p>Albert står i ro i en rakett. </p> 
+        
+        <p>Niels står på bakken og ser raketten komme mot han med en fart som gir en lorentzfaktor 10. Han måler lengden og høyden av raketten til å være henholdsvis 30 m og 4,0 m.</p>
+
+        <p><strong>Hvor lang og hvor høy er raketten ifølge Albert?</strong></p>
+
+        <form id="quiz">
+            <label class="svar">
+                <input type="radio" name="svar" value="riktig">
+                <span>300 m lang og 4,0 m høy</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>30 m lang og 40 m høy</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>300 m lang og 40 m høy</span>
+            </label>
+                        <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>3,0 m lang og 4,0 m høy</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>3,0 m lang og 0,40 m høy</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>30 m lang og 0,40 m høy</span>
+            </label>
+        </form>
+
+        <div id="resultat"></div>
+        <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
+    </div>
+
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="lengdekontraS.png" alt=" " >
+    </div>
+</div>
+
+
+</body>
+</html>
